@@ -1,0 +1,7 @@
+.container{
+  height: 12rem;
+  position: relative;
+  &:hover{
+    cursor: pointer;
+  }
+}
