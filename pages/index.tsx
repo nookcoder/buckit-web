@@ -37,6 +37,16 @@ const Home: NextPage = () => {
             <BuckitNews />
           </div>
 
+          <div className={styles.company_information}>
+            주식회사 버닝서프라이즈
+            <br />
+            서울특별시 서대문구 연세로2다길 19, 201호
+            <br />
+            대표자 : 최단비 | 사업자등록번호 : 678-88-02357
+            <br />
+            대표 번호 : 070-8095-2257
+          </div>
+
           <BottomNav />
         </div>
       </main>
