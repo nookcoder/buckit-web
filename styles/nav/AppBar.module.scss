@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: max-content;
+}
+
+.logo_box {
+  position: relative;
+  display: flex;
+  margin-top: 10px;
+  width: 60px;
+  height: 20px;
+  align-content: center;
+  margin-left: 10px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+#logo {
+  display: block;
+}

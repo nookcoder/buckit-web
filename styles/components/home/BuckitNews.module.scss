@@ -1,0 +1,29 @@
+.news_box{
+  border-radius: 15px;
+  width: 72px;
+  height: 72px;
+  font-size: 12px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.news_text{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.blue{
+  background-color: #A5BEFF;
+}
+
+.red{
+  background-color: #FFBAA5;
+}
+
+.yellow{
+  background-color: #F8FA9C;
+}

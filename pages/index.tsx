@@ -1,10 +1,19 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.scss';
 import BottomNav from '../components/nav/bottom_nav';
+import { ProductModel } from '../models/model/product';
+import ProductViewModel from '../models/view-model/product';
+import 'swiper/css';
+import Banner from '../components/banner/banner';
+import AppBar from '../components/nav/app_bar';
+import HomeProductBox from '../components/homeProductBox';
+import BuckitNews from '../components/home/buckit_news';
 
 const Home: NextPage = () => {
+  const productModel: ProductModel = new ProductModel();
+  const productViewModel: ProductViewModel = new ProductViewModel(productModel);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,6 +23,20 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <div>
+          <AppBar />
+
+          <Banner />
+
+          <h3 className={styles.recommend_title}>
+            사장님 이 프로젝트는 어때요?
+          </h3>
+          <HomeProductBox productViewModel={productViewModel} />
+
+          <h3 className={styles.recommend_title}>버킷 뉴스</h3>
+          <div className={styles.news_container}>
+            <BuckitNews />
+          </div>
+
           <BottomNav />
         </div>
       </main>

@@ -1,9 +1,12 @@
 @import "styles/variables/variables";
 
 .fix{
+  background-color: white;
+  height: 80px;
   width: 28rem;
   position: fixed;
   bottom: 0;
+  z-index: 9999;
 }
 
 @media screen and (max-width: $phone-width){
@@ -17,5 +20,5 @@
 .container{
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 30px;
+  padding-bottom: 20px;
 }
