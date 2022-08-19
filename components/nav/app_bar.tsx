@@ -12,20 +12,23 @@ const AppBar = () => {
     return router.push('/');
   };
   return (
-    <div className={appbarStyles.container}>
-      <div className={appbarStyles.logo_box}>
-        <Image
-          id={appbarStyles.logo}
-          src={icon}
-          alt={'로고'}
-          layout={'fill'}
-          onClick={goToHome}
-        />
+    <>
+      <div className={appbarStyles.container}>
+        <div className={appbarStyles.logo_box}>
+          <Image
+            id={appbarStyles.logo}
+            src={icon}
+            alt={'로고'}
+            layout={'fill'}
+            onClick={goToHome}
+          />
+        </div>
+        <IconButton aria-label={'알림'}>
+          <NotificationsNoneIcon />
+        </IconButton>
       </div>
-      <IconButton aria-label={'알림'}>
-        <NotificationsNoneIcon />
-      </IconButton>
-    </div>
+      <div className={appbarStyles.blank_box}></div>
+    </>
   );
 };
 

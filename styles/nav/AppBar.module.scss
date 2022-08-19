@@ -1,8 +1,15 @@
+@import "styles/variables/variables";
+
 .container {
+  position: fixed;
+  top: 0;
   display: flex;
+  width: 28rem;
   justify-content: space-between;
   align-content: center;
   height: max-content;
+  background-color: white;
+  z-index: 999;
 }
 
 .logo_box {
@@ -18,6 +25,16 @@
   }
 }
 
+.blank_box {
+  height: 40px;
+}
+
 #logo {
   display: block;
+}
+
+@media screen and (max-width: $phone-width){
+  .container {
+    width: 100%;
+  }
 }
