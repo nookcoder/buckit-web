@@ -1,8 +1,11 @@
 @import "styles/variables/variables";
 
+.container{
+  width: 28rem;
+}
+
 .tab_container{
-  display: flex;
-  justify-content: space-around;
+  margin-bottom: 10px;
 }
 
 .detail_button{
@@ -15,3 +18,15 @@
   color: black;
 }
 
+.scroll{
+  scroll-behavior: smooth;
+  height: 100vh;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: $phone-width) {
+  .container{
+    width: 100%;
+  }
+
+}

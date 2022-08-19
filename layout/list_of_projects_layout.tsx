@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { Box, styled, Tab, Tabs } from '@mui/material';
+import { Waypoint } from 'react-waypoint';
+import styles from '../styles/layout/ListOfProjects.module.scss';
+import ProjectScrollWindow from './projects/project_scroll_window';
 
-interface ListOfProjectsLayoutProps {
-  children: React.ReactNode;
-}
-
-const ListOfProjectsLayout = ({ children }: ListOfProjectsLayoutProps) => {
+const ListOfProjectsLayout = () => {
   const [value, setValue] = useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
   return (
-    <>
-      <Box sx={{ borderBottom: 'solid 1px rgba(0,0,0,0.2)' }}>
+    <main className={styles.container}>
+      <Box
+        className={styles.tab_container}
+        sx={{ borderBottom: 'solid 1px rgba(0,0,0,0.2)' }}
+      >
         <StyledTabs
           value={value}
           onChange={handleChange}
@@ -23,8 +26,9 @@ const ListOfProjectsLayout = ({ children }: ListOfProjectsLayoutProps) => {
           <StyledTab label={'마감'} />
         </StyledTabs>
       </Box>
-      {children}
-    </>
+      <ProjectScrollWindow />
+      <Waypoint></Waypoint>
+    </main>
   );
 };
 
