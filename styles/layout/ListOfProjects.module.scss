@@ -1,0 +1,17 @@
+@import "styles/variables/variables";
+
+.tab_container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.detail_button{
+  font-size: 10px;
+  display: inline-block;
+  border: 1px solid $main-green;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+}
+

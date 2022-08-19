@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from '../styles/HomeProductBox.module.scss';
+import styles from '../../styles/HomeProductBox.module.scss';
 import Image from 'next/image';
-import target from '../public/assets/target.png';
+import target from '../../public/assets/target.png';
 import { LinearProgress } from '@mui/material';
-import { Product } from '../models/model/product';
-import ProductViewModel from '../models/view-model/product';
+import { Product } from '../../models/model/product';
+import ProductViewModel from '../../models/view-model/product';
 
 type ViewModel = {
   productViewModel: ProductViewModel;
