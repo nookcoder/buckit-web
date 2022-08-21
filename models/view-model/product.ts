@@ -10,6 +10,10 @@ class ProductViewModel {
     return this.productModel.get();
   }
 
+  getTile(): string {
+    return this.productModel.title;
+  }
+
   getAchievementRate() {
     return this.productModel.getAchievementRate();
   }

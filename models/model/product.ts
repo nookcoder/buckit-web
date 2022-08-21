@@ -14,6 +14,7 @@ export type Product = {
   soldQuarter: number;
   pricePerQuarter: number;
   category: any;
+  summary: string;
 };
 
 export class ProductModel {
@@ -32,6 +33,7 @@ export class ProductModel {
   soldQuarter: number;
   pricePerQuarter: number;
   category: any;
+  summary: string;
 
   // constructor(
   //   id: number,
@@ -83,6 +85,7 @@ export class ProductModel {
     this.soldQuarter = 100;
     this.pricePerQuarter = 1;
     this.category = 1;
+    this.summary = 'sapodfjpoawefjawefjopawefopajwopefjawe';
   }
 
   get(): Product {
@@ -102,6 +105,7 @@ export class ProductModel {
       soldQuarter: this.soldQuarter,
       pricePerQuarter: this.pricePerQuarter,
       category: this.category,
+      summary: this.summary,
     };
   }
 

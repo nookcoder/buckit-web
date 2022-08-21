@@ -5,7 +5,7 @@ import BottomNav from '../components/nav/bottom_nav';
 import { ProductModel } from '../models/model/product';
 import ProductViewModel from '../models/view-model/product';
 import 'swiper/css';
-import Banner from '../components/banner/banner';
+import Banner from '../components/common/banner/banner';
 import AppBar from '../components/nav/app_bar';
 import HomeProductBox from '../components/home/homeProductBox';
 import BuckitNews from '../components/home/buckit_news';
