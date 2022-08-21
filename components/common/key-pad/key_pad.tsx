@@ -1,0 +1,62 @@
+import React from 'react';
+import { Box, Button, Grid, styled } from '@mui/material';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+
+const KeyPad = () => {
+  const gridProps = {
+    justifyContent: 'space-around',
+    container: true,
+    item: true,
+    spacing: 3,
+  };
+  return (
+    <Box>
+      <Grid container spacing={1}>
+        <Grid {...gridProps}>
+          <KeyPadGrid text={'1'} />
+          <KeyPadGrid text={'2'} />
+          <KeyPadGrid text={'3'} />
+        </Grid>
+        <Grid {...gridProps}>
+          <KeyPadGrid text={'4'} />
+          <KeyPadGrid text={'5'} />
+          <KeyPadGrid text={'6'} />
+        </Grid>
+        <Grid {...gridProps}>
+          <KeyPadGrid text={'7'} />
+          <KeyPadGrid text={'8'} />
+          <KeyPadGrid text={'9'} />
+        </Grid>
+        <Grid {...gridProps}>
+          <KeyPadGrid text={'최대'} />
+          <KeyPadGrid text={'0'} />
+          <KeyPadGrid text={<KeyboardBackspaceIcon />} />
+        </Grid>
+      </Grid>
+    </Box>
+  );
+};
+
+interface KeyPadGridProps {
+  text?: string | number | React.ReactNode;
+}
+
+const KeyPadGrid = ({ text }: KeyPadGridProps) => {
+  return (
+    <Grid
+      paddingY={3}
+      justifyContent="center"
+      alignItems="center"
+      textAlign={'center'}
+      item
+    >
+      <CustomButton>{text}</CustomButton>
+    </Grid>
+  );
+};
+
+const CustomButton = styled(Button)(() => ({
+  color: 'black',
+}));
+
+export default KeyPad;
