@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, Grid, styled } from '@mui/material';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-
+import styles from '../../../styles/components/common/KeyPad.module.scss';
 const KeyPad = () => {
   const gridProps = {
     justifyContent: 'space-around',
@@ -10,7 +10,7 @@ const KeyPad = () => {
     spacing: 3,
   };
   return (
-    <Box>
+    <Box className={styles.container}>
       <Grid container spacing={1}>
         <Grid {...gridProps}>
           <KeyPadGrid text={'1'} />

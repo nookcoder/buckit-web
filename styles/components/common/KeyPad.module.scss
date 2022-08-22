@@ -1,0 +1,12 @@
+@import "styles/variables/variables";
+
+.container{
+  width: 28rem;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: $phone-width) {
+  .container{
+    width: 100%;
+  }
+}

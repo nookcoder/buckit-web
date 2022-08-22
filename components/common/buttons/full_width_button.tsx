@@ -3,17 +3,17 @@ import { Button, styled } from '@mui/material';
 
 interface CustomButtonProps {
   variant: 'text' | 'outlined' | 'contained' | undefined;
-  backgroundColor: string;
+  backgroundColor?: string | undefined;
   textColor: string;
   hoverColor?: string | undefined;
   activeColor?: string | undefined;
   children: React.ReactNode;
 }
 const CustomButton = styled(Button)((props: CustomButtonProps) => ({
-  backgroundColor: props.backgroundColor,
+  backgroundColor: props.backgroundColor ?? '#4EB08B',
   color: props.textColor,
   '&:hover': {
-    backgroundColor: props.hoverColor ?? undefined,
+    backgroundColor: props.hoverColor ?? '#4EB08B',
   },
 }));
 
