@@ -1,0 +1,109 @@
+@import 'styles/variables/variables';
+
+.header{
+  display: flex;
+  height: max-content;
+  padding: 0 10px;
+  margin-top: 20px;
+}
+
+.image_container{
+  position: relative;
+  width: 12rem;
+  height: calc(12rem / 16 * 9 );
+}
+
+.project_summary{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+
+.project_location{
+  color: rgba(0,0,0,0.6);
+  font-size: 14px;
+}
+
+.project_title{
+  font-size: 16px;
+}
+
+.project_progress{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project_progress_text{
+  font-size: 14px;
+}
+
+.certification_container{
+  padding: 0 20px;
+  margin-top: 30px;
+}
+
+.certification_title{
+  margin-bottom: 30px;
+}
+
+.total_container{
+  padding: 0 20px;
+  margin-top: 30px;
+}
+
+.total_title{
+  margin-bottom: 40px;
+}
+
+.total_box{
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px;
+  height: max-content;
+  border: 1px solid $main-green;
+  margin-bottom: 40px;
+}
+
+.total_text{
+  font-size: 18px;
+}
+
+.button_container{
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.button_box{
+  width: 50%;
+}
+
+@media screen and (max-width: $phone-width) {
+  .image_container{
+    position: relative;
+    width: 40%;
+    height: calc(40vw / 16 * 9 );
+  }
+
+  .project_location{
+    font-size: 12px;
+  }
+
+  .project_title{
+    font-size: 16px;
+  }
+
+  .project_progress{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .project_progress_text{
+    font-size: 14px;
+  }
+}

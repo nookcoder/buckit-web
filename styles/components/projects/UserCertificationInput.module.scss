@@ -1,0 +1,28 @@
+@import "styles/variables/variables";
+
+.container {
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.title {
+  min-width: 15%;
+  font-size: 18px;
+  transform: translateY(10px);
+}
+
+
+@media screen and (max-width: $galaxy-fold) {
+  .title {
+    min-width: 15%;
+    font-size: 14px;
+  }
+
+  .helper_text {
+    & p {
+      font-size: 10px;
+    }
+  }
+}

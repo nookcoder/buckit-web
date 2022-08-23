@@ -22,7 +22,7 @@ const AppBarWithBackArrow = ({ title }: AppBarWithBackArrowProps) => {
 
         <h3>{title}</h3>
 
-        <div />
+        <div className={appbarStyles.box}></div>
       </div>
       <div className={appbarStyles.blank_box}></div>
     </>

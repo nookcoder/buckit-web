@@ -8,6 +8,7 @@ interface CustomButtonProps {
   hoverColor?: string | undefined;
   activeColor?: string | undefined;
   children: React.ReactNode;
+  onClick?: () => void;
 }
 const CustomButton = styled(Button)((props: CustomButtonProps) => ({
   backgroundColor: props.backgroundColor ?? '#4EB08B',
@@ -27,6 +28,7 @@ const FullWidthButton = (props: CustomButtonProps) => {
         fullWidth={true}
         hoverColor={props.hoverColor}
         activeColor={props.activeColor}
+        onClick={props.onClick}
       >
         {props.children}
       </CustomButton>
