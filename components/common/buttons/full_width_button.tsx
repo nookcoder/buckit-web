@@ -7,12 +7,14 @@ interface CustomButtonProps {
   text_color: string;
   hover_color?: string | undefined;
   active_color?: string | undefined;
+  padding?: string | number;
   children: React.ReactNode;
   onClick?: () => void;
 }
 const CustomButton = styled(Button)((props: CustomButtonProps) => ({
   backgroundColor: props.backgroundColor ?? '#4EB08B',
   color: props.text_color,
+  padding: props.padding,
   '&:hover': {
     backgroundColor: props.hover_color ?? '#4EB08B',
   },
@@ -26,6 +28,7 @@ const FullWidthButton = (props: CustomButtonProps) => {
         backgroundColor={props.backgroundColor}
         text_color={props.text_color}
         fullWidth={true}
+        padding={props.padding}
         hover_color={props.hover_color}
         active_color={props.active_color}
         onClick={props.onClick}
