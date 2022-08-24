@@ -32,7 +32,7 @@ const UserCertificationInput = ({
       <div>
         <FullWidthButton
           variant={'contained'}
-          textColor={'white'}
+          text_color={'white'}
           onClick={onClick}
         >
           확인

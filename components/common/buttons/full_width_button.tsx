@@ -4,17 +4,17 @@ import { Button, styled } from '@mui/material';
 interface CustomButtonProps {
   variant: 'text' | 'outlined' | 'contained' | undefined;
   backgroundColor?: string | undefined;
-  textColor: string;
-  hoverColor?: string | undefined;
-  activeColor?: string | undefined;
+  text_color: string;
+  hover_color?: string | undefined;
+  active_color?: string | undefined;
   children: React.ReactNode;
   onClick?: () => void;
 }
 const CustomButton = styled(Button)((props: CustomButtonProps) => ({
   backgroundColor: props.backgroundColor ?? '#4EB08B',
-  color: props.textColor,
+  color: props.text_color,
   '&:hover': {
-    backgroundColor: props.hoverColor ?? '#4EB08B',
+    backgroundColor: props.hover_color ?? '#4EB08B',
   },
 }));
 
@@ -24,10 +24,10 @@ const FullWidthButton = (props: CustomButtonProps) => {
       <CustomButton
         variant={props.variant}
         backgroundColor={props.backgroundColor}
-        textColor={props.textColor}
+        text_color={props.text_color}
         fullWidth={true}
-        hoverColor={props.hoverColor}
-        activeColor={props.activeColor}
+        hover_color={props.hover_color}
+        active_color={props.active_color}
         onClick={props.onClick}
       >
         {props.children}

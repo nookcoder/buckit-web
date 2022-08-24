@@ -65,7 +65,7 @@ const CheckingPurchase = () => {
 
         <section className={styles.button_container}>
           <div className={styles.button_box}>
-            <FullWidthButton variant={'contained'} textColor={'white'}>
+            <FullWidthButton variant={'contained'} text_color={'white'}>
               사장되기
             </FullWidthButton>
           </div>

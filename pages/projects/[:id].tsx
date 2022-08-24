@@ -24,9 +24,9 @@ const ProjectDetail = () => {
       <footer className={styles.button_container}>
         <FullWidthButton
           backgroundColor={'#4EB08B'}
-          textColor={'white'}
+          text_color={'white'}
           variant={'contained'}
-          hoverColor={'#4EB05F'}
+          hover_color={'#4EB05F'}
         >
           사장되기
         </FullWidthButton>

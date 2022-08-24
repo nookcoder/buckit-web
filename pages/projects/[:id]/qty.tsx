@@ -58,7 +58,7 @@ const Qty = () => {
         <footer className={styles.footer}>
           <KeyPad />
           <div className={styles.button_container}>
-            <FullWidthButton variant={'contained'} textColor={'white'}>
+            <FullWidthButton variant={'contained'} text_color={'white'}>
               사장되기
             </FullWidthButton>
           </div>
