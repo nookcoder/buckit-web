@@ -2,9 +2,20 @@
   height: 100vh;
 }
 
+.box{
+  margin-bottom: 30px;
+}
+
 .project_box_bottom {
-  margin-left: 10px;
+  padding: 0 10px;
   margin-bottom: 10px;
   font-size: 14px;
   transform: translateY(-5px);
+}
+
+.account_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
 }

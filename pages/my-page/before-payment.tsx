@@ -1,6 +1,5 @@
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import MyProjectsLayout from '../../layout/my-page/my_projects_layout';
-import ProjectBox from '../../components/projects/project_box';
 import { ProductModel } from '../../models/model/product';
 import ProductViewModel from '../../models/view-model/product';
 import { FixedSizeList as List } from 'react-window';
@@ -10,7 +9,6 @@ import BeforePaymentProjectBox from '../../components/my-page/before_payment_pro
 const BeforePaymentProjects = () => {
   const projectModel = new ProductModel();
   const projectViewModel = new ProductViewModel(projectModel);
-  const project = projectViewModel.get();
 
   const [clientHeight, setClientHeight] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,9 +23,9 @@ const BeforePaymentProjects = () => {
     <main ref={containerRef} className={styles.container}>
       <div>
         <List
-          itemSize={145}
+          itemSize={155}
           height={clientHeight - 50}
-          itemCount={2}
+          itemCount={25}
           width={'100%'}
         >
           {({ index, style }) => (
