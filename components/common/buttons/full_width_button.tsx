@@ -15,8 +15,10 @@ const CustomButton = styled(Button)((props: CustomButtonProps) => ({
   backgroundColor: props.backgroundColor ?? '#4EB08B',
   color: props.text_color,
   padding: props.padding,
+  borderColor: '#4EB08B',
   '&:hover': {
     backgroundColor: props.hover_color ?? '#4EB08B',
+    borderColor: '#4EB08B',
   },
 }));
 
