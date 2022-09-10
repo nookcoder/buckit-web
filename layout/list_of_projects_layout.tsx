@@ -20,6 +20,7 @@ const ListOfProjectsLayout = () => {
           value={value}
           onChange={handleChange}
           aria-label={'프로젝트 진행상황'}
+          sx={{ marginTop: 0 }}
         >
           <StyledTab label={'진행중'} />
           <StyledTab label={'진행 예정'} />

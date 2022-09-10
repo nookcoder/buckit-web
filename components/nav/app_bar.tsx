@@ -23,9 +23,9 @@ const AppBar = () => {
             onClick={goToHome}
           />
         </div>
-        <IconButton aria-label={'알림'}>
-          <NotificationsNoneIcon />
-        </IconButton>
+        {/*<IconButton aria-label={'알림'}>*/}
+        {/*  <NotificationsNoneIcon />*/}
+        {/*</IconButton>*/}
       </div>
       <div className={appbarStyles.blank_box}></div>
     </>
