@@ -1,0 +1,30 @@
+@import 'styles/variables/variables';
+
+.main_container{
+  height: calc(100vh - 141px);
+}
+
+.title_container{
+  padding: 0 30px;
+  margin-top: 80px;
+}
+
+.title{
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 80px;
+  padding: 0 30px;
+}
+
+@media screen and (min-width: $tablet-width) {
+  .footer{
+    width: 28rem;
+  }
+}

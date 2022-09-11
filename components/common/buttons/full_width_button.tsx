@@ -3,7 +3,7 @@ import { Button, styled } from '@mui/material';
 
 interface CustomButtonProps {
   variant: 'text' | 'outlined' | 'contained' | undefined;
-  backgroundColor?: string | undefined;
+  background_color?: string | undefined;
   text_color: string;
   hover_color?: string | undefined;
   active_color?: string | undefined;
@@ -12,7 +12,7 @@ interface CustomButtonProps {
   onClick?: () => void;
 }
 const CustomButton = styled(Button)((props: CustomButtonProps) => ({
-  backgroundColor: props.backgroundColor ?? '#4EB08B',
+  backgroundColor: props.background_color ?? '#4EB08B',
   color: props.text_color,
   padding: props.padding,
   borderColor: '#4EB08B',
@@ -27,7 +27,7 @@ const FullWidthButton = (props: CustomButtonProps) => {
     <>
       <CustomButton
         variant={props.variant}
-        backgroundColor={props.backgroundColor}
+        background_color={props.background_color}
         text_color={props.text_color}
         fullWidth={true}
         padding={props.padding}
