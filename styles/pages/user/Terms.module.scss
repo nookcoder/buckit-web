@@ -19,7 +19,7 @@
 }
 
 .terms_container{
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
@@ -48,9 +48,14 @@
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: $galaxy-fold) {
+.button_container{
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: $iphone-se) {
   .image_container{
-    padding-top: 40px;
+    padding-top: 20px;
   }
 
   .guide_text{

@@ -7,6 +7,7 @@ import { IconButton } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
+import FullWidthButton from '../../../components/common/buttons/full_width_button';
 
 const Terms = () => {
   const TermsColumnComponent = (title: string, arrowVisible: boolean) => (
@@ -53,6 +54,16 @@ const Terms = () => {
             {TermsColumnComponent('(필수)서비스이용약관', true)}
             {TermsColumnComponent('(필수)개인정보 처리방침', true)}
             {TermsColumnComponent('(선택)마케팅 활용 정보 제공', true)}
+          </div>
+
+          <div className={styles.button_container}>
+            <FullWidthButton
+              variant={'contained'}
+              text_color={'white'}
+              padding={'15px 0'}
+            >
+              다음
+            </FullWidthButton>
           </div>
         </section>
       </main>
