@@ -66,6 +66,7 @@ const KeyPadGrid = ({ text, disabled }: KeyPadGridProps) => {
 };
 
 const CustomButton = styled(Button)(() => ({
+  fontSize: '18px',
   color: 'black',
 }));
 
