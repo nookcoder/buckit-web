@@ -2,7 +2,13 @@ import React from 'react';
 import { Box, Button, Grid, styled } from '@mui/material';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import styles from '../../../styles/components/common/KeyPad.module.scss';
-const KeyPad = () => {
+
+interface KeyPadProps {
+  password?: boolean;
+  max_button_disabled?: boolean;
+}
+
+const KeyPad = ({ password, max_button_disabled }: KeyPadProps) => {
   const gridProps = {
     justifyContent: 'space-around',
     container: true,
@@ -28,7 +34,10 @@ const KeyPad = () => {
           <KeyPadGrid text={'9'} />
         </Grid>
         <Grid {...gridProps}>
-          <KeyPadGrid text={'최대'} />
+          <KeyPadGrid
+            disabled={max_button_disabled}
+            text={password ? '' : '최대'}
+          />
           <KeyPadGrid text={'0'} />
           <KeyPadGrid text={<KeyboardBackspaceIcon />} />
         </Grid>
@@ -39,9 +48,10 @@ const KeyPad = () => {
 
 interface KeyPadGridProps {
   text?: string | number | React.ReactNode;
+  disabled?: boolean;
 }
 
-const KeyPadGrid = ({ text }: KeyPadGridProps) => {
+const KeyPadGrid = ({ text, disabled }: KeyPadGridProps) => {
   return (
     <Grid
       paddingY={3}
@@ -50,7 +60,7 @@ const KeyPadGrid = ({ text }: KeyPadGridProps) => {
       textAlign={'center'}
       item
     >
-      <CustomButton>{text}</CustomButton>
+      <CustomButton disabled={disabled}>{text}</CustomButton>
     </Grid>
   );
 };
