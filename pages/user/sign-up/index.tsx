@@ -1,9 +1,8 @@
 import React from 'react';
 import InputPhoneNumber from '../../../layout/user/input-phone-number';
 
-const LoginId = () => {
-  // todo : 가입되지 않은 휴대폰 번호 확인하기
-
+const SignUpPhoneNumber = () => {
+  // todo : 휴대폰 인증 넣기
   return (
     <div>
       <InputPhoneNumber buttonText={'다음'} />
@@ -11,4 +10,4 @@ const LoginId = () => {
   );
 };
 
-export default LoginId;
+export default SignUpPhoneNumber;
