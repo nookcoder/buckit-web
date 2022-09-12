@@ -14,7 +14,7 @@ interface CustomButtonProps {
 const CustomButton = styled(Button)((props: CustomButtonProps) => ({
   backgroundColor: props.background_color ?? '#4EB08B',
   color: props.text_color,
-  padding: props.padding,
+  padding: props.padding ?? '15px 0',
   borderColor: '#4EB08B',
   '&:hover': {
     backgroundColor: props.hover_color ?? '#4EB08B',

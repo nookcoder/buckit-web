@@ -1,0 +1,39 @@
+@import "styles/variables/variables";
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+.image_container{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.upper_container{
+  font-size: 20px;
+  text-align: center;
+}
+
+.lower_container{
+  font-size: 20px;
+  text-align: center;
+}
+
+.button_container{
+  margin-top: 60px;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: $galaxy-fold){
+  .upper_container{
+    font-size: 16px;
+  }
+
+  .lower_container{
+    font-size: 16px;
+    text-align: center;
+  }
+}
