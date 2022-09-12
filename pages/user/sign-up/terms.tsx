@@ -10,6 +10,8 @@ import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import FullWidthButton from '../../../components/common/buttons/full_width_button';
 
 const Terms = () => {
+  // todo : 약관 동의 페이지 연결
+  // todo : 약관 상태값 관리하기
   const TermsColumnComponent = (title: string, arrowVisible: boolean) => (
     <div className={styles.terms_column}>
       <div>
