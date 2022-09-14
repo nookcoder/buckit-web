@@ -1,3 +1,3 @@
-import { getOnlyNumber, isPhoneNumber } from './input/validator';
+import { getOnlyNumber, isPhoneNumber, isEmail } from './input/validator';
 
-export { getOnlyNumber, isPhoneNumber };
+export { getOnlyNumber, isPhoneNumber, isEmail };
