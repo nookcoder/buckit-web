@@ -6,17 +6,18 @@ import { useRouter } from 'next/router';
 
 interface AppBarWithBackArrowProps {
   title?: string;
+  onClick?: any;
 }
 
-const AppBarWithBackArrow = ({ title }: AppBarWithBackArrowProps) => {
+const AppBarWithBackArrow = ({ title, onClick }: AppBarWithBackArrowProps) => {
   const router = useRouter();
-  const onClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+  const goBack: React.MouseEventHandler<HTMLButtonElement> = () => {
     router.back();
   };
   return (
     <>
       <div className={appbarStyles.container}>
-        <IconButton onClick={onClick}>
+        <IconButton onClick={onClick ? onClick : goBack}>
           <NavigateBeforeIcon fontSize={'large'} />
         </IconButton>
 

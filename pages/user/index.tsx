@@ -31,7 +31,7 @@ const LoginHome = () => {
         <FullWidthButton
           variant={'outlined'}
           text_color={'#4EB08B'}
-          backgroundColor={'white'}
+          background_color={'white'}
           padding={'15px 0'}
           hover_color={'white'}
         >
