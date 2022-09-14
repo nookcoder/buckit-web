@@ -4,12 +4,17 @@ import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { createUserAtom } from '../../recoil';
 import { getUserCertificated } from '../../api';
-import { CertificationResponse, IMPResponse } from '../../interface';
+import {
+  CertificationResponse,
+  CreateUserType,
+  IMPResponse,
+} from '../../interface';
 import { SIGNUP_PHONE } from '../../constants';
 
 const PhoneCertification = () => {
   const router = useRouter();
-  const [createUser, setCreateUser] = useRecoilState(createUserAtom);
+  const [createUser, setCreateUser] =
+    useRecoilState<CreateUserType>(createUserAtom);
 
   const updateUserCertification = async (response: IMPResponse) => {
     try {
@@ -28,6 +33,7 @@ const PhoneCertification = () => {
   };
 
   useEffect(() => {
+    // @ts-ignore
     const IMP = window.IMP;
     console.log(createUser.phoneNumber);
     if (createUser.phoneNumber.length == 0) {

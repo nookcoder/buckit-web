@@ -4,14 +4,17 @@ import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import { createUserAtom } from '../../../recoil';
+import { getOnlyNumber, isPhoneNumber } from '../../../utils';
+import { CreateUserType } from '../../../interface/';
 
 const SignUpPhoneNumber = () => {
   // todo : 휴대폰 인증 넣기
   const router = useRouter();
-  const [createUser, setCreateUser] = useRecoilState(createUserAtom);
+  const [createUser, setCreateUser] =
+    useRecoilState<CreateUserType>(createUserAtom);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value.replace(/[^0-9]/g, '');
+    const value = getOnlyNumber(event.target.value);
     setCreateUser({
       ...createUser,
       phoneNumber: value,
@@ -24,7 +27,7 @@ const SignUpPhoneNumber = () => {
   };
 
   const goCertification = async () => {
-    if (createUser.phoneNumber.match(/^(011|010)[0-9]{3,4}[0-9]{4}/)) {
+    if (isPhoneNumber(createUser.phoneNumber)) {
       return await router.push('/certification');
     }
 
