@@ -10,10 +10,11 @@ interface CustomButtonProps {
   padding?: string | number;
   children: React.ReactNode;
   onClick?: () => void;
+  disable?: boolean;
 }
 const CustomButton = styled(Button)((props: CustomButtonProps) => ({
-  backgroundColor: props.background_color ?? '#4EB08B',
-  color: props.text_color,
+  backgroundColor: props.disable ? 'grey' : props.background_color ?? '#4EB08B',
+  color: props.disable ? '#C9C9C9' : props.text_color,
   padding: props.padding ?? '15px 0',
   borderColor: '#4EB08B',
   '&:hover': {
@@ -34,6 +35,7 @@ const FullWidthButton = (props: CustomButtonProps) => {
         hover_color={props.hover_color}
         active_color={props.active_color}
         onClick={props.onClick}
+        disable={props.disable}
       >
         {props.children}
       </CustomButton>

@@ -6,6 +6,8 @@ import {
   SIGNUP_EMAIL,
 } from './page-url /sign-up';
 
+import { TERM_SERVICE, TERM_MARKETING, TERM_PRIVACY } from './page-url /terms';
+
 export {
   SIGNUP_COMPLETION,
   SIGNUP_PHONE,
@@ -13,3 +15,5 @@ export {
   SIGNUP_PASSWORD,
   SIGNUP_EMAIL,
 };
+
+export { TERM_PRIVACY, TERM_MARKETING, TERM_SERVICE };
