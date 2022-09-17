@@ -2,7 +2,7 @@ import { UserRole } from '../../models/model/user.model';
 
 interface CreateUserType {
   name: string;
-  birth: string;
+  birthday: string;
   gender: string;
   phoneNumber: string;
   email: string;

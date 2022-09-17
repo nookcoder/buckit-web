@@ -3,6 +3,7 @@ const SIGNUP_EMAIL = '/user/sign-up/email';
 const SIGNUP_TERMS = '/user/sign-up/terms';
 const SIGNUP_PASSWORD = '/user/sign-up/password';
 const SIGNUP_COMPLETION = '/user/sign-up/completion';
+const CERTIFICATION = '/certification';
 
 export {
   SIGNUP_EMAIL,
@@ -10,4 +11,5 @@ export {
   SIGNUP_TERMS,
   SIGNUP_PHONE,
   SIGNUP_COMPLETION,
+  CERTIFICATION,
 };

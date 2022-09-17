@@ -10,14 +10,12 @@ interface InputPasswordProps {
 }
 
 const InputPassword = ({ value, shake }: InputPasswordProps) => {
-  // todo : shake 애니메이션 넣기
-  // todo : 백 버튼 동작 넣기
   return (
     <div className={`${styles.container} ${shake ? styles.shake : ''}`}>
       <div>
         <Icon>
           {value.length >= 1 ? (
-            <CircleIcon />
+            <CircleIcon color={'success'} />
           ) : (
             <CircleOutlinedIcon></CircleOutlinedIcon>
           )}
@@ -26,7 +24,7 @@ const InputPassword = ({ value, shake }: InputPasswordProps) => {
       <div>
         <Icon>
           {value.length >= 2 ? (
-            <CircleIcon />
+            <CircleIcon color={'success'} />
           ) : (
             <CircleOutlinedIcon></CircleOutlinedIcon>
           )}
@@ -34,28 +32,28 @@ const InputPassword = ({ value, shake }: InputPasswordProps) => {
       </div>
       <div>
         {value.length >= 3 ? (
-          <CircleIcon />
+          <CircleIcon color={'success'} />
         ) : (
           <CircleOutlinedIcon></CircleOutlinedIcon>
         )}
       </div>
       <div>
         {value.length >= 4 ? (
-          <CircleIcon />
+          <CircleIcon color={'success'} />
         ) : (
           <CircleOutlinedIcon></CircleOutlinedIcon>
         )}
       </div>
       <div>
         {value.length >= 5 ? (
-          <CircleIcon />
+          <CircleIcon color={'success'} />
         ) : (
           <CircleOutlinedIcon></CircleOutlinedIcon>
         )}
       </div>
       <div>
         {value.length >= 6 ? (
-          <CircleIcon />
+          <CircleIcon color={'success'} />
         ) : (
           <CircleOutlinedIcon></CircleOutlinedIcon>
         )}

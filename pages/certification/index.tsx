@@ -35,7 +35,6 @@ const PhoneCertification = () => {
   useEffect(() => {
     // @ts-ignore
     const IMP = window.IMP;
-    console.log(createUser.phoneNumber);
     if (createUser.phoneNumber.length == 0) {
       router.push(SIGNUP_PHONE);
       return;

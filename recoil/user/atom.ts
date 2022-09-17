@@ -18,7 +18,7 @@ const createUserAtom = atom({
   key: CREATE_USER,
   default: {
     name: '',
-    birth: '',
+    birthday: '',
     gender: '',
     phoneNumber: '',
     email: '',
