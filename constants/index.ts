@@ -4,6 +4,7 @@ import {
   SIGNUP_TERMS,
   SIGNUP_PASSWORD,
   SIGNUP_EMAIL,
+  CERTIFICATION,
 } from './page-url /sign-up';
 
 import { TERM_SERVICE, TERM_MARKETING, TERM_PRIVACY } from './page-url /terms';
@@ -14,6 +15,7 @@ export {
   SIGNUP_TERMS,
   SIGNUP_PASSWORD,
   SIGNUP_EMAIL,
+  CERTIFICATION,
 };
 
 export { TERM_PRIVACY, TERM_MARKETING, TERM_SERVICE };

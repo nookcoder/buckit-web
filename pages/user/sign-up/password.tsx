@@ -46,7 +46,6 @@ const Password = () => {
   );
 
   const createNewUser = (password: string) => {
-    console.log(password);
     setCreateUser({
       ...createUser,
       password: password,
@@ -74,7 +73,6 @@ const Password = () => {
         <InputPasswordLayout
           layout_title={'신규 비밀번호 입력 확인'}
           passwordSelector={newPasswordCheck}
-          shake={shake}
         />
       )}
     </div>

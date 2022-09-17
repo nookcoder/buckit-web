@@ -1,9 +1,9 @@
 import { IMPResponse } from './lib/imp.interface';
-import { CertificationResponse } from './auth/auth.interface';
+import { CertificationResponse, CheckUserExistResponse } from './auth';
 import { CreateUserType } from './user/user.interface';
 
 export type { IMPResponse };
 
-export type { CertificationResponse };
+export type { CertificationResponse, CheckUserExistResponse };
 
 export type { CreateUserType };
