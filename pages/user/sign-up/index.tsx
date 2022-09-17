@@ -6,6 +6,8 @@ import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow
 import { createUserAtom } from '../../../recoil';
 import { getOnlyNumber, isPhoneNumber } from '../../../utils';
 import { CreateUserType } from '../../../interface/';
+import { isExistUser } from '../../../api/auth/validate.api';
+import { CERTIFICATION } from '../../../constants';
 
 const SignUpPhoneNumber = () => {
   // todo : 휴대폰 인증 넣기
@@ -28,10 +30,23 @@ const SignUpPhoneNumber = () => {
 
   const goCertification = async () => {
     if (isPhoneNumber(createUser.phoneNumber)) {
-      return await router.push('/certification');
+      const isExist = await isExistUser({
+        phoneNumber: createUser.phoneNumber,
+      });
+
+      if (isExist) {
+        setCreateUser({
+          ...createUser,
+          phoneNumber: '',
+        });
+        alert('이미 가입된 번호입니다');
+        return;
+      }
+
+      return await router.push(CERTIFICATION);
     }
 
-    alert('올바른 휴대폰 번호를 입력해주세요');
+    // alert('올바른 휴대폰 번호를 입력해주세요');
     return;
   };
 

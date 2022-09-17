@@ -1,9 +1,4 @@
-import React, {
-  ChangeEvent,
-  ChangeEventHandler,
-  MouseEventHandler,
-  useEffect,
-} from 'react';
+import React, { ChangeEvent, useEffect } from 'react';
 import styles from '../../../styles/layout/user/InputPhoneNumber.module.scss';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import { TextField } from '@mui/material';
@@ -14,6 +9,7 @@ import { createUserAtom } from '../../../recoil';
 import { SIGNUP_PHONE, SIGNUP_TERMS } from '../../../constants';
 import { CreateUserType } from '../../../interface';
 import { isEmail } from '../../../utils';
+import { isExistUser } from '../../../api/auth/validate.api';
 
 const Email = () => {
   // todo : 휴대폰 인증 코드 받았는 지 확인하기
@@ -28,6 +24,16 @@ const Email = () => {
 
   const onClick = async () => {
     if (isEmail(createUser.email)) {
+      const isExist = await isExistUser({ email: createUser.email });
+      if (isExist) {
+        setCreateUser({
+          ...createUser,
+          email: '',
+        });
+        alert('이미 가입된 이메일입니다');
+        return;
+      }
+
       await router.push(SIGNUP_TERMS);
       return;
     }
