@@ -2,8 +2,10 @@ import { atom } from 'recoil';
 import { UserRole } from '../../models/model/user.model';
 import { recoilPersist } from 'recoil-persist';
 
-export const CURRENT_USER = 'CURRENT_USER';
-export const CREATE_USER = 'CREATE_USER';
+const CURRENT_USER = 'CURRENT_USER';
+const CREATE_USER = 'CREATE_USER';
+const NEW_PASSWORD = 'NEW_PASSWORD';
+const NEW_PASSWORD_CHECK = 'NEW_PASSWORD_CHECK';
 
 const sessionStorage =
   typeof window !== 'undefined' ? window.sessionStorage : undefined;
@@ -27,4 +29,14 @@ const createUserAtom = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export { createUserAtom };
+const newPasswordAtom = atom({
+  key: NEW_PASSWORD,
+  default: '',
+});
+
+const newPasswordCheckAtom = atom({
+  key: NEW_PASSWORD_CHECK,
+  default: '',
+});
+
+export { createUserAtom, newPasswordAtom, newPasswordCheckAtom };

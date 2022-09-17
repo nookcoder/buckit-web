@@ -1,3 +1,5 @@
-import { createUserAtom } from './atom';
+import { createUserAtom, newPasswordAtom, newPasswordCheckAtom } from './atom';
+import { newPasswordSelector, newPasswordCheckSelector } from './selector';
 
-export { createUserAtom };
+export { createUserAtom, newPasswordAtom, newPasswordCheckAtom };
+export { newPasswordSelector, newPasswordCheckSelector };

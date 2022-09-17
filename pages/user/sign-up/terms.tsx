@@ -3,10 +3,6 @@ import styles from '../../../styles/pages/user/Terms.module.scss';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import logo from '../../../public/assets/imageBuckitLogo.png';
 import Image from 'next/image';
-import { IconButton } from '@mui/material';
-import CircleIcon from '@mui/icons-material/Circle';
-import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import FullWidthButton from '../../../components/common/buttons/full_width_button';
 import { useRouter } from 'next/router';
 import {

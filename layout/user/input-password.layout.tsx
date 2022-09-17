@@ -3,15 +3,20 @@ import styles from '../../styles/layout/user/InputPasswordLayout.module.scss';
 import InputPassword from '../../components/common/input/input-password';
 import KeyPad from '../../components/common/key-pad/key_pad';
 import { Button } from '@mui/material';
+import { SetterOrUpdater, useRecoilState } from 'recoil';
 
 interface InputPasswordLayoutProps {
   layout_title: string;
   find_password_button_visible?: boolean;
+  passwordSelector: [string, SetterOrUpdater<string>];
+  shake?: boolean;
 }
 
 const InputPasswordLayout = ({
   layout_title,
   find_password_button_visible,
+  passwordSelector,
+  shake,
 }: InputPasswordLayoutProps) => {
   const FindPasswordButton = (visible: boolean) => {
     return visible ? (
@@ -29,11 +34,15 @@ const InputPasswordLayout = ({
     <div className={styles.main_container}>
       <section>
         <div className={styles.title}>{layout_title}</div>
-        <InputPassword />
+        <InputPassword value={passwordSelector[0]} shake={shake} />
         {FindPasswordButton(find_password_button_visible!!)}
       </section>
       <section>
-        <KeyPad password={true} max_button_disabled={true} />
+        <KeyPad
+          password={true}
+          max_button_disabled={true}
+          valueSelector={passwordSelector}
+        />
       </section>
     </div>
   );
