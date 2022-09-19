@@ -2,9 +2,15 @@ import React from 'react';
 import styles from '../../../styles/pages/user/Completion.module.scss';
 import Image from 'next/image';
 import logo from '../../../public/assets/imageBuckitLogo.png';
+import { useRouter } from 'next/router';
 import FullWidthButton from '../../../components/common/buttons/full_width_button';
 
 const Completion = () => {
+  const router = useRouter();
+  const goToHome = async () => {
+    await router.push('/user', '/');
+  };
+
   return (
     <div className={styles.container}>
       <section className={styles.image_container}>
@@ -29,6 +35,7 @@ const Completion = () => {
             variant={'contained'}
             text_color={'white'}
             padding={'15px 0'}
+            onClick={goToHome}
           >
             시작하기
           </FullWidthButton>

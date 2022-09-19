@@ -18,7 +18,7 @@ const createUserAtom = atom({
   key: CREATE_USER,
   default: {
     name: '',
-    birthday: '',
+    birth: '',
     gender: '',
     phoneNumber: '',
     email: '',
@@ -39,4 +39,20 @@ const newPasswordCheckAtom = atom({
   default: '',
 });
 
-export { createUserAtom, newPasswordAtom, newPasswordCheckAtom };
+const userPhoneNumberAtom = atom({
+  key: 'userPhoneNumberAtom',
+  default: '',
+});
+
+const userPasswordAtom = atom({
+  key: 'userPasswordAtom',
+  default: '',
+});
+
+export {
+  createUserAtom,
+  newPasswordAtom,
+  newPasswordCheckAtom,
+  userPasswordAtom,
+  userPhoneNumberAtom,
+};

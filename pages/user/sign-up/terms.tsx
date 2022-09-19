@@ -78,7 +78,7 @@ const Terms = () => {
         ...createUser,
         termsOfMarketing: marketing,
       });
-      await router.push(SIGNUP_PASSWORD);
+      await router.push(SIGNUP_PASSWORD, '/');
     }
   };
 

@@ -4,11 +4,22 @@ import logo from '../../public/assets/imageBuckitLogo.png';
 import styles from '../../styles/pages/user/LoginHome.module.scss';
 import FullWidthButton from '../../components/common/buttons/full_width_button';
 import { Button } from '@mui/material';
+import { useRouter } from 'next/router';
 
 const LoginHome = () => {
-  // todo : 로그인 화면 전환
-  // todo : 회원가입 화면 전환
-  // todo : 비밀번호 찾기 화면전환
+  const router = useRouter();
+  const goToLogin = async () => {
+    await router.push('/user/login');
+  };
+
+  const goToSignUp = async () => {
+    await router.push('/user/sign-up');
+  };
+
+  const goToUpdatePassword = async () => {
+    await router.push('/user/update');
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.logo_container}>
@@ -24,6 +35,7 @@ const LoginHome = () => {
           variant={'contained'}
           text_color={'white'}
           padding={'15px 0'}
+          onClick={goToLogin}
         >
           로그인
         </FullWidthButton>
@@ -34,11 +46,16 @@ const LoginHome = () => {
           background_color={'white'}
           padding={'15px 0'}
           hover_color={'white'}
+          onClick={goToSignUp}
         >
           회원가입
         </FullWidthButton>
         <div className={styles.divider} />
-        <Button variant={'text'} sx={{ color: '#C9C9C9' }}>
+        <Button
+          variant={'text'}
+          sx={{ color: '#C9C9C9' }}
+          onClick={goToUpdatePassword}
+        >
           혹시 비밀번호를 잊으셨나요?
         </Button>
       </div>

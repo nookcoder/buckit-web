@@ -25,7 +25,9 @@ const PhoneCertification = () => {
       );
       setCreateUser({
         ...createUser,
-        ...data,
+        name: data.name,
+        birth: data.birthday,
+        gender: data.gender,
       });
     } catch (err) {
       console.error(err);

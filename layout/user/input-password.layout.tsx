@@ -3,7 +3,8 @@ import styles from '../../styles/layout/user/InputPasswordLayout.module.scss';
 import InputPassword from '../../components/common/input/input-password';
 import KeyPad from '../../components/common/key-pad/key_pad';
 import { Button } from '@mui/material';
-import { SetterOrUpdater, useRecoilState } from 'recoil';
+import { SetterOrUpdater } from 'recoil';
+import { useRouter } from 'next/router';
 
 interface InputPasswordLayoutProps {
   layout_title: string;
@@ -18,10 +19,19 @@ const InputPasswordLayout = ({
   passwordSelector,
   shake,
 }: InputPasswordLayoutProps) => {
+  const router = useRouter();
+  const goToUpdatePassword = async () => {
+    await router.push('/user/update');
+  };
+
   const FindPasswordButton = (visible: boolean) => {
     return visible ? (
       <div className={styles.find_password_button}>
-        <Button sx={{ color: 'rgba(0,0,0,0.5)' }} variant={'text'}>
+        <Button
+          sx={{ color: 'rgba(0,0,0,0.5)' }}
+          variant={'text'}
+          onClick={goToUpdatePassword}
+        >
           비밀번호를 잊어버렸어요
         </Button>
       </div>

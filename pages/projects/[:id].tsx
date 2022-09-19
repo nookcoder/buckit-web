@@ -23,7 +23,7 @@ const ProjectDetail = () => {
 
       <footer className={styles.button_container}>
         <FullWidthButton
-          backgroundColor={'#4EB08B'}
+          background_color={'#4EB08B'}
           text_color={'white'}
           variant={'contained'}
           hover_color={'#4EB05F'}

@@ -10,7 +10,6 @@ import { isExistUser } from '../../../api/auth/validate.api';
 import { CERTIFICATION } from '../../../constants';
 
 const SignUpPhoneNumber = () => {
-  // todo : 휴대폰 인증 넣기
   const router = useRouter();
   const [createUser, setCreateUser] =
     useRecoilState<CreateUserType>(createUserAtom);

@@ -5,9 +5,9 @@ import FullWidthButton from '../../components/common/buttons/full_width_button';
 
 interface InputPhoneNumberProps {
   buttonText: string;
-  onClick?: any;
-  onChange?: any;
-  value?: string;
+  onClick: any;
+  onChange: any;
+  value: string;
 }
 
 // todo : 휴대폰 번호 정규식 처리

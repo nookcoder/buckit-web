@@ -1,5 +1,9 @@
 import { selector } from 'recoil';
-import { newPasswordAtom, newPasswordCheckAtom } from './atom';
+import {
+  newPasswordAtom,
+  newPasswordCheckAtom,
+  userPasswordAtom,
+} from './atom';
 import { BACK_SPACE } from '../index';
 
 const NEW_PASSWORD_SELECTOR = 'NEW_PASSWORD_SELECTOR';
@@ -34,7 +38,7 @@ const newPasswordCheckSelector = selector({
       if (newValue === BACK_SPACE) {
         set(
           newPasswordCheckAtom,
-          get(newPasswordAtom).substring(
+          get(newPasswordCheckAtom).substring(
             0,
             get(newPasswordCheckAtom).length - 1
           )
@@ -50,4 +54,25 @@ const newPasswordCheckSelector = selector({
   },
 });
 
-export { newPasswordSelector, newPasswordCheckSelector };
+const userPasswordSelector = selector({
+  key: 'userPasswordCheckSelector',
+  get: ({ get }) => get(userPasswordAtom),
+  set: ({ get, set }, newValue) => {
+    if (newValue) {
+      if (newValue === BACK_SPACE) {
+        set(
+          userPasswordAtom,
+          get(userPasswordAtom).substring(0, get(userPasswordAtom).length - 1)
+        );
+        return;
+      }
+      set(userPasswordAtom, get(userPasswordAtom) + newValue);
+      return;
+    }
+
+    set(userPasswordAtom, '');
+    return;
+  },
+});
+
+export { newPasswordSelector, newPasswordCheckSelector, userPasswordSelector };

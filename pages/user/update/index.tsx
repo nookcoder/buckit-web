@@ -1,13 +1,13 @@
 import React, { ChangeEventHandler } from 'react';
-import InputPhoneNumber from '../../../layout/user/input-phone-number';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { userPhoneNumberAtom } from '../../../recoil';
 import { getOnlyNumber, isPhoneNumber } from '../../../utils';
-import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import { isExistUser } from '../../../api/auth/validate.api';
+import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
+import InputPhoneNumber from '../../../layout/user/input-phone-number';
 
-const LoginId = () => {
+const PhoneNumberInputForUpdatingPassword = () => {
   const router = useRouter();
   const [phone, setPhone] = useRecoilState<string>(userPhoneNumberAtom);
 
@@ -30,7 +30,7 @@ const LoginId = () => {
         return;
       }
 
-      return await router.push('/user/login/password');
+      return await router.push('/user/update/password', '/user');
     }
   };
 
@@ -47,4 +47,4 @@ const LoginId = () => {
   );
 };
 
-export default LoginId;
+export default PhoneNumberInputForUpdatingPassword;
