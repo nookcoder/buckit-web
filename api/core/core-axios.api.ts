@@ -17,14 +17,7 @@ export const coreGet = (url: string, headers?: any, cb?: any) => {
 };
 
 export const corePost = (url: string, body: any, headers?: any, cb?: any) => {
-  return axios
-    .post(`https://hyeonbuckit.buckit.me${url}`, body, {
-      headers: headers,
-    })
-    .then((res) => {
-      cb(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return axios.post(`https://hyeonbuckit.buckit.me${url}`, body, {
+    headers: headers,
+  });
 };

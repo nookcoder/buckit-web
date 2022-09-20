@@ -16,9 +16,14 @@ interface LoginInput {
   password: string;
 }
 
+interface LoginOutput {
+  access_token: string;
+  refresh_token: string;
+}
+
 interface UpdatePassword {
   phoneNumber: string;
   password: string;
 }
 
-export type { CreateUserType, LoginInput, UpdatePassword };
+export type { CreateUserType, LoginInput, UpdatePassword, LoginOutput };

@@ -6,7 +6,8 @@ import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { userPasswordSelector, userPhoneNumberAtom } from '../../../recoil';
 import { login } from '../../../api';
-import { AxiosError } from 'axios';
+import axios, { AxiosError } from 'axios';
+import { LoginOutput } from '../../../interface';
 
 const Password = () => {
   const router = useRouter();
@@ -15,30 +16,38 @@ const Password = () => {
   const [shake, setShake] = useState<boolean>(false);
 
   // todo : 로그인 로직 관련 추가
-  const handlePasswordInput = useCallback(
-    async (phoneNumber: string, password: string) => {
-      await login({
-        phoneNumber: phoneNumber,
-        password: password,
+  const handlePasswordInput = async (phoneNumber: string, password: string) => {
+    const setUserPassword = userPassword[1];
+
+    return await login({
+      phoneNumber: phoneNumber,
+      password: password,
+    })
+      .then((res) => {
+        const tokens: LoginOutput = res.data;
+        axios.defaults.headers.common[
+          'Authorization'
+        ] = `Bearer ${tokens.access_token}`;
+        localStorage.setItem(
+          `${process.env.REFRESH_COOKIE_KEY}`,
+          tokens.refresh_token
+        );
+        setUserPassword('');
+      })
+      .catch((err: AxiosError) => {
+        setUserPassword('');
+        setShake(true);
       });
-    },
-    []
-  );
+  };
 
   useEffect(() => {
     if (!phone) {
       router.push('/user/login');
     }
     if (userPassword[0].length === 6) {
-      handlePasswordInput(phone, userPassword[0])
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err: AxiosError) => {
-          console.log(err);
-        });
+      handlePasswordInput(phone, userPassword[0]).then(() => router.push('/'));
     }
-  }, [userPassword[0]]);
+  }, [shake, userPassword[0]]);
 
   return (
     <div>
