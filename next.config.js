@@ -5,7 +5,10 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['buckit-prod.s3.ap-northeast-2.amazonaws.com'],
+    domains: [
+      'buckit-prod.s3.ap-northeast-2.amazonaws.com',
+      'buckit-test.s3.ap-northeast-2.amazonaws.com',
+    ],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],

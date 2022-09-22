@@ -2,17 +2,47 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 import BottomNav from '../components/nav/bottom_nav';
-import { ProductModel } from '../models/model/product';
-import ProductViewModel from '../models/view-model/product';
+import { Project, ProjectModel } from '../models/model/project';
 import 'swiper/css';
 import Banner from '../components/common/banner/banner';
 import AppBar from '../components/nav/app_bar';
 import HomeProductBox from '../components/home/homeProductBox';
 import BuckitNews from '../components/home/buckit_news';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { getAllProjects } from '../api';
+import { useRecoilState } from 'recoil';
+import { getProjectQueryAtom } from '../recoil';
+import { CircularProgress } from '@mui/material';
+import ProjectViewModel from '../models/view-model/project';
 
 const Home: NextPage = () => {
-  const productModel: ProductModel = new ProductModel();
-  const productViewModel: ProductViewModel = new ProductViewModel(productModel);
+  const router = useRouter();
+  const [query, setQuery] = useRecoilState(getProjectQueryAtom);
+  const [isLoading, setIsLoading] = useState(true);
+  const [productModel, setProductModel] = useState<ProjectModel>();
+  const [productViewModel, setProductViewModel] = useState<ProjectViewModel>();
+
+  const goToProjectDetail = () => {};
+
+  const init = async () => {
+    const response = await getAllProjects(query);
+    const product: Project = await response.data['projects'][0];
+    setProductModel(new ProjectModel(product));
+  };
+
+  useEffect(() => {
+    init()
+      .then(() => {
+        if (productModel) {
+          setProductViewModel(new ProjectViewModel(productModel));
+        }
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        alert('서버 에러입니다. 관리자에게 문의해주세요');
+      });
+  }, [isLoading]);
 
   return (
     <div className={styles.container}>
@@ -30,7 +60,14 @@ const Home: NextPage = () => {
           <h3 className={styles.recommend_title}>
             사장님 이 프로젝트는 어때요?
           </h3>
-          <HomeProductBox productViewModel={productViewModel} />
+          {productViewModel === undefined || isLoading ? (
+            <CircularProgress></CircularProgress>
+          ) : (
+            <HomeProductBox
+              productViewModel={productViewModel}
+              onClick={() => console.log('heelo')}
+            />
+          )}
 
           <h3 className={styles.recommend_title}>버킷 뉴스</h3>
           <div className={styles.news_container}>

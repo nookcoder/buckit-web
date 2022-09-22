@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import styles from '../../styles/HomeProductBox.module.scss';
 import Image from 'next/image';
 import target from '../../public/assets/target.png';
 import { LinearProgress } from '@mui/material';
-import { Product } from '../../models/model/product';
-import ProductViewModel from '../../models/view-model/product';
+import ProjectViewModel from '../../models/view-model/project';
 
 type ViewModel = {
-  productViewModel: ProductViewModel;
+  productViewModel: ProjectViewModel;
+  onClick: MouseEventHandler<HTMLDivElement>;
 };
 
 const HomeProductBox = (props: ViewModel) => {
-  const product: Product = props.productViewModel.get();
+  const product = props.productViewModel.get();
   const achievementRate = props.productViewModel.getAchievementRate();
-  return (
+
+  return props.productViewModel ? (
     <div className={styles.container}>
-      <div className={styles.box}>
+      <div className={styles.box} onClick={props.onClick}>
         <div className={styles.image_box}>
           <Image
-            src={product.thumbnailImageUrl}
+            src={product.thumbnailImage}
             layout={'fill'}
             alt={'프로젝트 썸네일 이미지'}
             className={styles.image}
@@ -45,6 +46,8 @@ const HomeProductBox = (props: ViewModel) => {
         />
       </div>
     </div>
+  ) : (
+    <></>
   );
 };
 
