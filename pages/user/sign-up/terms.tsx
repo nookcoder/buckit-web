@@ -17,7 +17,6 @@ import { createUserAtom } from '../../../recoil';
 import { CreateUserType } from '../../../interface';
 
 const Terms = () => {
-  // todo : 약관 동의 페이지 연결
   const ToFalse = true;
   const ToTrue = false;
   const router = useRouter();
@@ -82,7 +81,6 @@ const Terms = () => {
     }
   };
 
-  // todo : 약관 상태값 관리하기
   return (
     <div>
       <AppBarWithBackArrow />

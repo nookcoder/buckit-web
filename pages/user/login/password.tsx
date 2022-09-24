@@ -15,7 +15,6 @@ const Password = () => {
   const [phone, setPhone] = useRecoilState(userPhoneNumberAtom);
   const [shake, setShake] = useState<boolean>(false);
 
-  // todo : 로그인 로직 관련 추가
   const handlePasswordInput = async (phoneNumber: string, password: string) => {
     const setUserPassword = userPassword[1];
 

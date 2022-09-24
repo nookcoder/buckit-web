@@ -10,8 +10,6 @@ interface InputPhoneNumberProps {
   value: string;
 }
 
-// todo : 휴대폰 번호 정규식 처리
-
 const InputPhoneNumber = ({
   buttonText,
   onChange,

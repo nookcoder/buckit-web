@@ -12,8 +12,6 @@ import { isEmail } from '../../../utils';
 import { isExistUser } from '../../../api/auth/validate.api';
 
 const Email = () => {
-  // todo : 휴대폰 인증 코드 받았는 지 확인하기
-  // todo : 이메일 정규식 추가
   const router = useRouter();
   const [createUser, setCreateUser] =
     useRecoilState<CreateUserType>(createUserAtom);

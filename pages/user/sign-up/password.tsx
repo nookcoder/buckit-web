@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 import { createNewUser } from '../../../api';
 
 const Password = () => {
-  // todo : 페이지 따로 만들지말고 여기서 신규/확인 기능 넣기
   const router = useRouter();
   const newPassword = useRecoilState(newPasswordSelector);
   const newPasswordCheck = useRecoilState(newPasswordCheckSelector);

@@ -12,6 +12,7 @@ interface ListOfProjectsLayoutProps {
 const ListOfProjectsLayout = ({
   projectListViewModel,
 }: ListOfProjectsLayoutProps) => {
+  // TODO : 탭 클릭 이벤트 추가하기
   const [value, setValue] = useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
