@@ -7,16 +7,19 @@ import ProjectViewModel from '../../models/view-model/project';
 
 type ViewModel = {
   productViewModel: ProjectViewModel;
-  onClick: MouseEventHandler<HTMLDivElement>;
+  onClick: (projectId: number) => void;
 };
 
 const HomeProductBox = (props: ViewModel) => {
   const product = props.productViewModel.get();
   const achievementRate = props.productViewModel.getAchievementRate();
+  const goToDetail: MouseEventHandler<HTMLDivElement> = () => {
+    props.onClick(product.id);
+  };
 
   return props.productViewModel ? (
     <div className={styles.container}>
-      <div className={styles.box} onClick={props.onClick}>
+      <div className={styles.box} onClick={goToDetail}>
         <div className={styles.image_box}>
           <Image
             src={product.thumbnailImage}
@@ -28,7 +31,10 @@ const HomeProductBox = (props: ViewModel) => {
 
         <div className={styles.title_box}>
           <span className={styles.title}>{product.title}</span>
-          <span className={styles.location}> | {product.address}</span>
+          <span className={styles.location}>
+            {' '}
+            | {props.productViewModel.getLocation()}
+          </span>
         </div>
 
         <div className={styles.progress_info_box}>
