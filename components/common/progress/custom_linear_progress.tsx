@@ -3,19 +3,19 @@ import { LinearProgress, styled } from '@mui/material';
 
 interface BorderLinearProgressProps {
   thickness: number;
-  borderRadius: number;
+  border_radius: number;
 }
 
 interface CustomLinearProgressProps {
   value: number;
   thickness: number;
-  borderRadius: number;
+  border_radius: number;
 }
 
 const BorderLinearProgress = styled(LinearProgress)(
   (props: BorderLinearProgressProps) => ({
     height: props.thickness,
-    borderRadius: props.borderRadius,
+    borderRadius: props.border_radius,
   })
 );
 
@@ -24,7 +24,7 @@ const CustomLinearProgress = (props: CustomLinearProgressProps) => {
     <div>
       <BorderLinearProgress
         thickness={props.thickness}
-        borderRadius={props.borderRadius}
+        border_radius={props.border_radius}
         color={'success'}
         value={props.value}
         variant={'determinate'}

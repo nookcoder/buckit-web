@@ -1,23 +1,51 @@
 import React from 'react';
 import styles from '../../styles/components/projects/ProjectContainer.module.scss';
 import { LinearProgress } from '@mui/material';
-import Image from 'next/image';
-import testImage from '../../public/상품_이미지.jpg';
+import Image, { StaticImageData } from 'next/image';
+import { Project } from '../../models/model/project';
+import { ProjectStatus } from '../../constants';
+import project from '../../models/view-model/project';
 
 interface ProjectBoxProps {
+  project: Project;
   location: string;
   category: string;
   title: string;
+  achievement: string | undefined;
   achievementRate: number;
-  total: number;
   deadline: string;
+  thumbnailImage: string | StaticImageData;
 }
 
 const ProjectBox = (props: ProjectBoxProps) => {
+  const getRemainingDays = (deadlineChar: string | Date) => {
+    const now = new Date().getTime();
+    const deadline = Date.parse(deadlineChar.toString());
+    const differenceMs = Math.abs(deadline - now);
+    return Math.ceil(differenceMs / (1000 * 3600 * 24));
+  };
+  const ProjectRemainingBox = (project: Project) => {
+    switch (project.status) {
+      case ProjectStatus.Before:
+        return <div style={{ color: '#4EB08B' }}>오픈예정</div>;
+      case ProjectStatus.FUNDING_PROGRESS:
+        return (
+          <div>
+            <span style={{ color: 'red' }}>
+              {getRemainingDays(project.deadline)}일
+            </span>{' '}
+            남음
+          </div>
+        );
+      case ProjectStatus.FundingEnd:
+        return <div style={{ color: 'green' }}>오픈준비중</div>;
+    }
+  };
+
   return (
     <main className={styles.container}>
       <section className={styles.image_container}>
-        <Image src={testImage} layout={'fill'} />
+        <Image src={props.thumbnailImage} layout={'fill'} />
       </section>
 
       <section className={styles.info_container}>
@@ -33,13 +61,8 @@ const ProjectBox = (props: ProjectBoxProps) => {
 
         <div className={styles.info_container_footer}>
           <div className={styles.info_container_footer_top}>
-            <div>
-              <span style={{ color: '#4EB08B' }}>{props.achievementRate}%</span>{' '}
-              달성 / {props.total}억
-            </div>
-            <div>
-              <span style={{ color: 'red' }}>{props.deadline}일</span> 남음
-            </div>
+            <div>{props.achievement}</div>
+            <div>{ProjectRemainingBox(props.project)}</div>
           </div>
           <div>
             <LinearProgress

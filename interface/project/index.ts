@@ -15,6 +15,11 @@ export interface GetAllProjectsQuery {
   order?: OrderBy | null;
 }
 
+export interface GetAllProjectsResponse {
+  ok: boolean;
+  projects?: Project[];
+}
+
 export interface GetProjectResponse {
   ok: boolean;
   project?: Project;

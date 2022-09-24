@@ -3,8 +3,15 @@ import { Box, styled, Tab, Tabs } from '@mui/material';
 import { Waypoint } from 'react-waypoint';
 import styles from '../styles/layout/ListOfProjects.module.scss';
 import ProjectScrollWindow from './projects/project_scroll_window';
+import { ProjectListViewModel } from '../models/view-model/project-list';
 
-const ListOfProjectsLayout = () => {
+interface ListOfProjectsLayoutProps {
+  projectListViewModel: ProjectListViewModel;
+}
+
+const ListOfProjectsLayout = ({
+  projectListViewModel,
+}: ListOfProjectsLayoutProps) => {
   const [value, setValue] = useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -27,7 +34,7 @@ const ListOfProjectsLayout = () => {
           <StyledTab label={'마감'} />
         </StyledTabs>
       </Box>
-      <ProjectScrollWindow />
+      <ProjectScrollWindow projectListViewModel={projectListViewModel} />
       <Waypoint></Waypoint>
     </main>
   );

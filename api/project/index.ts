@@ -2,11 +2,14 @@ import { coreGet } from '../core/core-axios.api';
 import { GET_ALL_PROJECT, OrderBy, ProjectStatus } from '../../constants';
 import {
   GetAllProjectsQuery,
+  GetAllProjectsResponse,
   GetProjectResponse,
 } from '../../interface/project';
 import { Project } from '../../models/model/project';
 
-export const getAllProjects = async (query: GetAllProjectsQuery) => {
+export const getAllProjects = async (
+  query: GetAllProjectsQuery
+): Promise<Project[] | undefined> => {
   const status = query.status ? query.status : ProjectStatus.Any;
   const page = query.page ? query.page : 0;
   const pageSize = query.pageSize ? query.pageSize : 15;
@@ -14,7 +17,13 @@ export const getAllProjects = async (query: GetAllProjectsQuery) => {
 
   return await coreGet(
     `${GET_ALL_PROJECT}?status=${status}&page=${page}&pageSize=${pageSize}&order=${order}`
-  );
+  ).then((res) => {
+    const response: GetAllProjectsResponse = res.data;
+    if (response.ok) {
+      return response.projects;
+    }
+    return undefined;
+  });
 };
 
 export const getProjectById = async (

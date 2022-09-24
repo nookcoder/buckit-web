@@ -4,6 +4,7 @@ import Image from 'next/image';
 import target from '../../public/assets/target.png';
 import { LinearProgress } from '@mui/material';
 import ProjectViewModel from '../../models/view-model/project';
+import { ProjectStatus } from '../../constants';
 
 type ViewModel = {
   productViewModel: ProjectViewModel;
@@ -22,7 +23,7 @@ const HomeProductBox = (props: ViewModel) => {
       <div className={styles.box} onClick={goToDetail}>
         <div className={styles.image_box}>
           <Image
-            src={product.thumbnailImage}
+            src={props.productViewModel.getThumbnailImage()}
             layout={'fill'}
             alt={'프로젝트 썸네일 이미지'}
             className={styles.image}
@@ -30,7 +31,9 @@ const HomeProductBox = (props: ViewModel) => {
         </div>
 
         <div className={styles.title_box}>
-          <span className={styles.title}>{product.title}</span>
+          <span className={styles.title}>
+            {props.productViewModel.getTile()}
+          </span>
           <span className={styles.location}>
             {' '}
             | {props.productViewModel.getLocation()}
@@ -38,17 +41,25 @@ const HomeProductBox = (props: ViewModel) => {
         </div>
 
         <div className={styles.progress_info_box}>
-          <div className={styles.percentage}>{achievementRate}%</div>
           <div className={styles.day}>
-            <Image src={target} width={14} height={12} alt={'남은 일 수'} />{' '}
-            <span className={styles.day_text}>D-30</span>
+            {props.productViewModel.get().status === ProjectStatus.Before ? (
+              <></>
+            ) : (
+              <Image src={target} width={14} height={12} alt={'남은 일 수'} />
+            )}
+            <span className={styles.day_text}>
+              {props.productViewModel.getRemainingDays()}
+            </span>
+          </div>
+          <div className={styles.percentage}>
+            {props.productViewModel.getProjectStatus()}
           </div>
         </div>
 
         <LinearProgress
           color={'success'}
           variant={'determinate'}
-          value={achievementRate}
+          value={props.productViewModel.getAchievementRate()}
         />
       </div>
     </div>
