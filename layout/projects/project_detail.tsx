@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from '../../styles/layout/ProjectDetail.module.scss';
 import Image from 'next/image';
-import testImag from '../../public/상품_이미지.jpg';
 import CustomLinearProgress from '../../components/common/progress/custom_linear_progress';
 import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
-import contentTestImage from '../../public/버킷 프로젝트(가안).jpg';
-import { Product } from '../../models/model/product';
-import ProductViewModel from '../../models/view-model/product';
+import { Project } from '../../models/model/project';
+import ProductViewModel from '../../models/view-model/project';
+import ProjectLocationMap from '../../components/projects/project-location-map';
+import { ProjectStatus } from '../../constants';
+import beforeOpenDetail from '../../public/assets/before-open-detail.png';
 
 interface ProjectDetailLayoutProps {
   projectViewModel: ProductViewModel;
@@ -16,17 +17,21 @@ interface ProjectDetailLayoutProps {
 const ProjectDetailLayout = ({
   projectViewModel,
 }: ProjectDetailLayoutProps) => {
-  const project: Product = projectViewModel.get();
+  const project: Project = projectViewModel.get();
 
   return (
     <div className={styles.container}>
       <section className={styles.image_container}>
-        <Image src={testImag} layout={'fill'} alt={'프로젝트 이미지'} />
+        <Image
+          src={projectViewModel.getThumbnailImage()}
+          layout={'fill'}
+          alt={'프로젝트 이미지'}
+        />
       </section>
 
       <section className={styles.summary_container}>
         <div className={styles.category}>
-          {project.category} | {project.address}
+          {project.category.name} | {projectViewModel.getLocation()}
         </div>
         <div className={styles.title}>{project.title}</div>
         <div className={styles.summary}>{project.summary}</div>
@@ -34,34 +39,55 @@ const ProjectDetailLayout = ({
 
       <section className={styles.progress_container}>
         <div className={styles.progress_container_header}>
-          <span>{project.deadline.toString()}일 남음</span>
+          <span>{projectViewModel.getRemainingDays()}</span>
           <span>
             <span style={{ color: '#4EB08B' }}>
-              {projectViewModel.getAchievementRate()}%
-            </span>{' '}
-            달성
+              {projectViewModel.getProjectStatus()}
+            </span>
           </span>
         </div>
-        <CustomLinearProgress thickness={10} borderRadius={10} value={10} />
+        <CustomLinearProgress
+          thickness={10}
+          border_radius={10}
+          value={projectViewModel.getAchievementRate()}
+        />
 
         <div
           className={`${styles.target_container} ${styles.target_container1}`}
         >
           <PaidOutlinedIcon fontSize={'small'} />
-          <span>목표 펀딩 금액 : {project.total}</span>
+          <span>모집 블럭 수 : {projectViewModel.getTotalBlock()} 개</span>
         </div>
 
         <div className={styles.target_container}>
           <CalendarTodayOutlinedIcon fontSize={'small'} />
-          <span>마감일 : {project.deadline.toString()}</span>
+          <span>{projectViewModel.getDeadline()}</span>
         </div>
       </section>
 
       <section className={styles.content_container}>
-        <Image
-          src={contentTestImage}
-          layout={'fill'}
-          alt={'프로젝트 상세 설명'}
+        {project?.status === ProjectStatus.Before ? (
+          <Image
+            src={beforeOpenDetail}
+            alt={'프로젝트 상세 소개'}
+            layout={'responsive'}
+          ></Image>
+        ) : (
+          project.content.map((contentImage, index) => (
+            <Image
+              key={index}
+              src={contentImage}
+              layout={'fill'}
+              alt={'프로젝트 설명'}
+            />
+          ))
+        )}
+      </section>
+
+      <section>
+        <ProjectLocationMap
+          address={project.address}
+          project_status={project.status}
         />
       </section>
     </div>

@@ -1,3 +1,5 @@
+@import "styles/variables/variables";
+
 .button_container{
   position: fixed;
   bottom: 0;
@@ -6,5 +8,11 @@
   padding: 10px 10px 30px 10px;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: $phone-width) {
+  .button_container{
+    width: 100%;
+  }
 }
 

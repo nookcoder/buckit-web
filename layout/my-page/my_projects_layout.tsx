@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import AppBarWithBackArrow from '../../components/nav/app_bar_with_back_arrow';
 import styles from '../../styles/layout/MyProjectsLayout.module.scss';
 import { FixedSizeList as List } from 'react-window';
-import ProductViewModel from '../../models/view-model/product';
+import ProductViewModel from '../../models/view-model/project';
 
 interface MyProjectsLayoutProps {
   title: string;

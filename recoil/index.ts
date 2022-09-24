@@ -11,6 +11,8 @@ import {
   userPasswordSelector,
 } from './user';
 
+import { currentProjectIdAtom, getProjectQueryAtom } from './project/atom';
+
 export const BACK_SPACE = 'BACK_SPACE';
 export {
   createUserAtom,
@@ -20,3 +22,4 @@ export {
   userPhoneNumberAtom,
 };
 export { newPasswordSelector, newPasswordCheckSelector, userPasswordSelector };
+export { currentProjectIdAtom, getProjectQueryAtom };

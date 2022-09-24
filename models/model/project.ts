@@ -1,3 +1,6 @@
+import { Category } from '../../interface';
+import { ProjectStatus } from '../../constants';
+
 export type Project = {
   id: number;
   createdAt: string | Date;
@@ -8,12 +11,12 @@ export type Project = {
   thumbnailImage: string;
   fundingOpenDate: string | Date;
   deadline: string | Date;
-  status: string;
+  status: ProjectStatus;
   total: number;
   totalQuarter: number;
   soldQuarter: number;
   pricePerQuarter: number;
-  category: any;
+  category: Category;
   summary: string;
 };
 
