@@ -4,6 +4,9 @@
   display: flex;
   padding: 0 10px;
   margin-bottom: 15px;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .image_container {

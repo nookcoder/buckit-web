@@ -4,7 +4,7 @@ import { LinearProgress } from '@mui/material';
 import Image, { StaticImageData } from 'next/image';
 import { Project } from '../../models/model/project';
 import { ProjectStatus } from '../../constants';
-import project from '../../models/view-model/project';
+import { useRouter } from 'next/router';
 
 interface ProjectBoxProps {
   project: Project;
@@ -18,12 +18,18 @@ interface ProjectBoxProps {
 }
 
 const ProjectBox = (props: ProjectBoxProps) => {
+  const router = useRouter();
+  const onClick = () => {
+    router.push(`/projects/${props.project.id}`);
+  };
+
   const getRemainingDays = (deadlineChar: string | Date) => {
     const now = new Date().getTime();
     const deadline = Date.parse(deadlineChar.toString());
     const differenceMs = Math.abs(deadline - now);
     return Math.ceil(differenceMs / (1000 * 3600 * 24));
   };
+
   const ProjectRemainingBox = (project: Project) => {
     switch (project.status) {
       case ProjectStatus.Before:
@@ -43,7 +49,7 @@ const ProjectBox = (props: ProjectBoxProps) => {
   };
 
   return (
-    <main className={styles.container}>
+    <main className={styles.container} onClick={onClick}>
       <section className={styles.image_container}>
         <Image src={props.thumbnailImage} layout={'fill'} />
       </section>
