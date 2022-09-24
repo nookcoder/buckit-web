@@ -5,6 +5,7 @@ import target from '../../public/assets/target.png';
 import { LinearProgress } from '@mui/material';
 import ProjectViewModel from '../../models/view-model/project';
 import { ProjectStatus } from '../../constants';
+import { Project } from '../../models/model/project';
 
 type ViewModel = {
   productViewModel: ProjectViewModel;
@@ -16,6 +17,12 @@ const HomeProductBox = (props: ViewModel) => {
   const achievementRate = props.productViewModel.getAchievementRate();
   const goToDetail: MouseEventHandler<HTMLDivElement> = () => {
     props.onClick(product.id);
+  };
+  const getRemainingDay = (project: Project) => {
+    const now = new Date().getTime();
+    const deadline = Date.parse(project.deadline.toString());
+    const differenceMs = Math.abs(deadline - now);
+    return Math.ceil(differenceMs / (1000 * 3600 * 24));
   };
 
   return props.productViewModel ? (
@@ -48,7 +55,7 @@ const HomeProductBox = (props: ViewModel) => {
               <Image src={target} width={14} height={12} alt={'남은 일 수'} />
             )}
             <span className={styles.day_text}>
-              {props.productViewModel.getRemainingDays()}
+              D-{getRemainingDay(product)}
             </span>
           </div>
           <div className={styles.percentage}>
