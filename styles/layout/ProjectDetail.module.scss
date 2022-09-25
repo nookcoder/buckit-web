@@ -62,18 +62,28 @@
   }
 }
 
+.aa{
+  position: relative;
+  width: 28rem;
+  height: calc(28rem * 17);
+}
+
 .content_container {
   position: relative;
   width: 100%;
   height: max-content;
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 @media screen and (max-width: $phone-width) {
   .image_container {
     width: 100%;
     height: calc(100vw / 2);
+  }
+  .aa{
+    width: 100%;
+    height: calc(100vw * 17);
   }
 
   .button_container {

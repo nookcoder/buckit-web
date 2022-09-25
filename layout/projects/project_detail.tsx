@@ -8,7 +8,7 @@ import { Project } from '../../models/model/project';
 import ProductViewModel from '../../models/view-model/project';
 import ProjectLocationMap from '../../components/projects/project-location-map';
 import { ProjectStatus } from '../../constants';
-const beforeOpenDetail = '../../public/assets/before-open-detail.png';
+import before2 from '../../public/assets/before2.png';
 
 interface ProjectDetailLayoutProps {
   projectViewModel: ProductViewModel;
@@ -67,28 +67,46 @@ const ProjectDetailLayout = ({
 
       <section className={styles.content_container}>
         {project?.status === ProjectStatus.Before ? (
-          <Image
-            src={beforeOpenDetail}
-            alt={'프로젝트 상세 소개'}
-            layout={'responsive'}
-          ></Image>
-        ) : (
-          project.content.map((contentImage, index) => (
+          <>
+            <div className={styles.aa}>
+              <Image
+                src={
+                  'https://buckit-prod.s3.ap-northeast-2.amazonaws.com/content/before1.png'
+                }
+                alt={'프로젝트 상세 소개'}
+                layout={'fill'}
+              ></Image>
+            </div>
+            <section>
+              <ProjectLocationMap
+                address={project.address}
+                project_status={project.status}
+              />
+            </section>
             <Image
-              key={index}
-              src={contentImage}
-              layout={'fill'}
-              alt={'프로젝트 설명'}
-            />
-          ))
+              src={before2}
+              alt={'프로젝트 상세 소개'}
+              layout={'responsive'}
+            ></Image>
+          </>
+        ) : (
+          <section>
+            {project.content.map((contentImage, index) => (
+              <Image
+                key={index}
+                src={contentImage}
+                layout={'fill'}
+                alt={'프로젝트 설명'}
+              />
+            ))}
+            <section>
+              <ProjectLocationMap
+                address={project.address}
+                project_status={project.status}
+              />
+            </section>
+          </section>
         )}
-      </section>
-
-      <section>
-        <ProjectLocationMap
-          address={project.address}
-          project_status={project.status}
-        />
       </section>
     </div>
   );
