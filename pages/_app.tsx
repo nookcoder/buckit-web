@@ -17,6 +17,7 @@ type AppPropsWithLayout = AppProps & {
 declare global {
   interface Window {
     Kakao: any;
+    IMP: any;
   }
 }
 
@@ -27,6 +28,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init(process.env.KAKAO_APP_KEY);
+    }
+
+    if (!window.IMP) {
+      window.IMP.init(process.env.IMP_CERTIFICATION_CODE);
     }
   }, []);
 

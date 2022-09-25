@@ -68,20 +68,7 @@ const PhoneCertification = () => {
       window.location.reload();
     }
   }, []);
-  return (
-    <div>
-      <Script
-        type="text/javascript"
-        src="https://code.jquery.com/jquery-1.12.4.min.js"
-        strategy={'beforeInteractive'}
-      ></Script>
-      <Script
-        type="text/javascript"
-        src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
-        strategy={'beforeInteractive'}
-      ></Script>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default PhoneCertification;

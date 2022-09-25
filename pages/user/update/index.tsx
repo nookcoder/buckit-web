@@ -30,7 +30,7 @@ const PhoneNumberInputForUpdatingPassword = () => {
         return;
       }
 
-      return await router.push('/user/update/password', '/user');
+      return await router.push('/certification/update', '/user');
     }
   };
 

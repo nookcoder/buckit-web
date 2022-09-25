@@ -23,7 +23,6 @@ const getUserProfile = async () => {
       return user;
     })
     .catch((err) => {
-      alert('세션이 만료됐습니다. 다시 로그인 해주세요');
       return undefined;
     });
 };
