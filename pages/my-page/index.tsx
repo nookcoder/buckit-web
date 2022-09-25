@@ -1,56 +1,84 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BottomNav from '../../components/nav/bottom_nav';
 import AppBar from '../../components/nav/app_bar';
-import { Button, IconButton } from '@mui/material';
+import { Button, CircularProgress, IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import styles from '../../styles/pages/my-page/Mypage.module.scss';
 import MyPageHistoryColumn from '../../components/my-page/mypage_column';
+import UserInfoBox from '../../components/my-page/user-info-box';
+import { useRouter } from 'next/router';
+import UserPointBox from '../../components/my-page/user-point-box';
+import { getUserProfile } from '../../api';
+import { UserViewModel } from '../../models/view-model/user';
+import { UserModel } from '../../models/model/user.model';
 
 const MyPage = () => {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [user, setUser] = useState<UserViewModel>();
+
+  const init = async () => {
+    const user = await getUserProfile();
+    if (user) {
+      return new UserModel(user);
+    }
+    await router.push('/user');
+  };
+
+  const onClickOrder = () => {
+    router.push('/my-page/before-payment');
+  };
+
+  const onClickMyProject = async () => {
+    return await router.push('/my-page/my-projects');
+  };
+
+  const onClickProfitHistory = async () => {
+    return await router.push('/my-page/profit-history');
+  };
+
+  useEffect(() => {
+    const refreshToken = localStorage.getItem(
+      `${process.env.REFRESH_COOKIE_KEY}`
+    );
+    if (!refreshToken) {
+      router.push('/user');
+    }
+
+    if (isLoading || user === undefined) {
+      init()
+        .then((model) => {
+          if (model) {
+            setUser(new UserViewModel(model));
+          }
+
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
+
   return (
     <div>
       <AppBar />
       <main className={styles.container}>
         <section>
-          <div className={styles.user_container}>
-            <div className={styles.user_name}>
-              <span>김현욱</span>
-              <IconButton sx={{ padding: 0 }}>
-                <EditIcon color={'success'} />
-              </IconButton>
-            </div>
-            <div className={styles.user_extra_info_container}>
-              <PhoneIphoneIcon color={'success'} fontSize={'small'} />
-              <span>010-5047-7361</span>
-            </div>
-            <div className={styles.user_extra_info_container}>
-              <EmailOutlinedIcon color={'success'} fontSize={'small'} />
-              <span>gus5427@naver.com</span>
-            </div>
-          </div>
-
-          <div className={styles.point_container}>
-            <span>김현욱님의 버킷 포인트</span>
-            <div className={styles.point_footer}>
-              <span>3000 B</span>
-              <div>
-                <Button
-                  variant={'contained'}
-                  sx={{
-                    color: '#4EB08B',
-                    backgroundColor: 'white',
-                    '&:hover': {
-                      backgroundColor: 'white',
-                    },
-                  }}
-                >
-                  출금
-                </Button>
-              </div>
-            </div>
-          </div>
+          {isLoading || user === undefined ? (
+            <CircularProgress />
+          ) : (
+            <>
+              <UserInfoBox
+                name={user.getName()}
+                email={user.getEmail()}
+                phoneNumber={user.getPhoneNumberWithHyphen()}
+              />
+              <UserPointBox name={user.getName()} points={user.getPoints()} />
+            </>
+          )}
         </section>
         {/*todo : 찜한 프로젝트 추가 예정*/}
         {/*<section>*/}
@@ -58,9 +86,18 @@ const MyPage = () => {
         {/*</section>*/}
         <section className={styles.history_container}>
           <h3>펀딩 내역</h3>
-          <MyPageHistoryColumn title={'예약된 프로젝트'} />
-          <MyPageHistoryColumn title={'영업 중인 프로젝트'} />
-          <MyPageHistoryColumn title={'프로젝트 수익 내역'} />
+          <MyPageHistoryColumn
+            title={'예약된 프로젝트'}
+            onClick={onClickOrder}
+          />
+          <MyPageHistoryColumn
+            title={'영업 중인 프로젝트'}
+            onClick={onClickMyProject}
+          />
+          <MyPageHistoryColumn
+            title={'프로젝트 수익 내역'}
+            onClick={onClickProfitHistory}
+          />
         </section>
       </main>
       <BottomNav />

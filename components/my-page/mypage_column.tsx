@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import styles from '../../styles/components/my-page/MyPageColumn.module.scss';
 
 interface MyPageHistoryColumnProps {
   title: string;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
 const MyPageHistoryColumn = ({ title, onClick }: MyPageHistoryColumnProps) => {

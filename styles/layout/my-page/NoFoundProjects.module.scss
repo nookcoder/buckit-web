@@ -1,0 +1,22 @@
+.container{
+  margin-top: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+
+.title {
+  font-size: 25px;
+  text-align: center;
+}
+
+.sub_title{
+  font-size: 20px;
+  text-align: center;
+}
+
+.button_box{
+  padding: 0 20px;
+}

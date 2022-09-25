@@ -6,15 +6,10 @@ import ProductViewModel from '../../models/view-model/project';
 
 interface MyProjectsLayoutProps {
   title: string;
-  sub_title: string;
   children: React.ReactNode;
 }
 
-const MyProjectsLayout = ({
-  title,
-  sub_title,
-  children,
-}: MyProjectsLayoutProps) => {
+const MyProjectsLayout = ({ title, children }: MyProjectsLayoutProps) => {
   const [clientHeight, setClientHeight] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +22,6 @@ const MyProjectsLayout = ({
   return (
     <div>
       <AppBarWithBackArrow title={title} />
-      <h3 className={styles.sub_title}>{sub_title}</h3>
       {children}
     </div>
   );
