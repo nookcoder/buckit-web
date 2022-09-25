@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import styles from '../../../styles/pages/ProjectDetail.module.scss';
 import { CircularProgress, IconButton } from '@mui/material';
@@ -9,9 +9,7 @@ import ProjectViewModel from '../../../models/view-model/project';
 import ProjectDetailLayout from '../../../layout/projects/project_detail';
 import { useRouter } from 'next/router';
 import { getProjectById } from '../../../api';
-import Script from 'next/script';
 import { ProjectStatus } from '../../../constants';
-import dynamic from 'next/dynamic';
 
 const ProjectDetail = () => {
   const router = useRouter();

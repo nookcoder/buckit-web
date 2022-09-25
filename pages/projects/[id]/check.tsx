@@ -2,7 +2,6 @@ import React from 'react';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import Image from 'next/image';
 import styles from '../../../styles/pages/CheckingPurchase.module.scss';
-import testThumbnail from '../../../public/상품_이미지.jpg';
 import { Divider } from '@mui/material';
 import FullWidthButton from '../../../components/common/buttons/full_width_button';
 import UserCertificationInput from '../../../components/projects/user_certification_input';
@@ -15,11 +14,11 @@ const CheckingPurchase = () => {
       <main>
         <header className={styles.header}>
           <div className={styles.image_container}>
-            <Image
-              src={testThumbnail}
-              alt={'프로젝트 썸네일'}
-              layout={'fill'}
-            />
+            {/*<Image*/}
+            {/*  src={testThumbnail}*/}
+            {/*  alt={'프로젝트 썸네일'}*/}
+            {/*  layout={'fill'}*/}
+            {/*/>*/}
           </div>
           <div className={styles.project_summary}>
             <div className={styles.project_location}>마포구 연남동 | 주점</div>

@@ -8,7 +8,7 @@ import { Project } from '../../models/model/project';
 import ProductViewModel from '../../models/view-model/project';
 import ProjectLocationMap from '../../components/projects/project-location-map';
 import { ProjectStatus } from '../../constants';
-import beforeOpenDetail from '../../public/assets/before-open-detail.png';
+const beforeOpenDetail = '../../public/assets/before-open-detail.png';
 
 interface ProjectDetailLayoutProps {
   projectViewModel: ProductViewModel;
