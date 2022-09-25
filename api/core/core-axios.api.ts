@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// TODO : logger 작업
 const authInstanceAxios = axios.create();
 authInstanceAxios.interceptors.response.use(
   function (response) {
@@ -28,7 +29,7 @@ authInstanceAxios.interceptors.response.use(
 
 export const coreGet = (url: string, headers?: any, cb?: any) => {
   return axios
-    .get(`https://hyeonbuckit.buckit.me${url}`, {
+    .get(`${process.env.BASE_URL}${url}`, {
       headers: headers,
     })
     .then((res) => {
@@ -38,20 +39,18 @@ export const coreGet = (url: string, headers?: any, cb?: any) => {
 
       return res;
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => {});
 };
 
 export const corePost = (url: string, body: any, headers?: any, cb?: any) => {
-  return axios.post(`https://hyeonbuckit.buckit.me${url}`, body, {
+  return axios.post(`${process.env.BASE_URL}${url}`, body, {
     headers: headers,
   });
 };
 
 export const coreGetWithAuth = (url: string, headers?: any, cb?: any) => {
   return authInstanceAxios
-    .get(`https://hyeonbuckit.buckit.me${url}`, {
+    .get(`${process.env.BASE_URL}${url}`, {
       headers: headers,
     })
     .then((res) => {
@@ -61,7 +60,5 @@ export const coreGetWithAuth = (url: string, headers?: any, cb?: any) => {
 
       return res;
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => {});
 };

@@ -38,7 +38,6 @@ const Password = () => {
     }
 
     setNewPasswordCheck('');
-    console.log(newPassword[0] + ' :: ::::::::::');
     router
       .push('/user')
       .then(async () => {
@@ -61,14 +60,9 @@ const Password = () => {
         password,
         phoneNumber,
       })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        .then((res) => {})
+        .catch((err) => {});
     } catch (err) {
-      console.log(err);
       alert('서버 에러입니다. 관리자에게 문의해주세요');
     }
   };

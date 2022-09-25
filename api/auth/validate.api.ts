@@ -22,7 +22,5 @@ export const isExistUser = async (userInfo: UserInfo): Promise<boolean> => {
       }
       return res.data.existence;
     })
-    .catch((err) => {
-      console.error(err);
-    });
+    .catch((err) => {});
 };

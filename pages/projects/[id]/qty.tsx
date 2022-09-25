@@ -5,7 +5,7 @@ import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow
 import Image from 'next/image';
 import marketImage from '../../../public/assets/buy.png';
 import { TextField } from '@mui/material';
-import ProductViewModel from '../../../models/view-model/product';
+import ProductViewModel from '../../../models/view-model/project';
 import FullWidthButton from '../../../components/common/buttons/full_width_button';
 
 interface QtyProps {
@@ -56,7 +56,7 @@ const Qty = () => {
         </div>
 
         <footer className={styles.footer}>
-          <KeyPad />
+          {/*<KeyPad />*/}
           <div className={styles.button_container}>
             <FullWidthButton variant={'contained'} text_color={'white'}>
               사장되기
