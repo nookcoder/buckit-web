@@ -19,6 +19,9 @@ const LoginHome = () => {
   const goToUpdatePassword = async () => {
     await router.push('/user/update');
   };
+  const goToHome = async () => {
+    await router.push('/');
+  };
 
   return (
     <div className={styles.container}>
@@ -53,10 +56,13 @@ const LoginHome = () => {
         <div className={styles.divider} />
         <Button
           variant={'text'}
-          sx={{ color: '#C9C9C9' }}
+          sx={{ color: '#B9B9B9' }}
           onClick={goToUpdatePassword}
         >
           혹시 비밀번호를 잊으셨나요?
+        </Button>
+        <Button variant={'text'} sx={{ color: '#B9B9B9' }} onClick={goToHome}>
+          로그인 없이 이용하기
         </Button>
       </div>
     </div>
