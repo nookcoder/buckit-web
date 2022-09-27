@@ -33,8 +33,10 @@ const ProjectDetailLayout = ({
         <div className={styles.category}>
           {project.category.name} | {projectViewModel.getLocation()}
         </div>
-        <div className={styles.title}>{project.title}</div>
-        <div className={styles.summary}>{project.summary}</div>
+        <div className={styles.title}>{projectViewModel.getTile()}</div>
+        <div className={styles.summary}>
+          <pre>{projectViewModel.getSummary()}</pre>
+        </div>
       </section>
 
       <section className={styles.progress_container}>

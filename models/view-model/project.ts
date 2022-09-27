@@ -1,7 +1,7 @@
 import { Project, ProjectModel } from '../model/project';
 import { convertingToDay } from '../../utils';
 import { ProjectStatus } from '../../constants';
-import beforeThumbnail from '../../public/assets/before.jpeg';
+import beforeThumbnail from '../../public/assets/before.png';
 
 class ProjectViewModel {
   projectModel: ProjectModel;
@@ -14,6 +14,18 @@ class ProjectViewModel {
 
   get(): Project {
     return this.projectModel.get();
+  }
+
+  getSummary() {
+    if (this.project.status === ProjectStatus.Before) {
+      return (
+        '2030 취향 제대로 저격해버렸다\n' +
+        '핵꿀잼 이벤트와 고퀄리티 안주와 주류가 시그니처인\n' +
+        '신개념 테마 주점입니다.\n'
+      );
+    }
+
+    return this.project.summary;
   }
 
   getTile(): string {

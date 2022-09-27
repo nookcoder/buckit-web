@@ -52,11 +52,14 @@ const HomeProductBox = (props: ViewModel) => {
             {props.productViewModel.get().status === ProjectStatus.Before ? (
               <></>
             ) : (
-              <Image src={target} width={14} height={12} alt={'남은 일 수'} />
+              <>
+                <Image src={target} width={14} height={12} alt={'남은 일 수'} />
+
+                <span className={styles.day_text}>
+                  D-{getRemainingDay(product)}
+                </span>
+              </>
             )}
-            <span className={styles.day_text}>
-              D-{getRemainingDay(product)}
-            </span>
           </div>
           <div className={styles.percentage}>
             {props.productViewModel.getProjectStatus()}

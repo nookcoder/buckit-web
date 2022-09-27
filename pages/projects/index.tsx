@@ -3,7 +3,6 @@ import BottomNav from '../../components/nav/bottom_nav';
 import AppBar from '../../components/nav/app_bar';
 import ListOfProjectsLayout from '../../layout/list_of_projects_layout';
 import { ProjectListModel } from '../../models/model/project-list';
-import ProjectViewModel from '../../models/view-model/project';
 import { getAllProjects } from '../../api';
 import { useRecoilState } from 'recoil';
 import { getProjectQueryAtom } from '../../recoil';
@@ -45,6 +44,7 @@ const Projects = () => {
       ) : (
         <ListOfProjectsLayout
           projectListViewModel={projectListViewModel}
+          setProjectViewModel={setProjectViewModel}
         ></ListOfProjectsLayout>
       )}
       <BottomNav />

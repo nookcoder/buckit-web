@@ -37,7 +37,7 @@ export class ProjectListViewModel {
     const money = project.total / 100000000;
     switch (project.status) {
       case ProjectStatus.Before:
-        return `미진행 / ${money}억`;
+        return `미진행`;
       case ProjectStatus.FUNDING_PROGRESS:
         return `${this.getAchievementRate(project)}% / ${money}억`;
       case ProjectStatus.FundingEnd:
