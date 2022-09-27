@@ -12,17 +12,21 @@ const SettingDetail = () => {
   const [refreshToken, setRefreshToken] = useState<string | null>();
 
   const goToServiceTerm = () => {
-    window.open(TERM_SERVICE);
+    window.location.href = TERM_SERVICE;
   };
   const goToPrivacyTerm = () => {
-    window.open(TERM_PRIVACY);
+    window.location.href = TERM_PRIVACY;
   };
   const goToPurchaseTerm = () => {
-    window.open(TERM_PURCHASE);
+    window.location.href = TERM_PURCHASE;
   };
 
   const goToLoginPage = () => {
     return router.push('/user');
+  };
+
+  const goToBuckitNotion = () => {
+    window.location.href = 'https://buckit.oopy.io';
   };
 
   const logout = () => {
@@ -38,17 +42,17 @@ const SettingDetail = () => {
   return (
     <div>
       <AppBarWithBackArrow title={'설정'} />
-      <div className={styles.column_container}>
-        <div className={styles.title}>알림</div>
-        <MyPageHistoryColumn title={'알림 설정'} />
-      </div>
+      {/*<div className={styles.column_container}>*/}
+      {/*  <div className={styles.title}>알림</div>*/}
+      {/*  <MyPageHistoryColumn title={'알림 설정'} />*/}
+      {/*</div>*/}
 
-      <Divider
-        sx={{
-          borderBottomWidth: '3px',
-          borderColor: '#F9F9F9',
-        }}
-      />
+      {/*<Divider*/}
+      {/*  sx={{*/}
+      {/*    borderBottomWidth: '3px',*/}
+      {/*    borderColor: '#F9F9F9',*/}
+      {/*  }}*/}
+      {/*/>*/}
 
       <div className={styles.column_container}>
         <div className={styles.title}>기타</div>
@@ -61,7 +65,7 @@ const SettingDetail = () => {
           onClick={goToPrivacyTerm}
         />
         <MyPageHistoryColumn title={'구매약관'} onClick={goToPurchaseTerm} />
-        <MyPageHistoryColumn title={'회사 소개'} />
+        <MyPageHistoryColumn title={'회사 소개'} onClick={goToBuckitNotion} />
         <MyPageHistoryColumn
           title={refreshToken ? '로그아웃' : '로그인'}
           onClick={refreshToken ? logout : goToLoginPage}
