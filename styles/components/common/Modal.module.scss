@@ -1,0 +1,35 @@
+@import "styles/variables/variables";
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  background-color: #F9F9F9;
+  height: max-content;
+  border: 1px solid white;
+  padding: 20px 60px;
+  border-radius: 15px;
+}
+
+.icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.button_container{
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: $phone-width){
+
+}

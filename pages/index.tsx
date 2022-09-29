@@ -15,6 +15,7 @@ import { useRecoilState } from 'recoil';
 import { currentProjectIdAtom, getProjectQueryAtom } from '../recoil';
 import { CircularProgress } from '@mui/material';
 import ProjectViewModel from '../models/view-model/project';
+import PrepareNotificationModal from '../components/common/modal/prepare-notification-modal';
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -25,6 +26,11 @@ const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [productModel, setProductModel] = useState<ProjectModel>();
   const [productViewModel, setProductViewModel] = useState<ProjectViewModel>();
+  const [modalState, setModalState] = useState<boolean>(false);
+
+  const openModal = () => {
+    setModalState(true);
+  };
 
   const goToProjectDetail = async (projectId: number) => {
     await router
@@ -69,7 +75,7 @@ const Home: NextPage = () => {
         <div>
           <AppBar />
 
-          <Banner />
+          <Banner onClick={openModal} />
 
           <h3 className={styles.recommend_title}>
             사장님 이 프로젝트는 어때요?
@@ -102,6 +108,7 @@ const Home: NextPage = () => {
 
           <BottomNav />
         </div>
+        <PrepareNotificationModal open={modalState} setOpen={setModalState} />
       </main>
     </div>
   );
