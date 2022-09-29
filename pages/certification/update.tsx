@@ -14,6 +14,20 @@ import Script from 'next/script';
 const UpdateCertification = () => {
   const router = useRouter();
   const [phone, setPhone] = useRecoilState<string>(userPhoneNumberAtom);
+
+  const checkCertification = async (response: IMPResponse) => {
+    try {
+      const data: CertificationResponse = await getUserCertificated(
+        response.imp_uid,
+        response.merchant_uid,
+        response.success
+      );
+      return;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     // @ts-ignore
     const IMP = window.IMP;
@@ -24,12 +38,13 @@ const UpdateCertification = () => {
         {
           // param
           merchant_uid: process.env.MERCHANT_UID, // 주문 번호
-          // m_redirect_url: process.env.BASE_URL,
+          m_redirect_url: process.env.BASE_URL,
           popup: false, // PC환경에서는 popup 파라메터가 무시되고 항상 true 로 적용됨
           phone: phone,
         },
         async (rsp: IMPResponse) => {
           if (rsp.success) {
+            await checkCertification(rsp);
             await router.push('/user/update/password');
           } else {
             await router.push('/user/update');
