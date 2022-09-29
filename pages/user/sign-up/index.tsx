@@ -15,6 +15,7 @@ const SignUpPhoneNumber = () => {
   const [createUser, setCreateUser] =
     useRecoilState<CreateUserType>(createUserAtom);
   const [modal, setModal] = useState<boolean>(false);
+  const [phoneModal, setPhoneModal] = useState<boolean>(false);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = getOnlyNumber(event.target.value);
@@ -47,7 +48,7 @@ const SignUpPhoneNumber = () => {
       return await router.push(CERTIFICATION);
     }
 
-    // alert('올바른 휴대폰 번호를 입력해주세요');
+    openPhoneModal();
     return;
   };
 
@@ -55,10 +56,12 @@ const SignUpPhoneNumber = () => {
     setModal(true);
   };
 
+  const openPhoneModal = () => {
+    setPhoneModal(true);
+  };
   return (
     <div>
       <AppBarWithBackArrow onClick={goBack} />
-
       <InputPhoneNumber
         buttonText={'다음(1/3)'}
         onChange={onChange}
@@ -69,6 +72,11 @@ const SignUpPhoneNumber = () => {
         title={'이미 가입된 번호입니다'}
         open={modal}
         setOpen={setModal}
+      />{' '}
+      <AlertModal
+        title={'올바른 형식이 아닙니다'}
+        open={phoneModal}
+        setOpen={setPhoneModal}
       />
     </div>
   );

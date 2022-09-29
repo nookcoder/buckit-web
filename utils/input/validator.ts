@@ -3,7 +3,7 @@ export const getOnlyNumber = (value: string): string => {
 };
 
 export const isPhoneNumber = (value: string): RegExpMatchArray | null => {
-  return value.match(/^(011|010)[0-9]{3,4}[0-9]{4}/);
+  return value.match(/^01([0|1|6|7|8|9])-?(\d{3,4})-?(\d{4})$/);
 };
 
 export const isEmail = (value: string): RegExpMatchArray | null => {

@@ -12,10 +12,7 @@ const LoginId = () => {
   const router = useRouter();
   const [phone, setPhone] = useRecoilState<string>(userPhoneNumberAtom);
   const [modal, setModal] = useState<boolean>(false);
-
-  const openModal = () => {
-    setModal(true);
-  };
+  const [phoneModal, setPhoneModal] = useState<boolean>(false);
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const value = getOnlyNumber(event.target.value);
@@ -39,8 +36,17 @@ const LoginId = () => {
 
       return await router.push('/user/login/password');
     }
+
+    openPhoneModal();
   };
 
+  const openModal = () => {
+    setModal(true);
+  };
+
+  const openPhoneModal = () => {
+    setPhoneModal(true);
+  };
   return (
     <div>
       <AppBarWithBackArrow onClick={goBack} />
@@ -54,6 +60,11 @@ const LoginId = () => {
         title={'가입되지 않은 번호입니다'}
         open={modal}
         setOpen={setModal}
+      />
+      <AlertModal
+        title={'올바른 형식이 아닙니다'}
+        open={phoneModal}
+        setOpen={setPhoneModal}
       />
     </div>
   );
