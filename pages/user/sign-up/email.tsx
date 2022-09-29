@@ -17,6 +17,7 @@ const Email = () => {
   const [createUser, setCreateUser] =
     useRecoilState<CreateUserType>(createUserAtom);
   const [modal, setModal] = useState<boolean>(false);
+  const [emailModal, setEmailModal] = useState<boolean>(false);
 
   const goBack = async () => {
     await router.push(SIGNUP_PHONE);
@@ -38,7 +39,7 @@ const Email = () => {
       return;
     }
 
-    alert('올바른 이메일을 입력해주세요');
+    openEmailModal();
     return;
   };
 
@@ -52,6 +53,10 @@ const Email = () => {
 
   const openModal = () => {
     setModal(true);
+  };
+
+  const openEmailModal = () => {
+    setEmailModal(true);
   };
 
   useEffect(() => {
@@ -98,6 +103,12 @@ const Email = () => {
           title={'이미 가입된 이메일입니다'}
           open={modal}
           setOpen={setModal}
+        />
+
+        <AlertModal
+          title={'올바른 이메일 형식이 아닙니다'}
+          open={emailModal}
+          setOpen={setEmailModal}
         />
       </main>
     </div>
