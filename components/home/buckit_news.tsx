@@ -12,7 +12,7 @@ const BuckitNews = ({ router }: BuckitNewsProps) => {
   };
 
   const onClickSecondBox = () => {
-    return router.push('/projects/1');
+    return router.push('/projects/16');
   };
 
   const onClickThirdBox = () => {
