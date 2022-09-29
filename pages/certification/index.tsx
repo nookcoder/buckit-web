@@ -43,6 +43,7 @@ const PhoneCertification = () => {
     }
     if (IMP) {
       IMP.init(process.env.IMP_CERTIFICATION_CODE);
+      window.open('about:blank', '', 'width = 100, height=100');
       IMP.certification(
         {
           // param
