@@ -19,6 +19,7 @@ const nextConfig = {
     BASE_URL: process.env.BASE_URL,
     REFRESH_COOKIE_KEY: process.env.REFRESH_COOKIE_KEY,
     KAKAO_APP_KEY: process.env.KAKAO_APP_KEY,
+    WEB_BASE_URL: process.env.WEB_BASE_URL,
   },
 };
 

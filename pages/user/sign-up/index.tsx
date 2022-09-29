@@ -1,14 +1,15 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import InputPhoneNumber from '../../../layout/user/input-phone-number';
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import { createUserAtom } from '../../../recoil';
 import { getOnlyNumber, isPhoneNumber } from '../../../utils';
-import { CreateUserType } from '../../../interface/';
+import { CertificationResponse, CreateUserType } from '../../../interface/';
 import { isExistUser } from '../../../api/auth/validate.api';
 import { CERTIFICATION } from '../../../constants';
 import AlertModal from '../../../components/common/modal/alert-modal';
+import { getUserCertificated } from '../../../api';
 
 const SignUpPhoneNumber = () => {
   const router = useRouter();
@@ -24,6 +25,25 @@ const SignUpPhoneNumber = () => {
       phoneNumber: value,
     });
     return;
+  };
+
+  const redirectToEmailPage = async (imp_uid: string) => {
+    await updateUserCertification(imp_uid);
+    await router.push('/user/sign-up/email');
+  };
+
+  const updateUserCertification = async (imp_uid: string) => {
+    const data: CertificationResponse = await getUserCertificated(
+      imp_uid,
+      '',
+      true
+    );
+    setCreateUser({
+      ...createUser,
+      name: data.name,
+      birth: data.birthday,
+      gender: data.gender,
+    });
   };
 
   const goBack = () => {
@@ -59,6 +79,14 @@ const SignUpPhoneNumber = () => {
   const openPhoneModal = () => {
     setPhoneModal(true);
   };
+
+  useEffect(() => {
+    const { imp_uid } = router.query;
+    if (imp_uid && typeof imp_uid === 'string') {
+      redirectToEmailPage(imp_uid);
+    }
+  }, [router.query]);
+
   return (
     <div>
       <AppBarWithBackArrow onClick={goBack} />

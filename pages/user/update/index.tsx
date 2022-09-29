@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react';
+import React, { ChangeEventHandler, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { userPhoneNumberAtom } from '../../../recoil';
@@ -33,6 +33,13 @@ const PhoneNumberInputForUpdatingPassword = () => {
       return await router.push('/certification/update', '/user');
     }
   };
+
+  useEffect(() => {
+    const { imp_uid } = router.query;
+    if (imp_uid && typeof imp_uid === 'string') {
+      router.push('/user/update/password');
+    }
+  }, [router.query]);
 
   return (
     <div>

@@ -43,13 +43,12 @@ const PhoneCertification = () => {
     }
     if (IMP) {
       IMP.init(process.env.IMP_CERTIFICATION_CODE);
-      window.open('about:blank', '', 'width = 100, height=100');
       IMP.certification(
         {
           // param
           merchant_uid: process.env.MERCHANT_UID, // 주문 번호
-          // m_redirect_url: process.env.BASE_URL,
-          popup: true, // PC환경에서는 popup 파라메터가 무시되고 항상 true 로 적용됨
+          m_redirect_url: `${process.env.WEB_BASE_URL}/user/sign-up`,
+          popup: false, // PC환경에서는 popup 파라메터가 무시되고 항상 true 로 적용됨
           phone: createUser.phoneNumber,
         },
         async (rsp: IMPResponse) => {
