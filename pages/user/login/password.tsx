@@ -33,6 +33,9 @@ const Password = () => {
         );
         setUserPassword('');
       })
+      .then(() => {
+        router.push('/');
+      })
       .catch((err: AxiosError) => {
         setUserPassword('');
         setShake(true);
@@ -44,7 +47,7 @@ const Password = () => {
       router.push('/user/login');
     }
     if (userPassword[0].length === 6) {
-      handlePasswordInput(phone, userPassword[0]).then(() => router.push('/'));
+      handlePasswordInput(phone, userPassword[0]);
     }
   }, [shake, userPassword[0]]);
 

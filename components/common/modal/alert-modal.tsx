@@ -1,16 +1,16 @@
 import React from 'react';
 import { Box, Button, Icon, Modal, Typography } from '@mui/material';
 import styles from '../../../styles/components/common/Modal.module.scss';
-import AnnouncementIcon from '@mui/icons-material/Announcement';
+import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import FullWidthButton from '../buttons/full_width_button';
-interface PrepareNotificationModalProps {
+
+interface NoFoundModalProps {
+  title: string;
   open: boolean;
   setOpen: React.SetStateAction<any>;
 }
-const PrepareNotificationModal = ({
-  open,
-  setOpen,
-}: PrepareNotificationModalProps) => {
+
+const AlertModal = ({ title, open, setOpen }: NoFoundModalProps) => {
   const closeModal = () => {
     setOpen(false);
   };
@@ -26,13 +26,9 @@ const PrepareNotificationModal = ({
       >
         <div className={styles.container}>
           <div className={styles.icon}>
-            <AnnouncementIcon color={'success'} fontSize={'large'} />
+            <ReportProblemIcon color={'error'} fontSize={'large'} />
           </div>
-          <h4 className={styles.title}>
-            아직 준비 중입니다
-            <br />
-            조금만 기다려주세요🙏
-          </h4>
+          <h4 className={styles.title}>{title}</h4>
 
           <div className={styles.button_container}>
             <FullWidthButton
@@ -50,4 +46,4 @@ const PrepareNotificationModal = ({
   );
 };
 
-export default PrepareNotificationModal;
+export default AlertModal;

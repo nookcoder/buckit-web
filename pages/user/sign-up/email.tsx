@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import styles from '../../../styles/layout/user/InputPhoneNumber.module.scss';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import { TextField } from '@mui/material';
@@ -10,11 +10,13 @@ import { SIGNUP_PHONE, SIGNUP_TERMS } from '../../../constants';
 import { CreateUserType } from '../../../interface';
 import { isEmail } from '../../../utils';
 import { isExistUser } from '../../../api/auth/validate.api';
+import AlertModal from '../../../components/common/modal/alert-modal';
 
 const Email = () => {
   const router = useRouter();
   const [createUser, setCreateUser] =
     useRecoilState<CreateUserType>(createUserAtom);
+  const [modal, setModal] = useState<boolean>(false);
 
   const goBack = async () => {
     await router.push(SIGNUP_PHONE);
@@ -28,7 +30,7 @@ const Email = () => {
           ...createUser,
           email: '',
         });
-        alert('이미 가입된 이메일입니다');
+        openModal();
         return;
       }
 
@@ -46,6 +48,10 @@ const Email = () => {
       ...createUser,
       email: value,
     });
+  };
+
+  const openModal = () => {
+    setModal(true);
   };
 
   useEffect(() => {
@@ -87,6 +93,12 @@ const Email = () => {
             다음(2/3)
           </FullWidthButton>
         </div>
+
+        <AlertModal
+          title={'이미 가입된 이메일입니다'}
+          open={modal}
+          setOpen={setModal}
+        />
       </main>
     </div>
   );
