@@ -28,17 +28,23 @@ const Password = () => {
 
   const handlePasswordInput = useCallback(
     (newPasswordValue: string, newPasswordCheckValue: string) => {
+      const setNewPassword = newPassword[1];
+      const setNewPasswordCheck = newPasswordCheck[1];
       if (!isEqualValue(newPasswordValue, newPasswordCheckValue)) {
-        const setNewPassword = newPassword[1];
-        const setNewPasswordCheck = newPasswordCheck[1];
-
         setNewPassword('');
         setNewPasswordCheck('');
         setShake(true);
         return;
       }
-
-      setCreateUserState(newPasswordValue);
+      setCreateUser({
+        ...createUser,
+        password: newPasswordValue,
+      });
+      setNewPasswordCheck('');
+      router.replace('/user/sign-up/completion', '/').then(() => {
+        setShake(false);
+        setNewPassword('');
+      });
       return;
     },
     []

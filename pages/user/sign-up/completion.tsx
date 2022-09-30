@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../../styles/pages/user/Completion.module.scss';
 import Image from 'next/image';
 import logo from '../../../public/assets/imageBuckitLogo.png';
 import { useRouter } from 'next/router';
 import FullWidthButton from '../../../components/common/buttons/full_width_button';
+import { useRecoilState } from 'recoil';
+import { createUserAtom } from '../../../recoil';
+import { CreateUserType } from '../../../interface';
+import { createNewUser } from '../../../api';
 
 const Completion = () => {
   const router = useRouter();
+  const [createUser, setCreateUser] = useRecoilState(createUserAtom);
   const goToHome = async () => {
     await router.push('/user', '/');
   };
+  const signUp = async (createUser: CreateUserType) => {
+    try {
+      await createNewUser(createUser);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    signUp(createUser).catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className={styles.container}>
