@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../../styles/pages/user/Passowrd.module.scss';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import InputPasswordLayout from '../../../layout/user/input-password.layout';
@@ -17,8 +17,9 @@ const Password = () => {
 
   const handlePasswordInput = async (phoneNumber: string, password: string) => {
     const setUserPassword = userPassword[1];
+    setShake(false);
 
-    return await login({
+    await login({
       phoneNumber: phoneNumber,
       password: password,
     })

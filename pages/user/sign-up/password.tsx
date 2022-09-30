@@ -50,26 +50,6 @@ const Password = () => {
     []
   );
 
-  const setCreateUserState = (password: string) => {
-    setCreateUser({
-      ...createUser,
-      password: password,
-    });
-    const setNewPasswordCheck = newPasswordCheck[1];
-    const setNewPassword = newPassword[1];
-    setNewPasswordCheck('');
-    router
-      .replace('/user/sign-up/completion', '/')
-      .then(async () => {
-        await createNewUser(createUser);
-      })
-      .then(async () => {
-        setShake(false);
-        setNewPassword('');
-      });
-    return;
-  };
-
   const isEqualValue = (newPassword: string, newPasswordCheck: string) => {
     return newPassword === newPasswordCheck;
   };
