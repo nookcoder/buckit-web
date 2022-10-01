@@ -2,9 +2,10 @@ import { CreateUserType, LoginInput } from '../../interface';
 import { coreDelete, coreGetWithAuth, corePost } from '../core/core-axios.api';
 import { UpdatePassword } from '../../interface/user/user.interface';
 import { User } from '../../models/model/user.model';
+import axios from 'axios';
 
 const login = async (body: LoginInput) => {
-  return await corePost('/api/v1/auth/login', body);
+  return await axios.post(`${process.env.BASE_URL}/api/v1/auth/login`, body);
 };
 
 const createNewUser = async (body: CreateUserType) => {
