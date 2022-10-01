@@ -16,9 +16,9 @@ const UserInfoBox = ({ name, phoneNumber, email }: UserInfoBoxProps) => {
     <div className={styles.user_container}>
       <div className={styles.user_name}>
         <span>{name}</span>
-        <IconButton sx={{ padding: 0 }}>
-          <EditIcon color={'success'} />
-        </IconButton>
+        {/*<IconButton sx={{ padding: 0 }}>*/}
+        {/*  <EditIcon color={'success'} />*/}
+        {/*</IconButton>*/}
       </div>
       <div className={styles.user_extra_info_container}>
         <PhoneIphoneIcon color={'success'} fontSize={'small'} />
