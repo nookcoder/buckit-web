@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // TODO : logger 작업
-const authInstanceAxios = axios.create();
-authInstanceAxios.interceptors.response.use(
+export const appAxios = axios.create();
+appAxios.interceptors.response.use(
   function (response) {
     return response;
   },
@@ -15,10 +15,10 @@ authInstanceAxios.interceptors.response.use(
       Authorization: `Bearer ${refreshToken}`,
     })
       .then((res) => {
-        axios.defaults.headers.common[
+        appAxios.defaults.headers.common[
           'Authorization'
         ] = `Bearer ${res.data.access_token}`;
-        return axios(originalRequest);
+        return appAxios(originalRequest);
       })
       .catch((err) => {
         localStorage.clear();
@@ -28,7 +28,7 @@ authInstanceAxios.interceptors.response.use(
 );
 
 export const coreGet = (url: string, headers?: any, cb?: any) => {
-  return axios
+  return appAxios
     .get(`${process.env.BASE_URL}${url}`, {
       headers: headers,
     })
@@ -43,13 +43,13 @@ export const coreGet = (url: string, headers?: any, cb?: any) => {
 };
 
 export const corePost = (url: string, body: any, headers?: any, cb?: any) => {
-  return axios.post(`${process.env.BASE_URL}${url}`, body, {
+  return appAxios.post(`${process.env.BASE_URL}${url}`, body, {
     headers: headers,
   });
 };
 
 export const coreGetWithAuth = (url: string, headers?: any, cb?: any) => {
-  return authInstanceAxios
+  return appAxios
     .get(`${process.env.BASE_URL}${url}`, {
       headers: headers,
     })

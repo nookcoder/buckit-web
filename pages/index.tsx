@@ -91,7 +91,10 @@ const Home: NextPage = () => {
 
           <h3 className={styles.recommend_title}>버킷 뉴스</h3>
           <div className={styles.news_container}>
-            <BuckitNews router={router} />
+            <BuckitNews
+              projectId={productViewModel?.get().id}
+              router={router}
+            />
           </div>
 
           <div className={styles.company_information}>

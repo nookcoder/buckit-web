@@ -62,7 +62,7 @@ const Setting = () => {
       />
       <div className={styles.column_container}>
         <div className={styles.title}>계정</div>
-        <MyPageHistoryColumn title={'내 정보'} />
+        {/*<MyPageHistoryColumn title={'내 정보'} />*/}
         <MyPageHistoryColumn
           title={'비밀번호 재설정'}
           onClick={updatePassword}

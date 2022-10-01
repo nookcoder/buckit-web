@@ -28,7 +28,6 @@ const ProjectLocationMap = ({
           // 정상적으로 검색이 완료됐으면
           if (status === kakao.maps.services.Status.OK) {
             const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-            console.log(project_status);
             if (project_status === ProjectStatus.Before) {
               const circle = new kakao.maps.Circle({
                 center: coords,

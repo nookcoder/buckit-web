@@ -27,4 +27,16 @@ const getUserProfile = async () => {
     });
 };
 
-export { createNewUser, login, updatePassword, getUserProfile };
+const toggleLikeProject = async (projectId: number) => {
+  return coreGetWithAuth(`/api/v1/like/${projectId}`).then((res) => {
+    return res.data.ok;
+  });
+};
+
+export {
+  createNewUser,
+  login,
+  updatePassword,
+  getUserProfile,
+  toggleLikeProject,
+};

@@ -8,6 +8,7 @@ import { userPasswordSelector, userPhoneNumberAtom } from '../../../recoil';
 import { login } from '../../../api';
 import axios, { AxiosError } from 'axios';
 import { LoginOutput } from '../../../interface';
+import { appAxios } from '../../../api/core/core-axios.api';
 
 const Password = () => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const Password = () => {
     })
       .then((res) => {
         const tokens: LoginOutput = res.data;
-        axios.defaults.headers.common[
+        appAxios.defaults.headers.common[
           'Authorization'
         ] = `Bearer ${tokens.access_token}`;
         localStorage.setItem(

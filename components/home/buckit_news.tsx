@@ -4,15 +4,16 @@ import { NextRouter } from 'next/router';
 
 interface BuckitNewsProps {
   router: NextRouter;
+  projectId: number | undefined;
 }
 
-const BuckitNews = ({ router }: BuckitNewsProps) => {
+const BuckitNews = ({ router, projectId }: BuckitNewsProps) => {
   const onClickFirstBox = () => {
     return router.push('/projects');
   };
 
   const onClickSecondBox = () => {
-    return router.push('/projects/16');
+    return router.push(`/projects/${projectId}`);
   };
 
   const onClickThirdBox = () => {
