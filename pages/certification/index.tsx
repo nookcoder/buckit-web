@@ -47,7 +47,7 @@ const PhoneCertification = () => {
         {
           // param
           merchant_uid: process.env.MERCHANT_UID, // 주문 번호
-          m_redirect_url: `${process.env.WEB_BASE_URL}/user/sign-up`,
+          m_redirect_url: `${process.env.WEB_BASE_URL}/user/sign-up/email`,
           popup: false, // PC환경에서는 popup 파라메터가 무시되고 항상 true 로 적용됨
           phone: createUser.phoneNumber,
         },

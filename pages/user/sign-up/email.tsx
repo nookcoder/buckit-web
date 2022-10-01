@@ -7,10 +7,11 @@ import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { createUserAtom } from '../../../recoil';
 import { SIGNUP_PHONE, SIGNUP_TERMS } from '../../../constants';
-import { CreateUserType } from '../../../interface';
+import { CertificationResponse, CreateUserType } from '../../../interface';
 import { isEmail } from '../../../utils';
 import { isExistUser } from '../../../api/auth/validate.api';
 import AlertModal from '../../../components/common/modal/alert-modal';
+import { getUserCertificated } from '../../../api';
 
 const Email = () => {
   const router = useRouter();
@@ -19,6 +20,19 @@ const Email = () => {
   const [modal, setModal] = useState<boolean>(false);
   const [emailModal, setEmailModal] = useState<boolean>(false);
 
+  const updateUserCertification = async (imp_uid: string) => {
+    const data: CertificationResponse = await getUserCertificated(
+      imp_uid,
+      '',
+      true
+    );
+    setCreateUser({
+      ...createUser,
+      name: data.name,
+      birth: data.birthday,
+      gender: data.gender,
+    });
+  };
   const goBack = async () => {
     await router.push(SIGNUP_PHONE);
   };
@@ -60,10 +74,15 @@ const Email = () => {
   };
 
   useEffect(() => {
-    if (!createUser.name) {
+    if (!createUser.phoneNumber) {
       router.push(SIGNUP_PHONE).catch((err) => console.error(err));
     }
-  });
+
+    const { imp_uid } = router.query;
+    if (imp_uid && typeof imp_uid === 'string') {
+      updateUserCertification(imp_uid);
+    }
+  }, [router.query]);
 
   return (
     <div className={styles.container}>
