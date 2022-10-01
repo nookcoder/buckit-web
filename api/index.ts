@@ -5,6 +5,7 @@ import {
   updatePassword,
   getUserProfile,
   toggleLikeProject,
+  deleteUser,
 } from './user';
 import { getAllProjects, getProjectById } from './project';
 
@@ -15,5 +16,6 @@ export {
   updatePassword,
   getUserProfile,
   toggleLikeProject,
+  deleteUser,
 };
 export { getAllProjects, getProjectById };

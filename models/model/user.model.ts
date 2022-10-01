@@ -18,7 +18,13 @@ export type User = {
   termsOfPrivacy: boolean;
   termsOfMarketing: boolean;
   points: number;
-  like?: [];
+  likes: Like[];
+};
+
+export type Like = {
+  id: number;
+  projectId: number;
+  userId: number;
 };
 
 export enum UserRole {

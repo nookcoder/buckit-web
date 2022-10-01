@@ -48,6 +48,10 @@ export const corePost = (url: string, body: any, headers?: any, cb?: any) => {
   });
 };
 
+export const coreDelete = (url: string, body?: any) => {
+  return appAxios.delete(`${process.env.BASE_URL}${url}`);
+};
+
 export const coreGetWithAuth = (url: string, headers?: any, cb?: any) => {
   return appAxios
     .get(`${process.env.BASE_URL}${url}`, {

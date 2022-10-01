@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import AppBarWithBackArrow from '../../../components/nav/app_bar_with_back_arrow';
 import MyPageHistoryColumn from '../../../components/my-page/mypage_column';
 import styles from '../../../styles/pages/setting/Setting.module.scss';
-import { Divider } from '@mui/material';
 import { TERM_PRIVACY, TERM_SERVICE } from '../../../constants';
 import { TERM_PURCHASE } from '../../../constants/page-url /terms';
 import { useRouter } from 'next/router';
@@ -32,6 +31,10 @@ const SettingDetail = () => {
   const logout = () => {
     localStorage.clear();
     return router.push('/user');
+  };
+
+  const goToResign = () => {
+    return router.push('/setting/details/resign');
   };
 
   useEffect(() => {
@@ -70,7 +73,11 @@ const SettingDetail = () => {
           title={refreshToken ? '로그아웃' : '로그인'}
           onClick={refreshToken ? logout : goToLoginPage}
         />
-        {refreshToken ? <MyPageHistoryColumn title={'회원탈퇴'} /> : <></>}
+        {refreshToken ? (
+          <MyPageHistoryColumn title={'회원탈퇴'} onClick={goToResign} />
+        ) : (
+          <></>
+        )}
       </div>
       <div></div>
     </div>
