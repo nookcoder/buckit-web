@@ -37,12 +37,23 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <RecoilRoot>
-      <Component {...pageProps} />{' '}
       <Script
         type="text/javascript"
         src={kakaoMapSrc}
-        strategy={'beforeInteractive'}
+        strategy={'afterInteractive'}
       />
+      <Script
+        id={'gtag-init'}
+        strategy={'afterInteractive'}
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date()); gtag('config', ${process.env.GTAG});
+          `,
+        }}
+      />
+      <Component {...pageProps} />{' '}
     </RecoilRoot>
   );
 }

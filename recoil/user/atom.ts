@@ -42,6 +42,7 @@ const newPasswordCheckAtom = atom({
 const userPhoneNumberAtom = atom({
   key: 'userPhoneNumberAtom',
   default: '',
+  effects_UNSTABLE: [persistAtom],
 });
 
 const userPasswordAtom = atom({

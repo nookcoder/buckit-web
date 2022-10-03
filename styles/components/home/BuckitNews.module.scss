@@ -1,8 +1,9 @@
+@import "styles/variables/variables";
+
 .news_box{
   border-radius: 15px;
-  width: 72px;
-  height: 72px;
-  font-size: 12px;
+  width: 84px;
+  height: 84px;
   &:hover{
     cursor: pointer;
   }
@@ -14,6 +15,7 @@
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
+  font-size: 16.5px;
 }
 
 .blue{
@@ -26,4 +28,20 @@
 
 .yellow{
   background-color: #F8FA9C;
+}
+
+@media screen and  (max-width: $galaxy-fold){
+
+  .news_box{
+    width: 76px;
+    height: 76px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  .news_text{
+    font-size: 14px;
+  }
+
 }

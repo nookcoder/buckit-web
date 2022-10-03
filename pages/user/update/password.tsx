@@ -14,7 +14,7 @@ const Password = () => {
   const router = useRouter();
   const newPassword = useRecoilState(newPasswordSelector);
   const newPasswordCheck = useRecoilState(newPasswordCheckSelector);
-  const phoneNumber = useRecoilState(userPhoneNumberAtom);
+  const [phone, setPhone] = useRecoilState<string>(userPhoneNumberAtom);
   const [shake, setShake] = useState<boolean>(false);
 
   // todo : 신규 비밀번호 입력하는 layout 만들기 -> 로그인 이후에도 쓰임
@@ -24,7 +24,7 @@ const Password = () => {
     }
   }, [newPassword, newPasswordCheck]);
 
-  const handlePasswordInput = (
+  const handlePasswordInput = async (
     newPasswordValue: string,
     newPasswordCheckValue: string
   ) => {
@@ -38,11 +38,11 @@ const Password = () => {
     }
 
     setNewPasswordCheck('');
+    await requestUpdatePassword(phone, newPassword[0]);
     router
       .push('/user')
       .then(async () => {
         setShake(false);
-        await requestUpdatePassword(phoneNumber[0], newPassword[0]);
       })
       .then(async () => {
         setNewPassword('');
@@ -57,11 +57,9 @@ const Password = () => {
   ) => {
     try {
       await updatePassword({
-        password,
+        password: password,
         phoneNumber,
-      })
-        .then((res) => {})
-        .catch((err) => {});
+      });
     } catch (err) {
       alert('서버 에러입니다. 관리자에게 문의해주세요');
     }

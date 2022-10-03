@@ -29,12 +29,12 @@ const HomeProductBox = (props: ViewModel) => {
     <div className={styles.container}>
       <div className={styles.box} onClick={goToDetail}>
         <div className={styles.image_box}>
-          <Image
-            src={props.productViewModel.getThumbnailImage()}
-            layout={'fill'}
-            alt={'프로젝트 썸네일 이미지'}
-            className={styles.image}
-          />
+          {/*<Image*/}
+          {/*  src={props.productViewModel.getThumbnailImage()}*/}
+          {/*  layout={'fill'}*/}
+          {/*  alt={'프로젝트 썸네일 이미지'}*/}
+          {/*  className={styles.image}*/}
+          {/*/>*/}
         </div>
 
         <div className={styles.title_box}>

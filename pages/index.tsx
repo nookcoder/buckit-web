@@ -9,7 +9,7 @@ import AppBar from '../components/nav/app_bar';
 import HomeProductBox from '../components/home/homeProductBox';
 import BuckitNews from '../components/home/buckit_news';
 import { useRouter } from 'next/router';
-import { MouseEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllProjects } from '../api';
 import { useRecoilState } from 'recoil';
 import { currentProjectIdAtom, getProjectQueryAtom } from '../recoil';
@@ -75,7 +75,7 @@ const Home: NextPage = () => {
         <div>
           <AppBar />
 
-          <Banner onClick={openModal} />
+          <Banner />
 
           <h3 className={styles.recommend_title}>
             사장님 이 프로젝트는 어때요?

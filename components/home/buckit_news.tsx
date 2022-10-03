@@ -9,7 +9,8 @@ interface BuckitNewsProps {
 
 const BuckitNews = ({ router, projectId }: BuckitNewsProps) => {
   const onClickFirstBox = () => {
-    return router.push('/projects');
+    return (window.location.href =
+      'https://blog.naver.com/buckit/222889292516');
   };
 
   const onClickSecondBox = () => {
@@ -29,9 +30,9 @@ const BuckitNews = ({ router, projectId }: BuckitNewsProps) => {
         <div className={styles.news_text}>
           버킷
           <br />
-          베타 서비스
+          APP처럼
           <br />
-          오픈! 🎉
+          사용하기📌
         </div>
       </div>
       <div
@@ -43,7 +44,7 @@ const BuckitNews = ({ router, projectId }: BuckitNewsProps) => {
           <br />
           프로젝트
           <br />
-          살펴보기 👀
+          살펴보기👀
         </div>
       </div>
       <div
@@ -55,7 +56,7 @@ const BuckitNews = ({ router, projectId }: BuckitNewsProps) => {
           <br />
           블로그
           <br />
-          구경가기 🏠
+          구경가기🏠
         </div>
       </div>
     </>

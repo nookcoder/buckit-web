@@ -37,7 +37,7 @@ const PhoneNumberInputForUpdatingPassword = () => {
   useEffect(() => {
     const { imp_uid } = router.query;
     if (imp_uid && typeof imp_uid === 'string') {
-      router.push('/user/update/password');
+      router.push('/user/update/password', '/user');
     }
   }, [router.query]);
 
