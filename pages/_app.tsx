@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <Script
         type="text/javascript"
         src={kakaoMapSrc}
-        strategy={'afterInteractive'}
+        strategy={'beforeInteractive'}
       />
       <Script
         strategy={'afterInteractive'}
