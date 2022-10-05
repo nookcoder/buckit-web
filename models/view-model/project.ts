@@ -60,6 +60,16 @@ class ProjectViewModel {
     return 100;
   }
 
+  getAvailableBlockForPurchase() {
+    return this.project.totalQuarter - this.project.soldQuarter;
+  }
+
+  getPricePerBlock() {
+    return this.project.pricePerQuarter
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   getTotalBlock() {
     return this.project.totalQuarter
       .toString()
