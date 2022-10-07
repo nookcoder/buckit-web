@@ -4,20 +4,20 @@
   height: max-content;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 .title {
   min-width: 15%;
   font-size: 18px;
-  transform: translateY(10px);
 }
 
 
 @media screen and (max-width: $galaxy-fold) {
   .title {
     min-width: 15%;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .helper_text {

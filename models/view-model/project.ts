@@ -114,6 +114,11 @@ class ProjectViewModel {
         return '오픈';
     }
   }
+
+  getPurchasePrice(qty: number) {
+    const total = this.project.pricePerQuarter * qty;
+    return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 }
 
 export default ProjectViewModel;

@@ -39,7 +39,7 @@ export class ProjectListViewModel {
       case ProjectStatus.Before:
         return `미진행`;
       case ProjectStatus.FUNDING_PROGRESS:
-        return `${this.getAchievementRate(project)}% / ${money}억`;
+        return `${Math.round(this.getAchievementRate(project))}% / ${money}억`;
       case ProjectStatus.FundingEnd:
         return `마감 / ${money}억`;
     }
