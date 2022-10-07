@@ -116,7 +116,7 @@ const CheckingPurchase = () => {
       terms.privacy &&
       projectViewModel
     ) {
-      router.push(`/projects/${projectViewModel.get().id}/payment`);
+      router.push(`/projects/${projectViewModel.get().id}/payments`);
       return;
     }
 
