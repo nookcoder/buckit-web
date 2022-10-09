@@ -5,12 +5,16 @@ import { ButtonBase, Divider, styled } from '@mui/material';
 import PurchaseNotes from '../../components/projects/payments/purchase-notes';
 import FullWidthButton from '../../components/common/buttons/full_width_button';
 import OkModal from '../../components/common/modal/ok-modal';
+import { useRecoilState } from 'recoil';
+import { OrderInputAtom } from '../../interface';
+import { orderAtom } from '../../recoil';
 
 interface PaymentsLayoutProps {
   onClick: any;
 }
 
 const PaymentsLayout = ({ onClick }: PaymentsLayoutProps) => {
+  const [orderInput, setOrderInput] = useRecoilState<OrderInputAtom>(orderAtom);
   const [okModal, setOkModal] = useState(false);
 
   const copyAccount = () => {
@@ -50,7 +54,10 @@ const PaymentsLayout = ({ onClick }: PaymentsLayoutProps) => {
 
         <div className={styles.content_total}>
           <div className={styles.content_title}>입금할 금액</div>
-          <div className={styles.total}>1,000,000원</div>
+          <div className={styles.total}>
+            {orderInput.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            원
+          </div>
         </div>
 
         <PurchaseNotes />

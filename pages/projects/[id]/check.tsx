@@ -17,13 +17,14 @@ import { useRouter } from 'next/router';
 import test from '../../../public/assets/banner.png';
 import PrecautionsGuidance from '../../../components/projects/precautions-guidance';
 import AlertModal from '../../../components/common/modal/alert-modal';
+import { OrderInputAtom } from '../../../interface';
 
 const CheckingPurchase = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [currentProjectId, setCurrentProjectId] =
     useRecoilState(currentProjectIdAtom);
-  const [orderInput, setOrderInput] = useRecoilState(orderAtom);
+  const [orderInput, setOrderInput] = useRecoilState<OrderInputAtom>(orderAtom);
   const [userCheckModal, setUserCheckModal] = useState(false);
   const [termsCheckModal, setTermsCheckModal] = useState(false);
   const [userViewModel, setUserViewModel] = useState<UserViewModel>();
@@ -55,6 +56,10 @@ const CheckingPurchase = () => {
     if (project) {
       const projectModel = new ProjectModel(project);
       setProjectViewModel(new ProjectViewModel(projectModel));
+      setOrderInput({
+        ...orderInput,
+        total: projectModel.get().pricePerQuarter * +orderInput.quarter_qty,
+      });
     }
 
     setIsLoading(false);

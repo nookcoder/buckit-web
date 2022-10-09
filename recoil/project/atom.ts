@@ -21,6 +21,7 @@ export const orderAtom = atom({
     quarter_qty: 0,
     buyer_name: '',
     buyer_bank: '',
+    total: 0,
   },
   effects_UNSTABLE: [persistAtom],
 });

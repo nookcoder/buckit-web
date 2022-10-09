@@ -20,14 +20,6 @@ export const BANKS = [
     value: '우리은행',
   },
   {
-    name: '하나은행',
-    value: '하나은행',
-  },
-  {
-    name: '하나은행',
-    value: '하나은행',
-  },
-  {
     name: '케이뱅크',
     value: '케이뱅크',
   },

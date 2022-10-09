@@ -14,4 +14,6 @@ export interface OrderInputAtom {
   buyer_name: string;
 
   buyer_bank: string;
+
+  total: number;
 }
