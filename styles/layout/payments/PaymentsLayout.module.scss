@@ -1,0 +1,52 @@
+@import "styles/variables/variables";
+
+.container{
+  margin-top: 40px;
+  padding: 0 30px;
+}
+
+.content{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 17px;
+  align-items: center;
+}
+
+.content_title{
+  font-weight: 700;
+}
+
+.content_account{
+  display: flex;
+  align-items: center;
+}
+
+.content_total{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  font-size: 18px;
+}
+
+.total{
+  font-weight: 600;
+}
+
+.divider{
+  margin: 20px 0;
+}
+
+.button_container{
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 80px;
+  width: 28rem;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: $phone-width) {
+  .button_container{
+    width: 100%;
+  }
+}

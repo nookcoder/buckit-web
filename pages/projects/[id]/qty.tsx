@@ -13,7 +13,7 @@ import { getProjectById } from '../../../api';
 import { ProjectModel } from '../../../models/model/project';
 import AlertModal from '../../../components/common/modal/alert-modal';
 import { useRecoilState } from 'recoil';
-import { currentProjectIdAtom, qtyAtom } from '../../../recoil';
+import { currentProjectIdAtom, orderAtom } from '../../../recoil';
 
 const Qty = () => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const Qty = () => {
   const [projectViewModel, setProjectViewModel] = useState<ProjectViewModel>();
   const [currentProjectId, setCurrentProjectId] =
     useRecoilState(currentProjectIdAtom);
-  const [qtyA, setQtyA] = useRecoilState(qtyAtom);
+  const [orderInput, setOrderInput] = useRecoilState(orderAtom);
   const [qty, setQty] = useState<string>('0');
 
   const init = async (projectId: string) => {
@@ -44,7 +44,10 @@ const Qty = () => {
       setQtyModal(true);
     }
 
-    setQtyA(qty);
+    setOrderInput({
+      ...orderInput,
+      quarter_qty: qty,
+    });
     return router.push(`/projects/${currentProjectId}/check`);
   };
 

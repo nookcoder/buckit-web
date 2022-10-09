@@ -14,7 +14,7 @@ import {
 import {
   currentProjectIdAtom,
   getProjectQueryAtom,
-  qtyAtom,
+  orderAtom,
 } from './project/atom';
 
 export {
@@ -25,7 +25,7 @@ export {
   userPhoneNumberAtom,
 };
 export { newPasswordSelector, newPasswordCheckSelector, userPasswordSelector };
-export { currentProjectIdAtom, getProjectQueryAtom, qtyAtom };
+export { currentProjectIdAtom, getProjectQueryAtom, orderAtom };
 
 export const BACK_SPACE = 'BACK_SPACE';
 export const MAX_QTY = 'MAX_QTY';

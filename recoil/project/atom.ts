@@ -15,9 +15,13 @@ export const currentProjectIdAtom = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const qtyAtom = atom({
-  key: 'inputBlockQty',
-  default: '0',
+export const orderAtom = atom({
+  key: 'orderAtom',
+  default: {
+    quarter_qty: 0,
+    buyer_name: '',
+    buyer_bank: '',
+  },
   effects_UNSTABLE: [persistAtom],
 });
 

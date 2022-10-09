@@ -17,6 +17,7 @@ import {
 import { ProjectStatus } from '../../../constants';
 import { UserModel } from '../../../models/model/user.model';
 import { UserViewModel } from '../../../models/view-model/user';
+import OkModal from '../../../components/common/modal/ok-modal';
 
 const ProjectDetail = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const ProjectDetail = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [isLike, setIsLike] = useState<boolean | undefined>();
   const [projectViewModel, setProjectViewModel] = useState<ProjectViewModel>();
+  const [doneModal, setDoneModal] = useState(false);
 
   const [userViewModel, setUserViewModel] = useState<UserViewModel>();
   const user = userViewModel?.get();
@@ -70,6 +72,11 @@ const ProjectDetail = () => {
       window.Kakao.Channel.addChannel({
         channelPublicId: '_zniRxj',
       });
+      return;
+    }
+
+    if (projectViewModel?.getAchievementRate() === 100) {
+      setDoneModal(true);
       return;
     }
 
@@ -123,6 +130,11 @@ const ProjectDetail = () => {
           </footer>
         </>
       )}
+      <OkModal
+        title={'모집이 마감되었습니다'}
+        open={doneModal}
+        setOpen={setDoneModal}
+      />
     </div>
   );
 };

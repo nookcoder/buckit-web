@@ -6,7 +6,7 @@ import FullWidthButton from '../../../components/common/buttons/full_width_butto
 import UserCertificationInput from '../../../components/projects/user_certification_input';
 import ProjectToggleInput from '../../../components/projects/toggle_input';
 import { useRecoilState } from 'recoil';
-import { currentProjectIdAtom, qtyAtom } from '../../../recoil';
+import { currentProjectIdAtom, orderAtom } from '../../../recoil';
 import { UserViewModel } from '../../../models/view-model/user';
 import ProjectViewModel from '../../../models/view-model/project';
 import { getProjectById, getUserProfile } from '../../../api';
@@ -23,7 +23,7 @@ const CheckingPurchase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentProjectId, setCurrentProjectId] =
     useRecoilState(currentProjectIdAtom);
-  const [qty, setQty] = useRecoilState(qtyAtom);
+  const [orderInput, setOrderInput] = useRecoilState(orderAtom);
   const [userCheckModal, setUserCheckModal] = useState(false);
   const [termsCheckModal, setTermsCheckModal] = useState(false);
   const [userViewModel, setUserViewModel] = useState<UserViewModel>();
@@ -198,7 +198,7 @@ const CheckingPurchase = () => {
                 <span style={{ color: 'green' }}>최종 펀딩 금액</span>
               </div>
               <div className={styles.total_text}>
-                {projectViewModel.getPurchasePrice(qty)}원
+                {projectViewModel.getPurchasePrice(orderInput.quarter_qty)}원
               </div>
             </div>
             <div>

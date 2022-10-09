@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import styles from '../../../styles/components/projects/payments/Payments.module.scss';
 import { InputBase, styled, TextField } from '@mui/material';
+import { getOnlyKorean } from '../../../utils/input/validator';
 
 interface BuyerNameProps {
   value: string;
@@ -9,7 +10,7 @@ interface BuyerNameProps {
 
 const BuyerName = ({ value, setValue }: BuyerNameProps) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
+    const value = getOnlyKorean(event.target.value);
     setValue(value);
   };
 
@@ -17,7 +18,7 @@ const BuyerName = ({ value, setValue }: BuyerNameProps) => {
     <div className={styles.buyer_name_container}>
       <div className={styles.title}>구매자명</div>
       <div>
-        <BuyerInput />
+        <BuyerInput value={value} onChange={handleChange} />
       </div>
     </div>
   );
