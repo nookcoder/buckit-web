@@ -1,3 +1,5 @@
+const koRex = /[^가-힣|ㄱ-ㅎ]/g;
+
 export const getOnlyNumber = (value: string): string => {
   return value.replace(/[^0-9]/g, '');
 };
@@ -10,4 +12,9 @@ export const isEmail = (value: string): RegExpMatchArray | null => {
   return value.match(
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
   );
+};
+
+export const getOnlyKorean = (value: string): string => {
+  // console.log('after' + value.match(koRex));
+  return value.replace(/[^가-힣|ㄱ-ㅎ]/g, '');
 };
