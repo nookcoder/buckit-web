@@ -24,7 +24,7 @@ const MyProjectBox = ({ index, style, share }: MyProjectBoxProps) => {
       <div className={styles.order_content}>
         <div className={styles.order_thumbnail} aria-label={'thumbnail'}>
           <Image
-            src={test}
+            src={share.getProject().thumbnailImage}
             layout={'fill'}
             className={styles.auto_image}
             alt={'프로젝트 썸네일'}
