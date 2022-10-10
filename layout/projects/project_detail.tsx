@@ -92,22 +92,18 @@ const ProjectDetailLayout = ({
             ></Image>
           </>
         ) : (
-          <section>
-            {project.content.map((contentImage, index) => (
-              <Image
-                key={index}
-                src={contentImage}
-                layout={'fill'}
-                alt={'프로젝트 설명'}
-              />
+          <>
+            {projectViewModel.getContentUrl().map((contentImage, index) => (
+              <div key={index} className={styles.content_image_container}>
+                <Image
+                  src={contentImage}
+                  layout={'fill'}
+                  className={styles.auto_image}
+                  alt={'프로젝트 설명'}
+                />
+              </div>
             ))}
-            {/*<section>*/}
-            {/*  <ProjectLocationMap*/}
-            {/*    address={project.address}*/}
-            {/*    project_status={project.status}*/}
-            {/*  />*/}
-            {/*</section>*/}
-          </section>
+          </>
         )}
       </section>
     </div>
