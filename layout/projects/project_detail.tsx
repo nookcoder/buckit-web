@@ -21,9 +21,9 @@ const ProjectDetailLayout = ({
   const project: Project = projectViewModel.get();
   const download = () => {
     const a = document.createElement('a');
-    const url = 'https://www.buckit.me/public/report.pdf';
+    var url = 'https://www.buckit.me/public/report.pdf';
     a.href = url;
-    a.download = url.split('/').pop();
+    a.download = 'report.pdf';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
