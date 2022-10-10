@@ -74,6 +74,12 @@ const ProjectDetailLayout = ({
           <CalendarTodayOutlinedIcon fontSize={'small'} />
           <span>{projectViewModel.getDeadline()}</span>
         </div>
+
+        <div className={styles.button_container22}>
+          <Button onClick={download} variant={'text'}>
+            상권 분석 자료 다운로드
+          </Button>
+        </div>
       </section>
 
       <section className={styles.content_container}>
@@ -112,11 +118,6 @@ const ProjectDetailLayout = ({
                 />
               </div>
             ))}
-            <div className={styles.button_container22}>
-              <Button onClick={download} variant={'text'}>
-                상권 분석 자료 다운로드
-              </Button>
-            </div>
           </>
         )}
       </section>
