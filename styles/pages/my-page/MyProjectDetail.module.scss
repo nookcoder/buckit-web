@@ -1,0 +1,53 @@
+@import "styles/variables/variables";
+
+.container{
+  padding: 0 20px;
+}
+
+.project_header{
+  margin-top:10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project_address{
+  opacity: 0.4;
+}
+
+.project_status{
+  opacity: 0.7;
+  background-color: $main-green;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: white;
+  border-radius: 5px;
+}
+
+.project_title{
+  margin-top:10px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.project_content{
+  margin-bottom: 20px;
+}
+
+.share_container{
+  margin-top: 20px;
+  //background-color: #F9F9F9;
+  padding: 10px 20px;
+}
+
+.share_col{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.share_col_title{
+  //opacity: 0.7;
+  //color: $main-green;
+  font-weight: 600;
+}

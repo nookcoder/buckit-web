@@ -32,7 +32,7 @@
 }
 
 .order_title{
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 5px;
 }
@@ -60,12 +60,25 @@
   color: darkolivegreen;
 }
 
+.funding_status_box{
+  display: flex;
+  justify-content: start;
+}
+
+.funding_project_status{
+  background-color: $main-green;
+  font-size: 13px;
+  color: #F9F9F9;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: $phone-width) {
   .order_thumbnail{
     width: 50%;
   }
 
   .mobile_font_size {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
