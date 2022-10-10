@@ -51,6 +51,7 @@ const ProjectToggleInput = ({
           ...selected,
           notice: !selected.notice,
         });
+        return;
     }
   };
 
@@ -59,10 +60,26 @@ const ProjectToggleInput = ({
       <div className={styles.left_column}>
         <CustomToggleButton
           selectedStyled={
-            type === 'privacy' ? selected.privacy : selected.purchase
+            type === 'privacy'
+              ? selected.privacy
+              : type === 'purchase'
+              ? selected.purchase
+              : selected.notice
           }
-          value={type === 'privacy' ? selected.privacy : selected.purchase}
-          selected={type === 'privacy' ? selected.privacy : selected.purchase}
+          value={
+            type === 'privacy'
+              ? selected.privacy
+              : type === 'purchase'
+              ? selected.purchase
+              : selected.notice
+          }
+          selected={
+            type === 'privacy'
+              ? selected.privacy
+              : type === 'purchase'
+              ? selected.purchase
+              : selected.notice
+          }
           onChange={onChange}
         >
           {type === 'privacy' ? (
@@ -71,7 +88,13 @@ const ProjectToggleInput = ({
             ) : (
               <></>
             )
-          ) : selected.purchase ? (
+          ) : type === 'purchase' ? (
+            selected.purchase ? (
+              <CheckIcon fontSize={'small'} sx={{ color: 'white' }} />
+            ) : (
+              <></>
+            )
+          ) : selected.notice ? (
             <CheckIcon fontSize={'small'} sx={{ color: 'white' }} />
           ) : (
             <></>
