@@ -80,7 +80,7 @@ const ProjectToggleInput = ({
         <span className={styles.title}>{title}</span>
       </div>
       <div>
-        <IconButton>
+        <IconButton onClick={goToPage}>
           <ChevronRightIcon />
         </IconButton>
       </div>
