@@ -27,9 +27,19 @@
 }
 
 .order_thumbnail{
-  width: 10rem;
   margin-right: 10px;
+  width: 50%;
+  & span {
+    position: unset !important;
+  }
 }
+
+.auto_image{
+  object-fit: contain !important;
+  position: relative !important;
+  height: auto !important;
+}
+
 
 .order_title{
   font-size: 16px;
@@ -75,9 +85,8 @@
 
 @media screen and (max-width: $phone-width) {
   .order_thumbnail{
-    width: 50%;
+    width: 60%;
   }
-
   .mobile_font_size {
     font-size: 14px;
   }

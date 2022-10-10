@@ -23,7 +23,12 @@ const MyProjectBox = ({ index, style, share }: MyProjectBoxProps) => {
     <div key={index} style={style} onClick={goToMyProjectDetail}>
       <div className={styles.order_content}>
         <div className={styles.order_thumbnail} aria-label={'thumbnail'}>
-          <Image src={test} layout={'responsive'} />
+          <Image
+            src={test}
+            layout={'fill'}
+            className={styles.auto_image}
+            alt={'프로젝트 썸네일'}
+          />
         </div>
         <div className={styles.mobile_font_size} aria-label={'content'}>
           <div className={styles.order_title}>{share.get().project.title}</div>

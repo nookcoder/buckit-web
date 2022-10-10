@@ -111,7 +111,7 @@ const ProjectDetail = () => {
         <CircularProgress></CircularProgress>
       ) : (
         <>
-          <AppBarWithBackArrow title={projectViewModel.getTile()} />
+          <AppBarWithBackArrow title={projectViewModel.getAppTitle()} />
 
           <main>
             <ProjectDetailLayout projectViewModel={projectViewModel} />

@@ -41,8 +41,10 @@ const BeforePaymentProjectBox = ({
       <div className={styles.order_content}>
         <div className={styles.order_thumbnail} aria-label={'thumbnail'}>
           <Image
+            alt={'프로젝트 썸네일'}
             src={order.get().project.thumbnailImage}
-            layout={'responsive'}
+            layout={'fill'}
+            className={styles.auto_image}
           />
         </div>
         <div className={styles.mobile_font_size} aria-label={'content'}>
