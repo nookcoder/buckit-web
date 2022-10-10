@@ -14,7 +14,9 @@ interface NoFoundModalProps {
 const AlertModal = ({ title, open, setOpen, cb }: NoFoundModalProps) => {
   const closeModal = () => {
     setOpen(false);
-    cb();
+    if (cb) {
+      cb();
+    }
   };
 
   return (

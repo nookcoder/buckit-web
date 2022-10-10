@@ -13,11 +13,14 @@ import UserPointBox from '../../components/my-page/user-point-box';
 import { getUserProfile } from '../../api';
 import { UserViewModel } from '../../models/view-model/user';
 import { UserModel } from '../../models/model/user.model';
+import OkModal from '../../components/common/modal/ok-modal';
+import AlertModal from '../../components/common/modal/alert-modal';
 
 const MyPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [user, setUser] = useState<UserViewModel>();
+  const [modal, setModal] = useState(false);
 
   const init = async () => {
     const user = await getUserProfile();
@@ -36,7 +39,8 @@ const MyPage = () => {
   };
 
   const onClickProfitHistory = async () => {
-    return await router.push('/my-page/profit-history');
+    setModal(true);
+    // return await router.push('/my-page/profit-history');
   };
 
   useEffect(() => {
@@ -101,6 +105,11 @@ const MyPage = () => {
         </section>
       </main>
       <BottomNav />
+      <AlertModal
+        title={'수익 내역이 없습니다'}
+        open={modal}
+        setOpen={setModal}
+      />
     </div>
   );
 };
