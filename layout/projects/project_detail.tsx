@@ -112,15 +112,14 @@ const ProjectDetailLayout = ({
                 />
               </div>
             ))}
+            <div className={styles.button_container22}>
+              <Button onClick={download} variant={'text'}>
+                상권 분석 자료 다운로드
+              </Button>
+            </div>
           </>
         )}
       </section>
-
-      <div className={styles.button_container22}>
-        <Button onClick={download} variant={'text'}>
-          상권 분석 자료 다운로드
-        </Button>
-      </div>
     </div>
   );
 };
