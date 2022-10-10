@@ -152,7 +152,11 @@ const CheckingPurchase = () => {
         <main>
           <header className={styles.header}>
             <div className={styles.image_container}>
-              <Image src={test} alt={'프로젝트 썸네일'} layout={'fill'} />
+              <Image
+                src={projectViewModel.getThumbnailImage()}
+                alt={'프로젝트 썸네일'}
+                layout={'fill'}
+              />
             </div>
             <div className={styles.project_summary}>
               <div className={styles.project_location}>

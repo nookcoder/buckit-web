@@ -9,6 +9,7 @@ import ProductViewModel from '../../models/view-model/project';
 import ProjectLocationMap from '../../components/projects/project-location-map';
 import { ProjectStatus } from '../../constants';
 import before2 from '../../public/assets/before2.png';
+import { Button } from '@mui/material';
 
 interface ProjectDetailLayoutProps {
   projectViewModel: ProductViewModel;
@@ -18,7 +19,15 @@ const ProjectDetailLayout = ({
   projectViewModel,
 }: ProjectDetailLayoutProps) => {
   const project: Project = projectViewModel.get();
-
+  const download = () => {
+    const a = document.createElement('a');
+    const url = 'https://www.buckit.me/public/report.pdf';
+    a.href = url;
+    a.download = url.split('/').pop();
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
   return (
     <div className={styles.container}>
       <section className={styles.image_container}>
@@ -106,6 +115,12 @@ const ProjectDetailLayout = ({
           </>
         )}
       </section>
+
+      <div className={styles.button_container22}>
+        <Button onClick={download} variant={'text'}>
+          상권 분석 자료 다운로드
+        </Button>
+      </div>
     </div>
   );
 };
