@@ -45,7 +45,8 @@ const MyProjectDetail = () => {
               <Image
                 src={myShare.getProject().thumbnailImage}
                 alt={'프로젝트 썸네일'}
-                layout={'responsive'}
+                layout={'fill'}
+                className={styles.auto_image}
               />
             </div>
 
