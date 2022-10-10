@@ -17,7 +17,9 @@ export class MyOrder {
     const endDate = new Date(endTimeStamp);
     const year = endDate.getFullYear();
     const month =
-      endDate.getMonth() < 10 ? `0${endDate.getMonth()}` : endDate.getMonth();
+      endDate.getMonth() + 1 < 10
+        ? `0${endDate.getMonth() + 1}`
+        : endDate.getMonth() + 1;
     const date =
       endDate.getDate() < 10 ? `0${endDate.getDate()}` : endDate.getDate();
     const hour =
