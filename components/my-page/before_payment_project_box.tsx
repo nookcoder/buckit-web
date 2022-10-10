@@ -40,7 +40,10 @@ const BeforePaymentProjectBox = ({
 
       <div className={styles.order_content}>
         <div className={styles.order_thumbnail} aria-label={'thumbnail'}>
-          <Image src={test} layout={'responsive'} />
+          <Image
+            src={order.get().project.thumbnailImage}
+            layout={'responsive'}
+          />
         </div>
         <div className={styles.mobile_font_size} aria-label={'content'}>
           <div className={styles.order_title}>{order.get().project.title}</div>

@@ -41,7 +41,7 @@ const MyProjectDetail = () => {
       ) : (
         <>
           <section className={styles.container}>
-            <Image src={test} />
+            <Image src={myShare.getProject().thumbnailImage} />
 
             <div
               className={styles.project_header}

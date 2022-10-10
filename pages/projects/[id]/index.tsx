@@ -23,7 +23,6 @@ import AlertModal from '../../../components/common/modal/alert-modal';
 const ProjectDetail = () => {
   const router = useRouter();
   const { id } = router.query;
-  const refresh = localStorage.getItem(`${process.env.REFRESH_COOKIE_KEY}`);
   const [isLoading, setIsLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(false);
   const [isLike, setIsLike] = useState<boolean | undefined>();
