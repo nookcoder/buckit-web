@@ -43,7 +43,7 @@ const Completion = () => {
       !orderInput.buyer_bank
     ) {
       setErrorModal(true);
-      router.replace(`/projects/${currentProjectId}`);
+      router.replace(`/projects`);
       return;
     }
 

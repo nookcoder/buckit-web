@@ -87,11 +87,11 @@ const MyPage = () => {
         <section className={styles.history_container}>
           <h3>펀딩 내역</h3>
           <MyPageHistoryColumn
-            title={'예약된 프로젝트'}
+            title={'결제 전 프로젝트'}
             onClick={onClickOrder}
           />
           <MyPageHistoryColumn
-            title={'영업 중인 프로젝트'}
+            title={'펀딩 중인 프로젝트'}
             onClick={onClickMyProject}
           />
           <MyPageHistoryColumn

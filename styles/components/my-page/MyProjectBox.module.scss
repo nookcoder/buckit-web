@@ -1,5 +1,8 @@
+@import "styles/variables/variables";
+
 .container {
   height: 100vh;
+  padding: 0 20px;
 }
 
 .box{
@@ -13,9 +16,56 @@
   transform: translateY(-5px);
 }
 
-.account_container{
+.order_code {
+  opacity: 0.4;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.order_content{
+  display: flex;
+}
+
+.order_thumbnail{
+  width: 10rem;
+  margin-right: 10px;
+}
+
+.order_title{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.order_price{
+  font-weight: 700;
+  color: $main-green;
+}
+
+.order_content_col{
+  margin-bottom: 5px;
+}
+
+.order_date {
+  margin-top: 10px;
+}
+
+.order_footer{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+}
+
+.order_footer_title{
+  color: darkolivegreen;
+}
+
+@media screen and (max-width: $phone-width) {
+  .order_thumbnail{
+    width: 50%;
+  }
+
+  .mobile_font_size {
+    font-size: 16px;
+  }
 }

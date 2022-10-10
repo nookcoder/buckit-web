@@ -1,3 +1,5 @@
+import { val } from 'dom7';
+
 function convertingToDay(day: number) {
   switch (day) {
     case 0:
@@ -17,4 +19,8 @@ function convertingToDay(day: number) {
   }
 }
 
-export { convertingToDay };
+function withComma(value: string) {
+  return value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+export { convertingToDay, withComma };
