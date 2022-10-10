@@ -124,7 +124,7 @@ class ProjectViewModel {
   }
 
   getPurchasePrice(qty: number) {
-    const total = this.project.pricePerQuarter * qty;
+    const total = Math.round(this.project.pricePerQuarter * qty * 1.033);
     return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 

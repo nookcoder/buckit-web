@@ -91,11 +91,16 @@ const Qty = () => {
               최대 구매 가능 블럭 ={' '}
               {projectViewModel.getAvailableBlockForPurchase()}개
             </div>
+            <div
+              className={`${styles.align_center} ${styles.project_qty_info}`}
+            >
+              1인 최대 구매 가능 블럭 = 200개
+            </div>
           </div>
 
           <div>
             <div className={`${styles.align_center}`}>
-              몇 쿼터를 구매하시겠어요?
+              몇 블럭을 구매하시겠어요?
             </div>
             <div className={`${styles.align_center}`}>
               <TextField

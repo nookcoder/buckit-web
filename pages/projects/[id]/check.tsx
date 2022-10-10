@@ -67,7 +67,9 @@ const CheckingPurchase = () => {
       setProjectViewModel(new ProjectViewModel(projectModel));
       setOrderInput({
         ...orderInput,
-        total: projectModel.get().pricePerQuarter * +orderInput.quarter_qty,
+        total: Math.round(
+          projectModel.get().pricePerQuarter * +orderInput.quarter_qty * 1.033
+        ),
       });
     }
 
@@ -211,14 +213,22 @@ const CheckingPurchase = () => {
           <Divider variant={'fullWidth'} sx={{ marginTop: 3 }} />
 
           <section className={styles.total_container}>
-            <h3 className={styles.total_title}>결재사항</h3>
+            <h3 className={styles.total_title}>결제사항</h3>
             <div className={styles.total_box}>
               <div className={styles.total_text}>
-                <span style={{ color: 'green' }}>최종 펀딩 금액</span>
+                <span style={{ color: 'green' }}>최종 결제 금액</span>
               </div>
               <div className={styles.total_text}>
                 {projectViewModel.getPurchasePrice(orderInput.quarter_qty)}원
               </div>
+            </div>
+            <div
+              style={{
+                opacity: 0.6,
+              }}
+            >
+              최종 결제 금액은 구매 블럭 가격에 구매 수수료 3.3%가 포함된
+              금액입니다.
             </div>
             <div>
               <PrecautionsGuidance />
