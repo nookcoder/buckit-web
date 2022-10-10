@@ -6,24 +6,57 @@ import styles from '../../styles/components/projects/ProjectToggleInput.module.s
 
 interface ProjectToggleInputProps {
   title: string;
+  type: 'privacy' | 'purchase';
+  selected: {
+    privacy: boolean;
+    purchase: boolean;
+  };
+  setSelected: React.Dispatch<
+    React.SetStateAction<{ privacy: boolean; purchase: boolean }>
+  >;
 }
 
-const ProjectToggleInput = ({ title }: ProjectToggleInputProps) => {
-  const [selected, setSelected] = React.useState(false);
+const ProjectToggleInput = ({
+  title,
+  type,
+  selected,
+  setSelected,
+}: ProjectToggleInputProps) => {
   const onChange = () => {
-    setSelected(!selected);
+    switch (type) {
+      case 'privacy':
+        setSelected({
+          ...selected,
+          privacy: !selected.privacy,
+        });
+        return;
+      case 'purchase':
+        setSelected({
+          ...selected,
+          purchase: !selected.purchase,
+        });
+        return;
+    }
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.left_column}>
         <CustomToggleButton
-          selectedStyled={selected}
-          value={selected}
-          selected={selected}
+          selectedStyled={
+            type === 'privacy' ? selected.privacy : selected.purchase
+          }
+          value={type === 'privacy' ? selected.privacy : selected.purchase}
+          selected={type === 'privacy' ? selected.privacy : selected.purchase}
           onChange={onChange}
         >
-          {selected ? (
+          {type === 'privacy' ? (
+            selected.privacy ? (
+              <CheckIcon fontSize={'small'} sx={{ color: 'white' }} />
+            ) : (
+              <></>
+            )
+          ) : selected.purchase ? (
             <CheckIcon fontSize={'small'} sx={{ color: 'white' }} />
           ) : (
             <></>

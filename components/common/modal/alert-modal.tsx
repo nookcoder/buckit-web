@@ -8,11 +8,15 @@ interface NoFoundModalProps {
   title: string;
   open: boolean;
   setOpen: React.SetStateAction<any>;
+  cb?: any;
 }
 
-const AlertModal = ({ title, open, setOpen }: NoFoundModalProps) => {
+const AlertModal = ({ title, open, setOpen, cb }: NoFoundModalProps) => {
   const closeModal = () => {
     setOpen(false);
+    if (cb) {
+      cb();
+    }
   };
 
   return (

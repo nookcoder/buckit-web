@@ -1,5 +1,8 @@
+@import "styles/variables/variables";
+
 .container {
   height: 100vh;
+  padding: 0 20px;
 }
 
 .box{
@@ -13,9 +16,78 @@
   transform: translateY(-5px);
 }
 
-.account_container{
+.order_code {
+  opacity: 0.4;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.order_content{
+  display: flex;
+}
+
+.order_thumbnail{
+  margin-right: 10px;
+  width: 50%;
+  & span {
+    position: unset !important;
+  }
+}
+
+.auto_image{
+  object-fit: contain !important;
+  position: relative !important;
+  height: auto !important;
+}
+
+
+.order_title{
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.order_price{
+  font-weight: 700;
+  color: $main-green;
+}
+
+.order_content_col{
+  margin-bottom: 5px;
+}
+
+.order_date {
+  margin-top: 10px;
+}
+
+.order_footer{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+}
+
+.order_footer_title{
+  color: darkolivegreen;
+}
+
+.funding_status_box{
+  display: flex;
+  justify-content: start;
+}
+
+.funding_project_status{
+  background-color: $main-green;
+  font-size: 13px;
+  color: #F9F9F9;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: $phone-width) {
+  .order_thumbnail{
+    width: 60%;
+  }
+  .mobile_font_size {
+    font-size: 14px;
+  }
 }

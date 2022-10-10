@@ -67,8 +67,8 @@ const ProjectBox = (props: ProjectBoxProps) => {
 
         <div className={styles.info_container_footer}>
           <div className={styles.info_container_footer_top}>
-            <div>{props.achievement}</div>
             <div>{ProjectRemainingBox(props.project)}</div>
+            <div>{props.achievement}</div>
           </div>
           <div>
             <LinearProgress

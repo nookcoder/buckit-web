@@ -13,11 +13,14 @@ import UserPointBox from '../../components/my-page/user-point-box';
 import { getUserProfile } from '../../api';
 import { UserViewModel } from '../../models/view-model/user';
 import { UserModel } from '../../models/model/user.model';
+import OkModal from '../../components/common/modal/ok-modal';
+import AlertModal from '../../components/common/modal/alert-modal';
 
 const MyPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [user, setUser] = useState<UserViewModel>();
+  const [modal, setModal] = useState(false);
 
   const init = async () => {
     const user = await getUserProfile();
@@ -36,7 +39,8 @@ const MyPage = () => {
   };
 
   const onClickProfitHistory = async () => {
-    return await router.push('/my-page/profit-history');
+    setModal(true);
+    // return await router.push('/my-page/profit-history');
   };
 
   useEffect(() => {
@@ -87,11 +91,11 @@ const MyPage = () => {
         <section className={styles.history_container}>
           <h3>펀딩 내역</h3>
           <MyPageHistoryColumn
-            title={'예약된 프로젝트'}
+            title={'결제 전 프로젝트'}
             onClick={onClickOrder}
           />
           <MyPageHistoryColumn
-            title={'영업 중인 프로젝트'}
+            title={'펀딩 중인 프로젝트'}
             onClick={onClickMyProject}
           />
           <MyPageHistoryColumn
@@ -101,6 +105,11 @@ const MyPage = () => {
         </section>
       </main>
       <BottomNav />
+      <AlertModal
+        title={'수익 내역이 없습니다'}
+        open={modal}
+        setOpen={setModal}
+      />
     </div>
   );
 };

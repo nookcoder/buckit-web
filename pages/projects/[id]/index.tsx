@@ -17,6 +17,8 @@ import {
 import { ProjectStatus } from '../../../constants';
 import { UserModel } from '../../../models/model/user.model';
 import { UserViewModel } from '../../../models/view-model/user';
+import OkModal from '../../../components/common/modal/ok-modal';
+import AlertModal from '../../../components/common/modal/alert-modal';
 
 const ProjectDetail = () => {
   const router = useRouter();
@@ -25,6 +27,8 @@ const ProjectDetail = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [isLike, setIsLike] = useState<boolean | undefined>();
   const [projectViewModel, setProjectViewModel] = useState<ProjectViewModel>();
+  const [doneModal, setDoneModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
 
   const [userViewModel, setUserViewModel] = useState<UserViewModel>();
   const user = userViewModel?.get();
@@ -33,7 +37,7 @@ const ProjectDetail = () => {
 
   const onClickLike = async () => {
     if (!isLogin) {
-      await router.push('/user');
+      setLoginModal(true);
       return;
     }
 
@@ -73,6 +77,16 @@ const ProjectDetail = () => {
       return;
     }
 
+    if (projectViewModel?.getAchievementRate() === 100) {
+      setDoneModal(true);
+      return;
+    }
+
+    if (!isLogin) {
+      setLoginModal(true);
+      return;
+    }
+
     router.push(`/projects/${project?.id}/qty`);
   };
 
@@ -97,7 +111,7 @@ const ProjectDetail = () => {
         <CircularProgress></CircularProgress>
       ) : (
         <>
-          <AppBarWithBackArrow title={projectViewModel.getTile()} />
+          <AppBarWithBackArrow title={projectViewModel.getAppTitle()} />
 
           <main>
             <ProjectDetailLayout projectViewModel={projectViewModel} />
@@ -123,6 +137,17 @@ const ProjectDetail = () => {
           </footer>
         </>
       )}
+      <OkModal
+        title={'모집이 마감되었습니다'}
+        open={doneModal}
+        setOpen={setDoneModal}
+      />
+      <AlertModal
+        title={'로그인 후 이용해주세요'}
+        open={loginModal}
+        setOpen={setLoginModal}
+        cb={() => router.push('/user')}
+      />
     </div>
   );
 };

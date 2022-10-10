@@ -66,3 +66,9 @@ export const coreGetWithAuth = (url: string, headers?: any, cb?: any) => {
     })
     .catch((err) => {});
 };
+
+export const corePostWithAuth = (url: string, body: any, headers?: any) => {
+  return appAxios.post(`${process.env.BASE_URL}${url}`, body, {
+    headers: headers,
+  });
+};

@@ -1,0 +1,50 @@
+@import "styles/variables/variables";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 2px solid $main-green;
+  margin-bottom: 20px;
+}
+
+.title{
+  font-size: 20px;
+  font-weight: 500;
+  //color: $main-green;
+}
+
+.buyer_name_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid $main-green;
+  margin-bottom: 60px;
+}
+
+.purchase_notes_container{
+  background-color: #e9e9e9;
+  padding: 20px 15px;
+  border-radius: 15px;
+}
+
+.purchase_notes_title{
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.purchase_notes_content{
+  display: flex;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: $galaxy-fold) {
+  .title{
+    font-size: 14px;
+    font-weight: 500;
+    //color: $main-green;
+  }
+}

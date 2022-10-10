@@ -16,6 +16,14 @@ class ProjectViewModel {
     return this.projectModel.get();
   }
 
+  getAppTitle() {
+    if (this.project.title.length > 10) {
+      return `${this.project.title.substring(0, 10)}...`;
+    }
+
+    return this.project.title;
+  }
+
   getSummary() {
     if (this.project.status === ProjectStatus.Before) {
       return (
@@ -58,6 +66,16 @@ class ProjectViewModel {
       return this.projectModel.getAchievementRate();
     }
     return 100;
+  }
+
+  getAvailableBlockForPurchase() {
+    return this.project.totalQuarter - this.project.soldQuarter;
+  }
+
+  getPricePerBlock() {
+    return this.project.pricePerQuarter
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
   getTotalBlock() {
@@ -103,6 +121,15 @@ class ProjectViewModel {
       case ProjectStatus.Opening:
         return '오픈';
     }
+  }
+
+  getPurchasePrice(qty: number) {
+    const total = this.project.pricePerQuarter * qty;
+    return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  getContentUrl() {
+    return this.project.content;
   }
 }
 

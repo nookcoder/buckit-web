@@ -101,12 +101,12 @@ const ProjectDetailLayout = ({
                 alt={'프로젝트 설명'}
               />
             ))}
-            <section>
-              <ProjectLocationMap
-                address={project.address}
-                project_status={project.status}
-              />
-            </section>
+            {/*<section>*/}
+            {/*  <ProjectLocationMap*/}
+            {/*    address={project.address}*/}
+            {/*    project_status={project.status}*/}
+            {/*  />*/}
+            {/*</section>*/}
           </section>
         )}
       </section>

@@ -10,7 +10,7 @@ const NEW_PASSWORD_CHECK = 'NEW_PASSWORD_CHECK';
 const sessionStorage =
   typeof window !== 'undefined' ? window.sessionStorage : undefined;
 
-const { persistAtom } = recoilPersist({
+export const { persistAtom } = recoilPersist({
   storage: sessionStorage,
 });
 

@@ -8,6 +8,7 @@ import {
   deleteUser,
 } from './user';
 import { getAllProjects, getProjectById } from './project';
+import { getMyShares } from './share';
 
 export { getUserCertificated };
 export {
@@ -19,3 +20,4 @@ export {
   deleteUser,
 };
 export { getAllProjects, getProjectById };
+export { getMyShares };
