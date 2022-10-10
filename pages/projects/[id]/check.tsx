@@ -51,6 +51,7 @@ const CheckingPurchase = () => {
   const [terms, setTerms] = useState({
     privacy: false,
     purchase: false,
+    notice: false,
   });
 
   const init = async () => {
@@ -127,6 +128,7 @@ const CheckingPurchase = () => {
       email.isCheck &&
       terms.purchase &&
       terms.privacy &&
+      terms.notice &&
       projectViewModel
     ) {
       router.push(`/projects/${projectViewModel.get().id}/payments`);
@@ -138,7 +140,7 @@ const CheckingPurchase = () => {
       return;
     }
 
-    if (!terms.purchase || !terms.privacy) {
+    if (!terms.purchase || !terms.privacy || !terms.notice) {
       setTermsCheckModal(true);
       return;
     }
@@ -223,7 +225,7 @@ const CheckingPurchase = () => {
               <div>
                 <ProjectToggleInput
                   url={
-                    'https://docs.google.com/document/d/1ducWpQeDcfDN-GPOBmLOHt77i6a5q5eNpEwDliMcTeA/'
+                    'https://docs.google.com/document/d/1y_S22Ki4PBzrEOW38jyKuw-97HirvtBYvNxjjBk-ovk/edit?usp=sharing'
                   }
                   title={'개인정보 제 3자 제공 동의'}
                   type={'privacy'}
@@ -232,10 +234,19 @@ const CheckingPurchase = () => {
                 />
                 <ProjectToggleInput
                   url={
-                    'https://docs.google.com/document/d/1-LUqzo8WFWqa6JbrGkbQ_9MYFaLuDUIHH_5lwc0IBd8/edit'
+                    'https://docs.google.com/document/d/1-LUqzo8WFWqa6JbrGkbQ_9MYFaLuDUIHH_5lwc0IBd8/edit?usp=sharing'
                   }
-                  title={'구매 유의사항 확인'}
+                  title={'공동 구매 약관'}
                   type={'purchase'}
+                  selected={terms}
+                  setSelected={setTerms}
+                />
+                <ProjectToggleInput
+                  url={
+                    'https://docs.google.com/document/d/10fRMB5Jmgc1jIqG-6lVjArtTXGNJVwUmCieIhIDBqRE/edit?usp=sharing'
+                  }
+                  title={'유의사항 및 환불정책'}
+                  type={'notice'}
                   selected={terms}
                   setSelected={setTerms}
                 />

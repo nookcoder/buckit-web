@@ -6,13 +6,18 @@ import styles from '../../styles/components/projects/ProjectToggleInput.module.s
 
 interface ProjectToggleInputProps {
   title: string;
-  type: 'privacy' | 'purchase';
+  type: 'privacy' | 'purchase' | 'notice';
   selected: {
     privacy: boolean;
     purchase: boolean;
+    notice: boolean;
   };
   setSelected: React.Dispatch<
-    React.SetStateAction<{ privacy: boolean; purchase: boolean }>
+    React.SetStateAction<{
+      privacy: boolean;
+      purchase: boolean;
+      notice: boolean;
+    }>
   >;
   url: string;
 }
@@ -41,6 +46,11 @@ const ProjectToggleInput = ({
           purchase: !selected.purchase,
         });
         return;
+      case 'notice':
+        setSelected({
+          ...selected,
+          notice: !selected.notice,
+        });
     }
   };
 
