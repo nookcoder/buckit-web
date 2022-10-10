@@ -14,6 +14,7 @@ interface ProjectToggleInputProps {
   setSelected: React.Dispatch<
     React.SetStateAction<{ privacy: boolean; purchase: boolean }>
   >;
+  url: string;
 }
 
 const ProjectToggleInput = ({
@@ -21,7 +22,11 @@ const ProjectToggleInput = ({
   type,
   selected,
   setSelected,
+  url,
 }: ProjectToggleInputProps) => {
+  const goToPage = () => {
+    window.open(url);
+  };
   const onChange = () => {
     switch (type) {
       case 'privacy':

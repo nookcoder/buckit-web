@@ -4,7 +4,6 @@ import styles from '../../../styles/pages/CheckingPurchase.module.scss';
 import { CircularProgress, Divider } from '@mui/material';
 import FullWidthButton from '../../../components/common/buttons/full_width_button';
 import UserCertificationInput from '../../../components/projects/user_certification_input';
-import ProjectToggleInput from '../../../components/projects/toggle_input';
 import { useRecoilState } from 'recoil';
 import { currentProjectIdAtom, orderAtom } from '../../../recoil';
 import { UserViewModel } from '../../../models/view-model/user';
@@ -18,8 +17,17 @@ import test from '../../../public/assets/banner.png';
 import PrecautionsGuidance from '../../../components/projects/precautions-guidance';
 import AlertModal from '../../../components/common/modal/alert-modal';
 import { OrderInputAtom } from '../../../interface';
+import { TERM_SERVICE } from '../../../constants';
+import dynamic from 'next/dynamic';
 
 const CheckingPurchase = () => {
+  const ProjectToggleInput = dynamic(
+    () => import('../../../components/projects/toggle_input'),
+    {
+      ssr: false,
+    }
+  );
+
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [currentProjectId, setCurrentProjectId] =
@@ -214,12 +222,18 @@ const CheckingPurchase = () => {
               <PrecautionsGuidance />
               <div>
                 <ProjectToggleInput
+                  url={
+                    'https://docs.google.com/document/d/1ducWpQeDcfDN-GPOBmLOHt77i6a5q5eNpEwDliMcTeA/'
+                  }
                   title={'개인정보 제 3자 제공 동의'}
                   type={'privacy'}
                   selected={terms}
                   setSelected={setTerms}
                 />
                 <ProjectToggleInput
+                  url={
+                    'https://docs.google.com/document/d/1-LUqzo8WFWqa6JbrGkbQ_9MYFaLuDUIHH_5lwc0IBd8/edit'
+                  }
                   title={'구매 유의사항 확인'}
                   type={'purchase'}
                   selected={terms}

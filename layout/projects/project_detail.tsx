@@ -21,7 +21,7 @@ const ProjectDetailLayout = ({
   const project: Project = projectViewModel.get();
   const download = () => {
     const a = document.createElement('a');
-    var url = 'https://www.buckit.me/public/report.pdf';
+    var url = 'https://buckit-prod.s3.ap-northeast-2.amazonaws.com/report.pdf';
     a.href = url;
     a.download = 'report.pdf';
     document.body.appendChild(a);
@@ -76,8 +76,8 @@ const ProjectDetailLayout = ({
         </div>
 
         <div className={styles.button_container22}>
-          <Button onClick={download} variant={'text'}>
-            상권 분석 자료 다운로드
+          <Button onClick={download} variant={'text'} color={'success'}>
+            상권 분석 자료 보기
           </Button>
         </div>
       </section>
