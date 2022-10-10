@@ -51,7 +51,7 @@ const MyPage = () => {
       router.push('/user');
     }
 
-    if (isLoading || user === undefined) {
+    if (isLoading) {
       init()
         .then((model) => {
           if (model) {
