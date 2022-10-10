@@ -52,13 +52,13 @@ const MyPage = () => {
     }
 
     if (isLoading) {
+      setIsLoading(false);
+
       init()
         .then((model) => {
           if (model) {
             setUser(new UserViewModel(model));
           }
-
-          setIsLoading(false);
         })
         .catch((err) => {
           console.log(err);
