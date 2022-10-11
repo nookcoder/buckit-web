@@ -11,19 +11,26 @@ appAxios.interceptors.response.use(
     const refreshToken = localStorage.getItem(
       `${process.env.REFRESH_COOKIE_KEY}`
     );
-    return await coreGet('/api/v1/auth/refresh', {
-      Authorization: `Bearer ${refreshToken}`,
-    })
-      .then((res) => {
-        appAxios.defaults.headers.common[
-          'Authorization'
-        ] = `Bearer ${res.data.access_token}`;
-        return appAxios(originalRequest);
+    if (refreshToken) {
+      return await coreGet('/api/v1/auth/refresh', {
+        Authorization: `Bearer ${refreshToken}`,
       })
-      .catch((err) => {
-        localStorage.clear();
-        return Promise.reject(err);
-      });
+        .then((res) => {
+          console.log('ten1');
+          appAxios.defaults.headers.common[
+            'Authorization'
+          ] = `Bearer ${res.data.access_token}`;
+          return appAxios(originalRequest);
+        })
+        .catch((err) => {
+          console.log('catch');
+          localStorage.clear();
+          throw err;
+        });
+    } else {
+      localStorage.clear();
+      throw 'null refresh token';
+    }
   }
 );
 

@@ -23,11 +23,15 @@ const MyPage = () => {
   const [modal, setModal] = useState(false);
 
   const init = async () => {
-    const user = await getUserProfile();
-    if (user) {
-      return new UserModel(user);
+    if (localStorage.getItem(`${process.env.REFRESH_COOKIE_KEY}`)) {
+      const user = await getUserProfile();
+      if (user) {
+        return new UserModel(user);
+      }
     }
+
     await router.push('/user');
+    return;
   };
 
   const onClickOrder = () => {
