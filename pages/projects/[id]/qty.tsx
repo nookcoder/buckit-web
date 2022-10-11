@@ -85,12 +85,6 @@ const Qty = () => {
             <div
               className={`${styles.align_center} ${styles.project_qty_info}`}
             >
-              최대 구매 가능 블럭 ={' '}
-              {projectViewModel.getAvailableBlockForPurchase()}개
-            </div>
-            <div
-              className={`${styles.align_center} ${styles.project_qty_info}`}
-            >
               1인 최대 구매 가능 블럭 = 200개
             </div>
           </div>

@@ -62,7 +62,7 @@ class ProjectViewModel {
   }
 
   getAchievementRate() {
-    if (this.project.status === ProjectStatus.FUNDING_PROGRESS) {
+    if (this.project.status !== ProjectStatus.Before) {
       return this.projectModel.getAchievementRate();
     }
     return 100;
