@@ -16,14 +16,12 @@ appAxios.interceptors.response.use(
         Authorization: `Bearer ${refreshToken}`,
       })
         .then((res) => {
-          console.log('ten1');
           appAxios.defaults.headers.common[
             'Authorization'
           ] = `Bearer ${res.data.access_token}`;
           return appAxios(originalRequest);
         })
         .catch((err) => {
-          console.log('catch');
           localStorage.clear();
           throw err;
         });
