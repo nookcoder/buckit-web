@@ -62,15 +62,12 @@ const Qty = () => {
 
   return (
     <div>
-      <AppBarWithBackArrow />
+      <AppBarWithBackArrow title={projectViewModel?.getAppTitle()} />
       {isLoading || projectViewModel === undefined ? (
         <CircularProgress />
       ) : (
         <main className={styles.container}>
           <div className={styles.header}>
-            <div className={`${styles.align_center} ${styles.project_title}`}>
-              {projectViewModel.getTile()}{' '}
-            </div>
             <div className={`${styles.align_center}`}>
               <Image
                 src={marketImage}
