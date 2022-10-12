@@ -16,6 +16,11 @@ import { currentProjectIdAtom, getProjectQueryAtom } from '../recoil';
 import { CircularProgress } from '@mui/material';
 import ProjectViewModel from '../models/view-model/project';
 import PrepareNotificationModal from '../components/common/modal/prepare-notification-modal';
+import EventPopup, {
+  DONT_SHOW_POPUP,
+} from '../components/common/modal/event-popup';
+import { eventPopupAtom } from '../recoil/common/atom';
+import { Cookies } from 'react-cookie';
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -27,6 +32,8 @@ const Home: NextPage = () => {
   const [productModel, setProductModel] = useState<ProjectModel>();
   const [productViewModel, setProductViewModel] = useState<ProjectViewModel>();
   const [modalState, setModalState] = useState<boolean>(false);
+  const [eventPopup, setEventPopup] = useRecoilState(eventPopupAtom);
+  const cookies = new Cookies();
 
   const openModal = () => {
     setModalState(true);
@@ -43,11 +50,26 @@ const Home: NextPage = () => {
       });
   };
 
+  const onClickEventBanner2 = async () => {
+    return await router
+      .push(`/projects/${productModel?.get().id}`)
+      .then(() => {
+        setCurrentProjectId(productModel?.get().id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const init = async () => {
     const projects = await getAllProjects(query);
     if (projects) {
       const product: Project = projects[0];
       setProductModel(new ProjectModel(product));
+    }
+
+    if (cookies.get(DONT_SHOW_POPUP) !== undefined) {
+      setEventPopup(false);
     }
   };
 
@@ -75,7 +97,7 @@ const Home: NextPage = () => {
         <div>
           <AppBar />
 
-          <Banner />
+          <Banner onClickEventBanner2={onClickEventBanner2} />
 
           <h3 className={styles.recommend_title}>
             사장님 이 프로젝트는 어때요?
@@ -113,6 +135,11 @@ const Home: NextPage = () => {
         </div>
         <PrepareNotificationModal open={modalState} setOpen={setModalState} />
       </main>
+      <EventPopup
+        state={eventPopup}
+        setState={setEventPopup}
+        onClick={onClickEventBanner2}
+      />
     </div>
   );
 };
