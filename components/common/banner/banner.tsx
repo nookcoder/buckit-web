@@ -11,8 +11,12 @@ interface BannerProps {
 }
 
 const Banner = ({ onClick }: BannerProps) => {
-  const moveToBuckitHomePage = () => {
+  const openBuckitHomePage = () => {
     window.location.href = 'https://blog.naver.com/buckit/222889278710';
+  };
+
+  const openBuckitGuide = () => {
+    window.location.href = 'https://blog.naver.com/buckit/222897245448';
   };
   return (
     <Swiper
@@ -22,10 +26,10 @@ const Banner = ({ onClick }: BannerProps) => {
       autoplay={{ delay: 2000 }}
       modules={[Autoplay]}
     >
-      <SwiperSlide onClick={onClick ?? moveToBuckitHomePage}>
+      <SwiperSlide onClick={onClick ?? openBuckitHomePage}>
         <Image src={event_banner} layout={'fill'} alt={'이벤트 배너'} />
       </SwiperSlide>
-      <SwiperSlide>
+      <SwiperSlide onClick={onClick ?? openBuckitGuide}>
         <Image src={guide} layout={'fill'} alt={'이벤트 베너'} />
       </SwiperSlide>
     </Swiper>

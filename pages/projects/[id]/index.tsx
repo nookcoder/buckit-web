@@ -19,6 +19,7 @@ import { UserModel } from '../../../models/model/user.model';
 import { UserViewModel } from '../../../models/view-model/user';
 import OkModal from '../../../components/common/modal/ok-modal';
 import AlertModal from '../../../components/common/modal/alert-modal';
+import ProjectReference from '../../../components/projects/project-details/reference';
 
 const ProjectDetail = () => {
   const router = useRouter();
@@ -113,8 +114,9 @@ const ProjectDetail = () => {
         <>
           <AppBarWithBackArrow title={projectViewModel.getAppTitle()} />
 
-          <main>
+          <main className={styles.main_container}>
             <ProjectDetailLayout projectViewModel={projectViewModel} />
+            <ProjectReference />
           </main>
 
           <footer className={styles.button_container}>

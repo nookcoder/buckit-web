@@ -1,5 +1,9 @@
 @import "styles/variables/variables";
 
+.main_container{
+  margin-bottom: 120px;
+}
+
 .button_container{
   position: fixed;
   bottom: 0;
@@ -8,6 +12,23 @@
   padding: 10px 10px 30px 10px;
   display: flex;
   justify-content: space-between;
+}
+
+.reference_box {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E9E9E9;
+  border-radius: 10px;
+}
+
+.reference_box_col_left{
+  display: flex;
+  align-items: center;
+  & span{
+    margin-left: 5px;
+  }
 }
 
 @media screen and (max-width: $phone-width) {

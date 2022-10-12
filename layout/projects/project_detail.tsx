@@ -19,15 +19,7 @@ const ProjectDetailLayout = ({
   projectViewModel,
 }: ProjectDetailLayoutProps) => {
   const project: Project = projectViewModel.get();
-  const download = () => {
-    const a = document.createElement('a');
-    var url = 'https://buckit-prod.s3.ap-northeast-2.amazonaws.com/report.pdf';
-    a.href = url;
-    a.download = 'report.pdf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
+
   return (
     <div className={styles.container}>
       <section className={styles.image_container}>
@@ -73,12 +65,6 @@ const ProjectDetailLayout = ({
         <div className={styles.target_container}>
           <CalendarTodayOutlinedIcon fontSize={'small'} />
           <span>{projectViewModel.getDeadline()}</span>
-        </div>
-
-        <div className={styles.button_container22}>
-          <Button onClick={download} variant={'text'} color={'success'}>
-            상권 분석 자료 보기
-          </Button>
         </div>
       </section>
 
