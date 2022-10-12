@@ -30,7 +30,7 @@ export class ProjectListViewModel {
     if (project.status === ProjectStatus.Before) {
       return 100;
     }
-    return (project.soldQuarter / project.totalQuarter) * 100 + 17;
+    return (project.soldQuarter / project.totalQuarter) * 100 + 29;
   }
 
   getAchievement(project: Project) {

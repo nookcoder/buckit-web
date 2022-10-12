@@ -34,7 +34,7 @@ export class ProjectModel {
   getAchievementRate() {
     return (
       Math.round((this.project.soldQuarter / this.project.totalQuarter) * 100) +
-      17
+      29
     );
   }
 }
