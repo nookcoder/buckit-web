@@ -33,7 +33,7 @@ const Completion = () => {
   };
 
   const onClick = () => {
-    router.replace('/my-page');
+    router.replace('/my-page/before-payment');
   };
 
   useEffect(() => {
