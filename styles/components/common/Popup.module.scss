@@ -1,0 +1,52 @@
+@import "styles/variables/variables";
+
+.bottom_container{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 15px;
+  width: 28rem;
+  height: 16rem;
+  margin-bottom: 10px;
+}
+
+.button_group{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 28rem;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.image_box{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+  width: 28rem;
+  height: 14rem;
+  padding: 0 20px;
+}
+
+.button_text {
+  color: white;
+  font-size: 17px;
+}
+@media screen and (max-width: $phone-width) {
+  .bottom_container{
+    width: 100%;
+    height: 14rem;
+  }
+
+  .button_group{
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .image_box {
+    position: absolute;
+    width: 100%;
+    height: 50vw;
+  }
+}
