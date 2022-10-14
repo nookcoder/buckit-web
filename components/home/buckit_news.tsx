@@ -14,11 +14,13 @@ const BuckitNews = ({ router, projectId }: BuckitNewsProps) => {
   };
 
   const onClickSecondBox = () => {
-    return router.push(`/projects/${projectId}`);
+    // return router.push(`/projects/${projectId}`);
+    window.location.href = 'https://platum.kr/archives/194138';
+    return;
   };
 
   const onClickThirdBox = () => {
-    return (window.location.href = ' https://blog.naver.com/buckit');
+    return (window.location.href = 'https://blog.naver.com/buckit');
   };
 
   return (
@@ -40,11 +42,11 @@ const BuckitNews = ({ router, projectId }: BuckitNewsProps) => {
         onClick={onClickSecondBox}
       >
         <div className={styles.news_text}>
-          첫 번째
+          1차
           <br />
           프로젝트
           <br />
-          살펴보기👀
+          오픈 🎉
         </div>
       </div>
       <div

@@ -63,7 +63,7 @@ const Index = () => {
 
 Index.getLayout = function getLayout(page: ReactElement) {
   return (
-    <MyProjectsLayout title={'펀딩 중인 프로젝트'}>{page}</MyProjectsLayout>
+    <MyProjectsLayout title={'영업 중인 프로젝트'}>{page}</MyProjectsLayout>
   );
 };
 

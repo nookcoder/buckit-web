@@ -72,7 +72,7 @@ const BeforePaymentProjects = () => {
 };
 
 BeforePaymentProjects.getLayout = function getLayout(page: ReactElement) {
-  return <MyProjectsLayout title={'결제 전 프로젝트'}>{page}</MyProjectsLayout>;
+  return <MyProjectsLayout title={'예약된 프로젝트'}>{page}</MyProjectsLayout>;
 };
 
 export default BeforePaymentProjects;
