@@ -60,10 +60,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           `,
         }}
       />
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-245175154-1"
-      />
       <Component {...pageProps} />{' '}
     </RecoilRoot>
   );
