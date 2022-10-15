@@ -64,18 +64,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         async
         src="https://www.googletagmanager.com/gtag/js?id=UA-245175154-1"
       />
-      <Script
-        id={'gtag-init2'}
-        strategy={'afterInteractive'}
-        dangerouslySetInnerHTML={{
-          __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'UA-245175154-1');
-                `,
-        }}
-      ></Script>
       <Component {...pageProps} />{' '}
     </RecoilRoot>
   );
