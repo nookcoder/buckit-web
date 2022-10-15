@@ -72,71 +72,71 @@ const ProjectDetailLayout = ({
         </div>
       </section>
 
-      {/*<section className={styles.content_container}>*/}
-      {/*  <div className={styles.content_image_container}>*/}
-      {/*    <Image*/}
-      {/*      src={a1}*/}
-      {/*      layout={'fill'}*/}
-      {/*      className={styles.auto_image}*/}
-      {/*      alt={'프로젝트 설명'}*/}
-      {/*      unoptimized={true}*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*  <div className={styles.content_image_container}>*/}
-      {/*    <Image*/}
-      {/*      src={a2}*/}
-      {/*      layout={'fill'}*/}
-      {/*      className={styles.auto_image}*/}
-      {/*      alt={'프로젝트 설명'}*/}
-      {/*      unoptimized={true}*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*  <div className={styles.content_image_container}>*/}
-      {/*    <Image*/}
-      {/*      src={a3}*/}
-      {/*      layout={'fill'}*/}
-      {/*      className={styles.auto_image}*/}
-      {/*      alt={'프로젝트 설명'}*/}
-      {/*      unoptimized={true}*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*  <div className={styles.content_image_container}>*/}
-      {/*    <Image*/}
-      {/*      src={a4}*/}
-      {/*      layout={'fill'}*/}
-      {/*      className={styles.auto_image}*/}
-      {/*      alt={'프로젝트 설명'}*/}
-      {/*      unoptimized={true}*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*  <div className={styles.content_image_container}>*/}
-      {/*    <Image*/}
-      {/*      src={a5}*/}
-      {/*      layout={'fill'}*/}
-      {/*      className={styles.auto_image}*/}
-      {/*      alt={'프로젝트 설명'}*/}
-      {/*      unoptimized={true}*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*  <div className={styles.content_image_container}>*/}
-      {/*    <Image*/}
-      {/*      src={a6}*/}
-      {/*      layout={'fill'}*/}
-      {/*      className={styles.auto_image}*/}
-      {/*      alt={'프로젝트 설명'}*/}
-      {/*      unoptimized={true}*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*  <div className={styles.content_image_container}>*/}
-      {/*    <Image*/}
-      {/*      src={a7}*/}
-      {/*      layout={'fill'}*/}
-      {/*      className={styles.auto_image}*/}
-      {/*      alt={'프로젝트 설명'}*/}
-      {/*      unoptimized={true}*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*</section>*/}
+      <section className={styles.content_container}>
+        <div className={styles.content_image_container}>
+          <Image
+            src={a1}
+            layout={'fill'}
+            className={styles.auto_image}
+            alt={'프로젝트 설명'}
+            unoptimized={true}
+          />
+        </div>
+        <div className={styles.content_image_container}>
+          <Image
+            src={a2}
+            layout={'fill'}
+            className={styles.auto_image}
+            alt={'프로젝트 설명'}
+            unoptimized={true}
+          />
+        </div>
+        <div className={styles.content_image_container}>
+          <Image
+            src={a3}
+            layout={'fill'}
+            className={styles.auto_image}
+            alt={'프로젝트 설명'}
+            unoptimized={true}
+          />
+        </div>
+        <div className={styles.content_image_container}>
+          <Image
+            src={a4}
+            layout={'fill'}
+            className={styles.auto_image}
+            alt={'프로젝트 설명'}
+            unoptimized={true}
+          />
+        </div>
+        <div className={styles.content_image_container}>
+          <Image
+            src={a5}
+            layout={'fill'}
+            className={styles.auto_image}
+            alt={'프로젝트 설명'}
+            unoptimized={true}
+          />
+        </div>
+        <div className={styles.content_image_container}>
+          <Image
+            src={a6}
+            layout={'fill'}
+            className={styles.auto_image}
+            alt={'프로젝트 설명'}
+            unoptimized={true}
+          />
+        </div>
+        <div className={styles.content_image_container}>
+          <Image
+            src={a7}
+            layout={'fill'}
+            className={styles.auto_image}
+            alt={'프로젝트 설명'}
+            unoptimized={true}
+          />
+        </div>
+      </section>
     </div>
   );
 };

@@ -115,7 +115,7 @@ const ProjectDetail = () => {
           <AppBarWithBackArrow title={projectViewModel.getAppTitle()} />
 
           <main className={styles.main_container}>
-            <ProjectDetailLayout projectViewModel={projectViewModel} />
+            {/*<ProjectDetailLayout projectViewModel={projectViewModel} />*/}
             <ProjectReference />
           </main>
 
