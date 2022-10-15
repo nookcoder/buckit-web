@@ -6,10 +6,6 @@ import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import { Project } from '../../models/model/project';
 import ProductViewModel from '../../models/view-model/project';
-import ProjectLocationMap from '../../components/projects/project-location-map';
-import { ProjectStatus } from '../../constants';
-import before2 from '../../public/assets/before2.png';
-import { Button } from '@mui/material';
 import a1 from '../../public/assets/a1.png';
 import a2 from '../../public/assets/a2.png';
 import a3 from '../../public/assets/a3.png';
@@ -76,73 +72,71 @@ const ProjectDetailLayout = ({
         </div>
       </section>
 
-      <section className={styles.content_container}>
-        <>
-          <div className={styles.content_image_container}>
-            <Image
-              src={a1}
-              layout={'fill'}
-              className={styles.auto_image}
-              alt={'프로젝트 설명'}
-              unoptimized={true}
-            />
-          </div>
-          <div className={styles.content_image_container}>
-            <Image
-              src={a2}
-              layout={'fill'}
-              className={styles.auto_image}
-              alt={'프로젝트 설명'}
-              unoptimized={true}
-            />
-          </div>
-          <div className={styles.content_image_container}>
-            <Image
-              src={a3}
-              layout={'fill'}
-              className={styles.auto_image}
-              alt={'프로젝트 설명'}
-              unoptimized={true}
-            />
-          </div>
-          <div className={styles.content_image_container}>
-            <Image
-              src={a4}
-              layout={'fill'}
-              className={styles.auto_image}
-              alt={'프로젝트 설명'}
-              unoptimized={true}
-            />
-          </div>
-          <div className={styles.content_image_container}>
-            <Image
-              src={a5}
-              layout={'fill'}
-              className={styles.auto_image}
-              alt={'프로젝트 설명'}
-              unoptimized={true}
-            />
-          </div>
-          <div className={styles.content_image_container}>
-            <Image
-              src={a6}
-              layout={'fill'}
-              className={styles.auto_image}
-              alt={'프로젝트 설명'}
-              unoptimized={true}
-            />
-          </div>
-          <div className={styles.content_image_container}>
-            <Image
-              src={a7}
-              layout={'fill'}
-              className={styles.auto_image}
-              alt={'프로젝트 설명'}
-              unoptimized={true}
-            />
-          </div>
-        </>
-      </section>
+      {/*<section className={styles.content_container}>*/}
+      {/*  <div className={styles.content_image_container}>*/}
+      {/*    <Image*/}
+      {/*      src={a1}*/}
+      {/*      layout={'fill'}*/}
+      {/*      className={styles.auto_image}*/}
+      {/*      alt={'프로젝트 설명'}*/}
+      {/*      unoptimized={true}*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*  <div className={styles.content_image_container}>*/}
+      {/*    <Image*/}
+      {/*      src={a2}*/}
+      {/*      layout={'fill'}*/}
+      {/*      className={styles.auto_image}*/}
+      {/*      alt={'프로젝트 설명'}*/}
+      {/*      unoptimized={true}*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*  <div className={styles.content_image_container}>*/}
+      {/*    <Image*/}
+      {/*      src={a3}*/}
+      {/*      layout={'fill'}*/}
+      {/*      className={styles.auto_image}*/}
+      {/*      alt={'프로젝트 설명'}*/}
+      {/*      unoptimized={true}*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*  <div className={styles.content_image_container}>*/}
+      {/*    <Image*/}
+      {/*      src={a4}*/}
+      {/*      layout={'fill'}*/}
+      {/*      className={styles.auto_image}*/}
+      {/*      alt={'프로젝트 설명'}*/}
+      {/*      unoptimized={true}*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*  <div className={styles.content_image_container}>*/}
+      {/*    <Image*/}
+      {/*      src={a5}*/}
+      {/*      layout={'fill'}*/}
+      {/*      className={styles.auto_image}*/}
+      {/*      alt={'프로젝트 설명'}*/}
+      {/*      unoptimized={true}*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*  <div className={styles.content_image_container}>*/}
+      {/*    <Image*/}
+      {/*      src={a6}*/}
+      {/*      layout={'fill'}*/}
+      {/*      className={styles.auto_image}*/}
+      {/*      alt={'프로젝트 설명'}*/}
+      {/*      unoptimized={true}*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*  <div className={styles.content_image_container}>*/}
+      {/*    <Image*/}
+      {/*      src={a7}*/}
+      {/*      layout={'fill'}*/}
+      {/*      className={styles.auto_image}*/}
+      {/*      alt={'프로젝트 설명'}*/}
+      {/*      unoptimized={true}*/}
+      {/*    />*/}
+      {/*  </div>*/}
+      {/*</section>*/}
     </div>
   );
 };
