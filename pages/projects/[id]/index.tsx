@@ -108,14 +108,14 @@ const ProjectDetail = () => {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoading || projectViewModel === undefined ? (
         <CircularProgress></CircularProgress>
       ) : (
         <>
-          {/*<AppBarWithBackArrow title={projectViewModel.getAppTitle()} />*/}
+          <AppBarWithBackArrow title={projectViewModel.getAppTitle()} />
 
           <main className={styles.main_container}>
-            <ProjectDetailLayout projectViewModel={projectViewModel!!} />
+            <ProjectDetailLayout projectViewModel={projectViewModel} />
             <ProjectReference />
           </main>
 
@@ -125,7 +125,9 @@ const ProjectDetail = () => {
               text_color={'white'}
               onClick={onClick}
             >
-              사장되기
+              {project?.status === ProjectStatus.Before
+                ? '플러스 친구 맺고 알림 신청하기 '
+                : '사장되기'}
             </FullWidthButton>
             <IconButton onClick={onClickLike}>
               {isLike ? (
@@ -137,11 +139,11 @@ const ProjectDetail = () => {
           </footer>
         </>
       )}
-      {/*<OkModal*/}
-      {/*  title={'모집이 마감되었습니다'}*/}
-      {/*  open={doneModal}*/}
-      {/*  setOpen={setDoneModal}*/}
-      {/*/>*/}
+      <OkModal
+        title={'모집이 마감되었습니다'}
+        open={doneModal}
+        setOpen={setDoneModal}
+      />
       <AlertModal
         title={'로그인 후 이용해주세요'}
         open={loginModal}

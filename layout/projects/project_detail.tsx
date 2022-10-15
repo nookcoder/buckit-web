@@ -26,12 +26,12 @@ const ProjectDetailLayout = ({
   return (
     <div className={styles.container}>
       <section className={styles.image_container}>
-        <Image
-          src={projectViewModel.getThumbnailImage()}
-          layout={'fill'}
-          alt={'프로젝트 이미지'}
-          unoptimized={true}
-        />
+        {/*<Image*/}
+        {/*  src={projectViewModel.getThumbnailImage()}*/}
+        {/*  layout={'fill'}*/}
+        {/*  alt={'프로젝트 이미지'}*/}
+        {/*  unoptimized={true}*/}
+        {/*/>*/}
       </section>
 
       <section className={styles.summary_container}>
