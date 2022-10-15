@@ -9,8 +9,8 @@ const nextConfig = {
       'buckit-prod.s3.ap-northeast-2.amazonaws.com',
       'buckit-test.s3.ap-northeast-2.amazonaws.com',
       'buckit.me',
+      'www.buckit.me',
     ],
-    formats: ['image/webp'],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
