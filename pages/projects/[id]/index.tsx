@@ -112,12 +112,12 @@ const ProjectDetail = () => {
         <CircularProgress></CircularProgress>
       ) : (
         <>
-          <AppBarWithBackArrow title={projectViewModel.getAppTitle()} />
+          {/*<AppBarWithBackArrow title={projectViewModel.getAppTitle()} />*/}
 
-          <main className={styles.main_container}>
-            <ProjectDetailLayout projectViewModel={projectViewModel} />
-            {/*<ProjectReference />*/}
-          </main>
+          {/*<main className={styles.main_container}>*/}
+          {/*  <ProjectDetailLayout projectViewModel={projectViewModel} />*/}
+          {/*  <ProjectReference />*/}
+          {/*</main>*/}
 
           <footer className={styles.button_container}>
             <FullWidthButton
