@@ -77,109 +77,71 @@ const ProjectDetailLayout = ({
       </section>
 
       <section className={styles.content_container}>
-        {project?.status === ProjectStatus.Before ? (
-          <>
-            <div className={styles.aa}>
-              <Image
-                src={
-                  'https://buckit-prod.s3.ap-northeast-2.amazonaws.com/content/before1.png'
-                }
-                alt={'프로젝트 상세 소개'}
-                layout={'fill'}
-                unoptimized={true}
-              ></Image>
-            </div>
-            <section>
-              {/*<ProjectLocationMap*/}
-              {/*  address={project.address}*/}
-              {/*  project_status={project.status}*/}
-              {/*/>*/}
-            </section>
+        <>
+          <div className={styles.content_image_container}>
             <Image
-              src={before2}
-              alt={'프로젝트 상세 소개'}
-              layout={'responsive'}
+              src={a1}
+              layout={'fill'}
+              className={styles.auto_image}
+              alt={'프로젝트 설명'}
               unoptimized={true}
-            ></Image>
-          </>
-        ) : (
-          <>
-            {/*{projectViewModel.getContentUrl().map((contentImage, index) => (*/}
-            {/*  <div key={index} className={styles.content_image_container}>*/}
-            {/*    <Image*/}
-            {/*      src={contentImage}*/}
-            {/*      layout={'fill'}*/}
-            {/*      className={styles.auto_image}*/}
-            {/*      alt={'프로젝트 설명'}*/}
-            {/*      unoptimized={true}*/}
-            {/*    />*/}
-            {/*  </div>*/}
-            {/*))}*/}
-            <div className={styles.content_image_container}>
-              <Image
-                src={a1}
-                layout={'fill'}
-                className={styles.auto_image}
-                alt={'프로젝트 설명'}
-                unoptimized={true}
-              />
-            </div>
-            <div className={styles.content_image_container}>
-              <Image
-                src={a2}
-                layout={'fill'}
-                className={styles.auto_image}
-                alt={'프로젝트 설명'}
-                unoptimized={true}
-              />
-            </div>
-            <div className={styles.content_image_container}>
-              <Image
-                src={a3}
-                layout={'fill'}
-                className={styles.auto_image}
-                alt={'프로젝트 설명'}
-                unoptimized={true}
-              />
-            </div>
-            <div className={styles.content_image_container}>
-              <Image
-                src={a4}
-                layout={'fill'}
-                className={styles.auto_image}
-                alt={'프로젝트 설명'}
-                unoptimized={true}
-              />
-            </div>
-            <div className={styles.content_image_container}>
-              <Image
-                src={a5}
-                layout={'fill'}
-                className={styles.auto_image}
-                alt={'프로젝트 설명'}
-                unoptimized={true}
-              />
-            </div>
-            <div className={styles.content_image_container}>
-              <Image
-                src={a6}
-                layout={'fill'}
-                className={styles.auto_image}
-                alt={'프로젝트 설명'}
-                unoptimized={true}
-              />
-            </div>
-            <div className={styles.content_image_container}>
-              <Image
-                src={a7}
-                layout={'fill'}
-                className={styles.auto_image}
-                alt={'프로젝트 설명'}
-                unoptimized={true}
-              />
-            </div>
-          </>
-        )}
+            />
+          </div>
+          <div className={styles.content_image_container}>
+            <Image
+              src={a2}
+              layout={'fill'}
+              className={styles.auto_image}
+              alt={'프로젝트 설명'}
+              unoptimized={true}
+            />
+          </div>
+          <div className={styles.content_image_container}>
+            <Image
+              src={a3}
+              layout={'fill'}
+              className={styles.auto_image}
+              alt={'프로젝트 설명'}
+              unoptimized={true}
+            />
+          </div>
+          <div className={styles.content_image_container}>
+            <Image
+              src={a4}
+              layout={'fill'}
+              className={styles.auto_image}
+              alt={'프로젝트 설명'}
+              unoptimized={true}
+            />
+          </div>
+          <div className={styles.content_image_container}>
+            <Image
+              src={a5}
+              layout={'fill'}
+              className={styles.auto_image}
+              alt={'프로젝트 설명'}
+              unoptimized={true}
+            />
+          </div>
+          <div className={styles.content_image_container}>
+            <Image
+              src={a6}
+              layout={'fill'}
+              className={styles.auto_image}
+              alt={'프로젝트 설명'}
+              unoptimized={true}
+            />
+          </div>
+          <div className={styles.content_image_container}>
+            <Image
+              src={a7}
+              layout={'fill'}
+              className={styles.auto_image}
+              alt={'프로젝트 설명'}
+              unoptimized={true}
+            />
+          </div>
+        </>
       </section>
     </div>
   );
