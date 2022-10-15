@@ -10,6 +10,7 @@ const nextConfig = {
       'buckit-test.s3.ap-northeast-2.amazonaws.com',
       'www.buckit.me',
     ],
+    path: `www.buckit.me/_next/image`,
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
