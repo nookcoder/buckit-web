@@ -83,10 +83,10 @@ const ProjectDetailLayout = ({
               ></Image>
             </div>
             <section>
-              <ProjectLocationMap
-                address={project.address}
-                project_status={project.status}
-              />
+              {/*<ProjectLocationMap*/}
+              {/*  address={project.address}*/}
+              {/*  project_status={project.status}*/}
+              {/*/>*/}
             </section>
             <Image
               src={before2}

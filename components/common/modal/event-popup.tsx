@@ -32,7 +32,12 @@ const EventPopup = ({ state, setState, onClick }: EventPopupProps) => {
     <Modal open={state} onClose={closePopup} disableAutoFocus={true}>
       <div className={styles.bottom_container}>
         <div className={styles.image_box}>
-          <Image src={eventPopup} layout={'responsive'} onClick={onClick} />
+          <Image
+            src={eventPopup}
+            layout={'responsive'}
+            onClick={onClick}
+            unoptimized={true}
+          />
         </div>
         <div className={styles.button_group}>
           <Button onClick={handleDayClick}>
