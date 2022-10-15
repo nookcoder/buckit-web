@@ -168,6 +168,7 @@ const CheckingPurchase = () => {
                 src={projectViewModel.getThumbnailImage()}
                 alt={'프로젝트 썸네일'}
                 layout={'fill'}
+                unoptimized={true}
               />
             </div>
             <div className={styles.project_summary}>

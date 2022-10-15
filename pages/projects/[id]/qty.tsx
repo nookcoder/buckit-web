@@ -75,6 +75,7 @@ const Qty = () => {
                 width={78}
                 height={78}
                 layout={'fixed'}
+                unoptimized={true}
               />
             </div>
             <div

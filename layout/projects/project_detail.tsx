@@ -27,6 +27,7 @@ const ProjectDetailLayout = ({
           src={projectViewModel.getThumbnailImage()}
           layout={'fill'}
           alt={'프로젝트 이미지'}
+          unoptimized={true}
         />
       </section>
 
@@ -78,6 +79,7 @@ const ProjectDetailLayout = ({
                 }
                 alt={'프로젝트 상세 소개'}
                 layout={'fill'}
+                unoptimized={true}
               ></Image>
             </div>
             <section>
@@ -90,6 +92,7 @@ const ProjectDetailLayout = ({
               src={before2}
               alt={'프로젝트 상세 소개'}
               layout={'responsive'}
+              unoptimized={true}
             ></Image>
           </>
         ) : (
@@ -101,6 +104,7 @@ const ProjectDetailLayout = ({
                   layout={'fill'}
                   className={styles.auto_image}
                   alt={'프로젝트 설명'}
+                  unoptimized={true}
                 />
               </div>
             ))}

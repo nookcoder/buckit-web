@@ -52,7 +52,11 @@ const Setting = () => {
         className={styles.kakao_banner_container}
         onClick={addKakaoChannel}
       >
-        <Image src={kakaoPlusBanner} alt={'카카오 플러스 친구 추가'} />
+        <Image
+          src={kakaoPlusBanner}
+          alt={'카카오 플러스 친구 추가'}
+          unoptimized={true}
+        />
       </ButtonBase>
       <Divider
         sx={{

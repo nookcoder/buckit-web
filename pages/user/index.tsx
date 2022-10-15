@@ -26,7 +26,12 @@ const LoginHome = () => {
   return (
     <div className={styles.container}>
       <div className={styles.logo_container}>
-        <Image src={logo} alt={'로고'} layout={'responsive'} />
+        <Image
+          src={logo}
+          alt={'로고'}
+          layout={'responsive'}
+          unoptimized={true}
+        />
       </div>
       <div className={styles.login_home_dec}>
         지금 로그인 하고
