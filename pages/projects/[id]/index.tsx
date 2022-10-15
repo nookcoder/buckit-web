@@ -108,14 +108,14 @@ const ProjectDetail = () => {
 
   return (
     <div>
-      {isLoading || projectViewModel === undefined ? (
+      {isLoading ? (
         <CircularProgress></CircularProgress>
       ) : (
         <>
           {/*<AppBarWithBackArrow title={projectViewModel.getAppTitle()} />*/}
 
           <main className={styles.main_container}>
-            <ProjectDetailLayout projectViewModel={projectViewModel} />
+            <ProjectDetailLayout projectViewModel={projectViewModel!!} />
             <ProjectReference />
           </main>
 
