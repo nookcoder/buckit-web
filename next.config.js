@@ -11,6 +11,7 @@ const nextConfig = {
       'buckit.me',
       'www.buckit.me',
     ],
+    loader: 'imgix',
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
