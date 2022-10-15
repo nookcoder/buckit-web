@@ -34,6 +34,7 @@ const HomeProductBox = (props: ViewModel) => {
             layout={'fill'}
             alt={'프로젝트 썸네일 이미지'}
             className={styles.image}
+            unoptimized={true}
           />
         </div>
 

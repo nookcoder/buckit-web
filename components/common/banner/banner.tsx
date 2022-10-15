@@ -30,13 +30,28 @@ const Banner = ({ onClick, onClickEventBanner2 }: BannerProps) => {
       modules={[Autoplay]}
     >
       <SwiperSlide onClick={onClickEventBanner2}>
-        <Image src={event_banner2} layout={'fill'} alt={'이벤트 배너'} />
+        <Image
+          src={event_banner2}
+          layout={'fill'}
+          alt={'이벤트 배너'}
+          unoptimized={true}
+        />
       </SwiperSlide>
       <SwiperSlide onClick={onClick ?? openBuckitHomePage}>
-        <Image src={event_banner} layout={'fill'} alt={'이벤트 배너'} />
+        <Image
+          src={event_banner}
+          layout={'fill'}
+          alt={'이벤트 배너'}
+          unoptimized={true}
+        />
       </SwiperSlide>
       <SwiperSlide onClick={onClick ?? openBuckitGuide}>
-        <Image src={guide} layout={'fill'} alt={'이벤트 베너'} />
+        <Image
+          src={guide}
+          layout={'fill'}
+          alt={'이벤트 베너'}
+          unoptimized={true}
+        />
       </SwiperSlide>
     </Swiper>
   );
