@@ -48,6 +48,7 @@ class ProjectViewModel {
     return this.projectModel.project.title;
   }
 
+  //aa
   getThumbnailImage() {
     if (this.project.status === ProjectStatus.Before) {
       return beforeThumbnail;
