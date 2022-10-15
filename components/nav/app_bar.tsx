@@ -19,6 +19,7 @@ const AppBar = () => {
             alt={'로고'}
             layout={'fill'}
             onClick={goToHome}
+            unoptimized={true}
           />
         </div>
         {/*<IconButton aria-label={'알림'}>*/}
