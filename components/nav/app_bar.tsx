@@ -2,8 +2,6 @@ import React from 'react';
 import appbarStyles from '../../styles/nav/AppBar.module.scss';
 import Image from 'next/image';
 import icon from '../../public/assets/appbar_logo.png';
-import { IconButton } from '@mui/material';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { useRouter } from 'next/router';
 
 const AppBar = () => {
