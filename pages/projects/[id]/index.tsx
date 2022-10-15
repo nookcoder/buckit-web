@@ -56,7 +56,7 @@ const ProjectDetail = () => {
       }
     }
   };
-
+  //gg
   const initUser = async () => {
     return await getUserProfile().then((user) => {
       if (user) {
@@ -113,7 +113,6 @@ const ProjectDetail = () => {
       ) : (
         <>
           <AppBarWithBackArrow title={projectViewModel.getAppTitle()} />
-
           <main className={styles.main_container}>
             <ProjectDetailLayout projectViewModel={projectViewModel} />
             <ProjectReference />
